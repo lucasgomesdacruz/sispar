@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 function NavBar() {
     const navigate = useNavigate();
-    const [collapsed, setCollapsed] = useState(false); 
+    const [collapsed, setCollapsed] = useState(true); 
 
     const toggleCollapse = () => {
         setCollapsed(prevState => !prevState);
@@ -29,8 +29,6 @@ function NavBar() {
                 <button onClick={toggleCollapse} className={styles.menuToggle}>
                     <MdMenuOpen />
                 </button>
-
-                
 
                 <section className={styles.userInfo}>
                     <FaUserCircle />

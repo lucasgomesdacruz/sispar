@@ -8,11 +8,11 @@
     border-radius: 5px;
     transition: all 0.3s ease-in-out;
 
-    .input:hover {
+    &:hover {
         outline: 1px solid #007bff;
     }
     
-    input:focus {
+    &:focus {
         box-shadow: 1px #001A3D;
         outline: 1px solid #007bff;
     }
