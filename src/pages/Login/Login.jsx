@@ -2,8 +2,8 @@ import styles from "./Login.module.scss";
 
 import logo from "../../assets/images/TelaLogin/logo.png";
 
-import Button from "../../components/button/Button";
-import Input from "../../components/Input/input";
+import Button from "../../components/button/Button.jsx";
+import Input from "../../components/Input/Input.jsx";
 import { useNavigate } from "react-router-dom";
 
 
