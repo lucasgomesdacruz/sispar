@@ -1,4 +1,4 @@
-import styles from "./modalidades.module.scss"
+import styles from "./Modalidades.module.scss"
 
 function Modalidades({ icon, text=""}) {
     return (
