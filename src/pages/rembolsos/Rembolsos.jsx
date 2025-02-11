@@ -1,6 +1,6 @@
 import styles from "./Rembolsos.module.scss"
 import { AiOutlineHome } from "react-icons/ai";
-import Modalidades from "../../components/modalidades/Modalidades";
+import Modalidades from "../../components/modalidades/Modalidades.jsx";
 
 function Rembolsos() {
     return (
