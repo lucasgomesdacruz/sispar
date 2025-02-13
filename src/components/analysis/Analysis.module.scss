@@ -1,0 +1,17 @@
+
+.analysis {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    
+    svg {
+        width: 36px;
+        height: 36px;
+    }
+
+    p {
+        font-weight: 400;
+        font-size: 16px;
+    }
+    
+}

@@ -8,7 +8,7 @@ import { FiLogOut } from "react-icons/fi";
 import { FaUserCircle } from "react-icons/fa";
 
 import styles from "./Navbar.module.scss";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function NavBar() {
     const navigate = useNavigate();
@@ -42,20 +42,32 @@ function NavBar() {
 
                 <ul className={styles.navList}>
                     <li>
+                    <Link to="/dashboard">
                         <AiOutlineHome />
                         <span className={collapsed ? styles.hidden : ""}>Início</span>
+                    </Link>
+                        
                     </li>
                     <li>
+                    <Link to="reembolso">
                         <FaFileInvoiceDollar />
                         <span className={collapsed ? styles.hidden : ""}>Reembolsos</span>
+                    </Link>
+                        
                     </li>
                     <li>
-                        <TbClipboardSearch />
-                        <span className={collapsed ? styles.hidden : ""}>Análises</span>
+                        <Link to="analises">
+                            <TbClipboardSearch />
+                            <span className={collapsed ? styles.hidden : ""}>Análises</span>
+                        </Link>
+                        
                     </li>
                     <li>
+                    <Link to="historico"> 
                         <LuHistory />
                         <span className={collapsed ? styles.hidden : ""}>Histórico</span>
+                    </Link>
+                        
                     </li>
                 </ul>
 

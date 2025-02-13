@@ -12,7 +12,7 @@ function Login() {
 
   function handleLogin(event) {
     event.preventDefault();
-    navigate("/rembolsos")
+    navigate("/dashboard")
   }
   
   return (

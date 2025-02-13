@@ -1,0 +1,99 @@
+.dashboard {
+    width: 95vw;
+
+    .header {
+        display: flex;
+        align-items: center;
+        outline: 1px solid red;
+        width: 100%;
+        height: 5vh;
+    }
+    
+    .mainContainer {
+        width: 100%;
+        height: 95vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        outline: 1px solid blue;
+        gap: 20px;
+
+        .mainHeader {
+            width: 60%;
+            height: 10%;
+            // outline: 1px solid red;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: start;
+        }
+    
+        .mode {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 60%;
+
+            .modeView {
+                display: flex;
+                justify-content: space-between;
+                // outline: 1px solid rebeccapurple;
+            }
+
+            .modeAnalysis {
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                outline: 1px solid #CBD4E1;
+                height: 7vh;
+
+                li {
+
+                    svg {
+                        color: white;
+                        height: 19px;
+                        width: 19px;
+                    }
+
+                    .requested,
+                    .analyze,
+                    .check,
+                    .wrong {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 35px;
+                        width: 36px;
+                        border-radius: 8px;
+                    }
+
+                    .requested {
+                        background-color: #00BEDD;
+                    }
+    
+                    .analyze {
+                        background-color: #E56700;
+                    }
+    
+                    .check {
+                        background-color: #007A6A;
+                    }
+    
+                    .wrong {
+                        background-color: #A60B2F;
+                    }
+                }
+               
+            }
+
+            .sistem {
+                color: #0844C4;
+                font-size: 14px;
+                font-weight: 400;
+            }
+        }
+    }
+
+}

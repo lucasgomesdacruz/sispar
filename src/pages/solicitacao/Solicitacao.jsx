@@ -3,7 +3,7 @@
 function Solicitacao() {
     return (
         <>
-            Solicitação
+            <h1>Solicitacao</h1>
         </>
     )
 }
