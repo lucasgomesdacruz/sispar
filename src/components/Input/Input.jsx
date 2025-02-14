@@ -1,5 +1,6 @@
 import styles from "./Input.module.scss"
 
+// eslint-disable-next-line react/prop-types
 function Input({type = "", placeholder = "", label = "", id}) {
     return (
         <div className={styles.containerInput}>
