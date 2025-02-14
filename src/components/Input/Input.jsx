@@ -1,10 +1,11 @@
 import styles from "./Input.module.scss"
 
-function Input({type = "", placeholder = ""}) {
+function Input({type = "", placeholder = "", label = "", id}) {
     return (
-        <>
-            <input type={type} placeholder={placeholder} className={styles.input} required />
-        </>
+        <div className={styles.containerInput}>
+            {label && <label htmlFor={id} className={styles.label}>{label}</label>}
+            <input type={type} id={id} placeholder={placeholder} className={styles.input} required />
+        </div>
     )
 }
 
