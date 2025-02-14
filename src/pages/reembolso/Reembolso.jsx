@@ -1,6 +1,6 @@
 import styles from "./Reembolso.module.scss"
 
-import Input from "../../src/components/input/Input.jsx"
+import Input from "../../components/Input/Input.jsx"
 
 function Reembolso() {
     return (
