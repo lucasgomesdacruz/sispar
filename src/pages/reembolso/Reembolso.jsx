@@ -30,8 +30,8 @@ function Reembolso() {
                             <Input type="text" label="Valor / Km" id="valor"/>
                             <Input type="text" label="Val. Taxa" id="taxa"/>
                             <Input type="text" label="Val. Faturado" id="val"/>
-                            <button>salva</button>
-                            <button>apagar</button>
+                            <button>salva+</button>
+                            <button>xapagar</button>
                         </div>
                     </section>
                 </div>
