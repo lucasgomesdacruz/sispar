@@ -1,6 +1,6 @@
 .reembolso {
     width: 95vw;
-    outline: 1px solid darkolivegreen;
+    // outline: 1px solid darkolivegreen;
 
     .mainContainer {
         width: 100%;
@@ -19,7 +19,7 @@
             .form {
                 width: 40%;
                 height: 20vh;
-                outline: 1px solid red;
+                // outline: 1px solid red;
                 display: grid;
                 justify-content: space-evenly;
                 grid-template-columns: 50% 20% 20%;
@@ -33,7 +33,7 @@
             .formDetails {
                 width: 60%;
                 height: 20vh;
-                outline: 1px solid green;
+                // outline: 1px solid green;
                 display: grid;
                 justify-content: space-evenly;
                 grid-template-columns: 15% 25% 50%;
@@ -41,7 +41,7 @@
     
                 .rows {
                     grid-column: 1 / 4;
-                    outline: 1px solid blueviolet;
+                    // outline: 1px solid blueviolet;
                     display: grid;
                     justify-content: space-between;
                     grid-template-columns: 6% 6% 6% 10% 8% 12% 12% 12% 6% 6%;
@@ -49,17 +49,55 @@
             }
         }
 
+       
         .tableContainer {
-            display: flex;
+            display: grid;
+            width: 100%;
+            // outline: 1px solid red;
+            
+            
 
-            .tableContent {
+            .customTable {
+                display: grid;
+                width: 100%;
                 
-                thead {
-                    display: flex;
-                    
+                outline: 1px solid rebeccapurple;
+
+                .containerThead {
+                    height: 5vh;
+                    width: 100%;
+                    display: grid;
+                    justify-content: end;
+                    align-items: center;
+                    // outline: 1px solid green;
+                    background-color: #CBD4E1;
+
+                    .containerTr {
+                        width: 100%;
+                        display: grid;
+                        grid-template-columns: 152px 100px 124px 84px 120px 189px 189px 93px 72px 72px 84px 113px 113px 132px 113px;
+
+                       
+                        
+                        
+
+                        th {
+                            display: grid;
+                            align-items: center;
+                            border: 1px solid #878788;
+                            height: 5vh;
+                            font-weight: 400;
+                            font-size: 16px;
+                            color: #23282F;
+                        }
+                    }
                 }
             }
         }
+            
+          
+           
+        // 
     }
     
 }
