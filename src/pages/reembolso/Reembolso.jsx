@@ -1,5 +1,9 @@
 import styles from "./Reembolso.module.scss"
 
+import { IoDocumentTextSharp } from "react-icons/io5";
+import { FaTrashAlt } from "react-icons/fa";
+
+
 import Input from "../../components/Input/Input.jsx"
 
 function Reembolso() {
@@ -39,7 +43,6 @@ function Reembolso() {
                     <table className={styles.customTable}>
                         <thead className={styles.containerThead}>
                             <tr className={styles.containerTr}>
-                                
                                 <th>Colaborador(a)</th>
                                 <th>Empresa</th>
                                 <th>N° Prest.</th>
@@ -57,59 +60,62 @@ function Reembolso() {
                                 <th>Despesa</th>
                             </tr>
                         </thead>
-                        {/* <tbody>
-                        <tr>
-                            <td>Vitor Carvalho</td>
-                            <td>WSS001</td>
-                            <td>329456</td>
-                            <td>08/01/2025</td>
-                            <td>Desp. de viagem a...</td>
-                            <td>Desp. de viagem a...</td>
-                            <td>1100110002 - FIN...</td>
-                            <td>0003</td>
-                            <td>002</td>
-                            <td>001</td>
-                            <td>BRL</td>
-                            <td>434Km</td>
-                            <td>0.65</td>
-                            <td>242.10</td>
-                            <td>40.05</td>
-                        </tr>
-                        <tr>
-                            <td>Vanessa Porto</td>
-                            <td>WSS002</td>
-                            <td>987789</td>
-                            <td>01/01/2025</td>
-                            <td>Desp. de viagem a...</td>
-                            <td>Desp. de viagem a...</td>
-                            <td>1100110102 - FIN C...</td>
-                            <td>0002</td>
-                            <td>005</td>
-                            <td>001</td>
-                            <td>ARS</td>
-                            <td>289Km</td>
-                            <td>0.37</td>
-                            <td>106.93</td>
-                            <td>0.00</td>
-                        </tr>
-                        <tr>
-                            <td>Washington Klein</td>
-                            <td>WSS003</td>
-                            <td>546791</td>
-                            <td>03/01/2025</td>
-                            <td>Eventos de apresen...</td>
-                            <td>Eventos de apresen...</td>
-                            <td>1100109002 - FIN...</td>
-                            <td>0001</td>
-                            <td>005</td>
-                            <td>001</td>
-                            <td>USD</td>
-                            <td>197Km</td>
-                            <td>0.75</td>
-                            <td>109.75</td>
-                            <td>29.97</td>
-                        </tr>
-                        </tbody> */}
+                        <tbody className={styles.containerTbody}>
+                            <tr className={styles.containerTr}>
+                                <td><FaTrashAlt /></td>
+                                <td>Vitor Carvalho</td>
+                                <td>WSS001</td>
+                                <td>329456</td>
+                                <td>08/01/2025</td>
+                                <td><IoDocumentTextSharp /></td>
+                                <td>Desp. de viagem a...</td>
+                                <td>1100110002 - FIN...</td>
+                                <td>0003</td>
+                                <td>002</td>
+                                <td>001</td>
+                                <td>BRL</td>
+                                <td>434Km</td>
+                                <td>0.65</td>
+                                <td>242.10</td>
+                                <td>40.05</td>
+                            </tr>
+                            <tr className={styles.containerTr}>
+                                <td><FaTrashAlt /></td>
+                                <td>Vanessa Porto</td>
+                                <td>WSS002</td>
+                                <td>987789</td>
+                                <td>01/01/2025</td>
+                                <td><IoDocumentTextSharp /></td>
+                                <td>Desp. de viagem a...</td>
+                                <td>1100110102 - FIN C...</td>
+                                <td>0002</td>
+                                <td>005</td>
+                                <td>001</td>
+                                <td>ARS</td>
+                                <td>289Km</td>
+                                <td>0.37</td>
+                                <td>106.93</td>
+                                <td>0.00</td>
+                            </tr>
+                            <tr className={styles.containerTr}>
+                                <td><FaTrashAlt /></td>
+                                <td>Washington Klein</td>
+                                <td>WSS003</td>
+                                <td>546791</td>
+                                <td>03/01/2025</td>
+                                <td><IoDocumentTextSharp /></td>
+                                <td>Eventos de apresen...</td>
+                                <td>1100109002 - FIN...</td>
+                                <td>0001</td>
+                                <td>005</td>
+                                <td>001</td>
+                                <td>USD</td>
+                                <td>197Km</td>
+                                <td>0.75</td>
+                                <td>109.75</td>
+                                <td>29.97</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
 
