@@ -71,9 +71,9 @@ function NavBar() {
                     </li>
                 </ul>
 
-                <span className={styles.fiLogOut} onClick={handleLogOut}>
+                <button className={styles.fiLogOut} onClick={handleLogOut}>
                     <FiLogOut  />
-                </span>   
+                </button>   
                 
             </aside>
         </nav>
