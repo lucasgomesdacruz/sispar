@@ -82,6 +82,7 @@
         a {
             display: flex;
             align-items: center;
+            // justify-content: center;
             gap: 10px;
             padding: 10px;
             color: #fff;
@@ -89,8 +90,11 @@
         }
 
         li {
+            // width: 48px;
+            // height: 48px;
             display: flex;
             align-items: center;
+            // justify-content: center;
             cursor: pointer;
             background-color: #0844C4;
             border-radius: 6px;
@@ -115,9 +119,11 @@
         width: 48px;
         height: 48px;
         border-radius: 6px;
-        background-color: gray;
+        background-color: #63758D;
         cursor: pointer;
         margin-bottom: 20px;
+        border: none;
+        
 
         svg {
             font-size: 24px;
