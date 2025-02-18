@@ -1,14 +1,17 @@
 .dashboard {
     width: 95vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     .mainContainer {
-        width: 100%;
+        width: 85%;
         height: 95vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        outline: 1px solid blue;
+        // outline: 1px solid blue;
         gap: 20px;
 
         .mainHeader {

@@ -44,16 +44,16 @@ function Dashboard() {
 
                     <ul className={styles.modeAnalysis}>
                         <li>
-                            <Analysis spanClass={styles.requested} icon={<TbArrowBackUp />} text="182 Solicitados"/>
+                            <Analysis spanClass={styles.requested} icon={<TbArrowBackUp />} number="182" text="Solicitados"/>
                         </li>
                         <li>
-                            <Analysis spanClass={styles.analyze} icon={<FaRegClock />} text="74 Em análise"/>
+                            <Analysis spanClass={styles.analyze} icon={<FaRegClock />} number="74" text="Em análise"/>
                         </li>
                         <li>
-                            <Analysis spanClass={styles.check} icon={<MdOutlineFileDownloadDone />} text="195 aprovados"/>
+                            <Analysis spanClass={styles.check} icon={<MdOutlineFileDownloadDone />} number="195" text="Aprovados"/>
                         </li>
                         <li>
-                            <Analysis spanClass={styles.wrong} icon={<BsX />} text="41 Reijetados"/>
+                            <Analysis spanClass={styles.wrong} icon={<BsX />} number="41" text="Reijetados"/>
                         </li>
                     </ul>
 
