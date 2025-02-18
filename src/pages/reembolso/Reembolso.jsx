@@ -2,9 +2,12 @@ import styles from "./Reembolso.module.scss"
 
 import { IoDocumentTextSharp } from "react-icons/io5";
 import { FaTrashAlt } from "react-icons/fa";
-
+import { IoIosInformationCircleOutline } from "react-icons/io";
+import { RiDeleteBack2Line } from 'react-icons/ri'
+import { GrAdd } from 'react-icons/gr'
 
 import Input from "../../components/Input/Input.jsx"
+import Button from "../../components/button/Button.jsx";
 
 function Reembolso() {
     return (
@@ -34,8 +37,15 @@ function Reembolso() {
                             <Input type="text" label="Valor / Km" id="valor"/>
                             <Input type="text" label="Val. Taxa" id="taxa"/>
                             <Input type="text" label="Val. Faturado" id="val"/>
-                            <button>salva+</button>
-                            <button>xapagar</button>
+
+                            
+                            <Button icon={<GrAdd />}text="Salvar" type="button" className={styles.save}/>
+
+                            <Button icon={<RiDeleteBack2Line />} type="button" className={styles.delete}/>
+                            
+
+                            
+                            
                         </div>
                     </section>
                 </div>
@@ -43,6 +53,7 @@ function Reembolso() {
                     <table className={styles.customTable}>
                         <thead className={styles.containerThead}>
                             <tr className={styles.containerTr}>
+                                <th><IoIosInformationCircleOutline /></th>
                                 <th>Colaborador(a)</th>
                                 <th>Empresa</th>
                                 <th>N° Prest.</th>

@@ -1,8 +1,8 @@
 
-function Button({ text, className = "", type = "" }) {
+function Button({ icon, text, className = "", type = "" }) {
     return (
         <button type={type} className={className}>
-            {text}
+            <span>{icon}</span> {text}
         </button>
     );
 }

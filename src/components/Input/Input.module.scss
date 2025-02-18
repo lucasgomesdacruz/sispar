@@ -2,9 +2,15 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+
+    label {
+        font-size: 16px;
+        font-weight: 700;
+        color: #23282F;
+    }
     
     .input {
-        display: flex;
+        // display: flex;
         width: 100%;
         padding: 10px;
         // height: 50px;
