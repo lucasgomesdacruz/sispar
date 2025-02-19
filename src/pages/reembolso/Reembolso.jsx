@@ -5,6 +5,13 @@ import { FaTrashAlt } from "react-icons/fa";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import { RiDeleteBack2Line } from 'react-icons/ri'
 import { GrAdd } from 'react-icons/gr'
+import { AiOutlineCaretDown } from 'react-icons/ai'
+
+import { CgCalendarDates } from 'react-icons/cg'
+import { FaCheck } from "react-icons/fa6";
+import { IoMdClose } from "react-icons/io";
+
+
 
 import Input from "../../components/Input/Input.jsx"
 import Button from "../../components/button/Button.jsx";
@@ -16,7 +23,7 @@ function Reembolso() {
 
             <main className={styles.mainContainer}>
 
-                <div className={styles.infoContainer}>
+                <form className={styles.infoContainer}>
                     
                     <section className={styles.form}>
                         <Input type="text" label="Nome Completo" id="nome"/>
@@ -24,10 +31,51 @@ function Reembolso() {
                         <Input type="text" label="Nº Prest. Contas" id="contas"/>
                         <Input type="text" label="Descrição / Motivo do Reembolso" id="descricao"/>
                     </section>
+                    {/* Pode criar uma div vazia para fazer uma barra vertical com css */}
                     <section className={styles.formDetails}>
-                        <Input type="date" label="Data" placeholder="DD/MM/AAAA" id="data"/>
-                        <Input type="date" label="Empresa" id="empresa"/>
-                        <Input type="date" label="Nº Prest. Contas" id="contas"/>
+                        
+                        {/* <Input className={styles.backround} type="date" label="Data" placeholder="DD/MM/AAAA" id="data"/> */}
+                        <div className={styles.containerDate}>
+                            <label htmlFor="date">Data</label>
+                            <input className={styles.input} type="date" id="data" placeholder="DD/MM/AAAA"/>
+
+                            
+                        </div>
+
+                            
+                            
+                        
+                        
+                        <div className={styles.containerSelect}>
+                            <label htmlFor="tipoDespesa">Tipo de Despesa</label>
+                            <select className={styles.select} name="tipoDespesa" id="tipoDespesa">
+                                <option value="">Selecionar</option>
+                                <option value="alimentacao">Alimentação</option>
+                                <option value="combustivel">Combustível</option>
+                                <option value="conducao">Condução</option>
+                                <option value="estacionamento">Estacionamento</option>
+                                <option value="viagem-admin">Viagem admin.</option>
+                                <option value="viagem-operacional">Viagem operacional</option>
+                                <option value="eventos-representacao">Eventos de representação</option>
+                            </select>
+                            <div className={styles.icon}>
+                                <AiOutlineCaretDown />
+                            </div>
+                        </div>
+                        <div className={styles.containerSelect}>
+                            <label htmlFor="centroCusto">Centro de Custo</label>
+                            <select className={styles.select} name="centroCusto" id="centroCusto">
+                                <option value="">Selecionar</option>
+                                <option value="controles-internos">1100109002 - FIN COTROLES INTERNOS MTZ</option>
+                                <option value="presidencia-financas">1100109002 FIM VICE-PRESIDENCIA FINANCAS MTZ</option>
+                                <option value="contabilidade-mtz">1100109002 FIN CONTABILIDADE MTZ</option>
+                                
+                            </select>
+                            <div className={styles.icon}>
+                                <AiOutlineCaretDown />
+                            </div>
+                        </div>
+                        {/* <Input type="date" label="Controle de Custo" id="contas"/> */}
                         <div className={styles.rows}>
                             <Input type="text" label="Ord. Int." id="descricao"/>
                             <Input type="text" label="PEP" id="pep"/>
@@ -39,7 +87,7 @@ function Reembolso() {
                             <Input type="text" label="Val. Faturado" id="val"/>
 
                             
-                            <Button icon={<GrAdd />}text="Salvar" type="button" className={styles.save}/>
+                            <Button icon={<FaCheck />}text="Salvar" type="button" className={styles.save}/>
 
                             <Button icon={<RiDeleteBack2Line />} type="button" className={styles.delete}/>
                             
@@ -48,7 +96,7 @@ function Reembolso() {
                             
                         </div>
                     </section>
-                </div>
+                </form>
                 <div className={styles.tableContainer}>
                     <table className={styles.customTable}>
                         <thead className={styles.containerThead}>
@@ -129,6 +177,19 @@ function Reembolso() {
                         </tbody>
                     </table>
                 </div>
+                <section className={styles.containerFull}>
+                    <div className={styles.containerGroups}>
+                        
+                            <Input type="text" label="Total Faturado" id="faturado" placeholder="0.00"/>
+                            <Input type="text" label="Total Despesa" id="despesa" placeholder="0.00"/>
+                       
+                        
+                            <Button icon={<GrAdd />}text="Enviar para Análise" type="button" className={styles.send}/>
+                            <Button icon={<IoMdClose />} type="button" text="Cancelar Solicitação" className={styles.cancel}/>
+                        
+                    </div>
+                    
+                </section>
 
             </main>
             
