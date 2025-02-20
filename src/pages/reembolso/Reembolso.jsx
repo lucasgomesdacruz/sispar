@@ -184,7 +184,7 @@ function Reembolso() {
                             <Input type="text" label="Total Despesa" id="despesa" placeholder="0.00"/>
                        
                         
-                            <Button icon={<GrAdd />}text="Enviar para Análise" type="button" className={styles.send}/>
+                            <Button icon={<FaCheck />}text="Enviar para Análise" type="button" className={styles.send}/>
                             <Button icon={<IoMdClose />} type="button" text="Cancelar Solicitação" className={styles.cancel}/>
                         
                     </div>
