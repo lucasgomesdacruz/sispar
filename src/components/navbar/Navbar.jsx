@@ -43,28 +43,33 @@ function NavBar() {
                 <ul className={styles.navList}>
                     <li>
                     <Link to="/dashboard">
-                        <AiOutlineHome />
+                        <span className={styles.containerIcon}><AiOutlineHome /></span>
+
                         <span className={collapsed ? styles.hidden : ""}>Início</span>
                     </Link>
                         
                     </li>
                     <li>
                     <Link to="reembolso">
-                        <FaFileInvoiceDollar />
+                        <span className={styles.containerIcon}>
+                            <FaFileInvoiceDollar />
+                        </span>
                         <span className={collapsed ? styles.hidden : ""}>Reembolsos</span>
                     </Link>
                         
                     </li>
                     <li>
                         <Link to="analises">
-                            <TbClipboardSearch />
+                            <span className={styles.containerIcon}><TbClipboardSearch /></span>
+                            
                             <span className={collapsed ? styles.hidden : ""}>Análises</span>
                         </Link>
                         
                     </li>
                     <li>
                     <Link to="historico"> 
-                        <LuHistory />
+                        <span className={styles.containerIcon}><LuHistory /></span>
+                        
                         <span className={collapsed ? styles.hidden : ""}>Histórico</span>
                     </Link>
                         
