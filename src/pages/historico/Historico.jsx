@@ -2,7 +2,9 @@
 
 function Historico() {
     return (
-        <h1>Historico</h1>
+        <main>
+            <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Pleading%20Face.png" alt="Pleading Face" width="25" height="25" />
+        </main>
     )
 }
 
