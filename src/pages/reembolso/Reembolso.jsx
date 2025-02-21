@@ -4,10 +4,9 @@ import { IoDocumentTextSharp } from "react-icons/io5";
 import { FaTrashAlt } from "react-icons/fa";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import { RiDeleteBack2Line } from 'react-icons/ri'
-import { GrAdd } from 'react-icons/gr'
+
 import { AiOutlineCaretDown } from 'react-icons/ai'
 
-import { CgCalendarDates } from 'react-icons/cg'
 import { FaCheck } from "react-icons/fa6";
 import { IoMdClose } from "react-icons/io";
 
@@ -15,8 +14,19 @@ import { IoMdClose } from "react-icons/io";
 
 import Input from "../../components/Input/Input.jsx"
 import Button from "../../components/button/Button.jsx";
+import { useState } from "react";
 
 function Reembolso() {
+    const [ isOpen, setIsOpen ] = useState(false)
+    
+    function handleCancel() {
+        setIsOpen(true)
+    }
+
+    function handleClose() {
+        setIsOpen(false)
+    }
+
     return (
 
         <div className={styles.reembolso}>
@@ -87,9 +97,9 @@ function Reembolso() {
                             <Input type="text" label="Val. Faturado" id="val"/>
 
                             
-                            <Button icon={<FaCheck />}text="Salvar" type="button" className={styles.save}/>
+                            <Button icon={<FaCheck />} text="Salvar" type="button" className={styles.save}/>
 
-                            <Button icon={<RiDeleteBack2Line />} type="button" className={styles.delete}/>
+                            <Button onClick={handleCancel} icon={<RiDeleteBack2Line />} type="button" className={styles.delete}/>
                             
 
                             
@@ -121,7 +131,7 @@ function Reembolso() {
                         </thead>
                         <tbody className={styles.containerTbody}>
                             <tr className={styles.containerTr}>
-                                <td><FaTrashAlt /></td>
+                                <td onClick={handleCancel}><FaTrashAlt /></td>
                                 <td>Vitor Carvalho</td>
                                 <td>WSS001</td>
                                 <td>329456</td>
@@ -139,7 +149,7 @@ function Reembolso() {
                                 <td>40.05</td>
                             </tr>
                             <tr className={styles.containerTr}>
-                                <td><FaTrashAlt /></td>
+                                <td onClick={handleCancel}><FaTrashAlt /></td>
                                 <td>Vanessa Porto</td>
                                 <td>WSS002</td>
                                 <td>987789</td>
@@ -157,7 +167,7 @@ function Reembolso() {
                                 <td>0.00</td>
                             </tr>
                             <tr className={styles.containerTr}>
-                                <td><FaTrashAlt /></td>
+                                <td onClick={handleCancel}><FaTrashAlt /></td>
                                 <td>Washington Klein</td>
                                 <td>WSS003</td>
                                 <td>546791</td>
@@ -184,14 +194,64 @@ function Reembolso() {
                             <Input type="text" label="Total Despesa" id="despesa" placeholder="0.00"/>
                        
                         
-                            <Button icon={<FaCheck />}text="Enviar para Análise" type="button" className={styles.send}/>
-                            <Button icon={<IoMdClose />} type="button" text="Cancelar Solicitação" className={styles.cancel}/>
+                            <Button icon={<FaCheck />} text="Enviar para Análise" type="button" className={styles.send}/>
+                            <Button onClick={handleCancel} icon={<IoMdClose />} type="button" text="Cancelar Solicitação" className={styles.cancel}/>
                         
                     </div>
+
+                    
                     
                 </section>
 
             </main>
+            {isOpen && (
+                <section className={styles.modalBackround}>
+                    <div className={styles.modalCancel}>
+                        <h3>Deseja realmente limpar os campos preenchidos acima?</h3>
+                        <div>
+                            <button className={styles.edit} type="button">
+                                Continuar Editando
+                            </button>
+                            <button className={styles.clean} type="button" onClick={handleClose}>
+                                Sim, limpar
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {isOpen && (
+                <section className={styles.modalBackround}>
+                    <div className={styles.modalCancel}>
+                        <h3>Deseja realmente excluir os dados dessa linha?</h3>
+                        <div>
+                            <button className={styles.edit} type="button">
+                                Continuar Editando
+                            </button>
+                            <button className={styles.clean} type="button" onClick={handleClose}>
+                                Sim, excluir
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {isOpen && (
+                <section className={styles.modalBackround}>
+                    <div className={styles.modalCancel}>
+                        <h3>Tem certeza que deseja cancelar a solicitação?</h3>
+                        <div>
+                            <button className={styles.edit} type="button">
+                                Continuar Editando
+                            </button>
+                            <button className={styles.clean} type="button" onClick={handleClose}>
+                                Sim, cancelar
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            )}
+            
             
         </div>
         

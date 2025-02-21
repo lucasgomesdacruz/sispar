@@ -1,7 +1,7 @@
 
-function Button({ icon, text, className = "", type = "" }) {
+function Button({ onClick, icon, text, className = "", type = "" }) {
     return (
-        <button type={type} className={className}>
+        <button onClick={onClick} type={type} className={className}>
             <span>{icon}</span> {text}
         </button>
     );
