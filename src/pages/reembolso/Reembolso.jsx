@@ -17,14 +17,22 @@ import Button from "../../components/button/Button.jsx";
 import { useState } from "react";
 
 function Reembolso() {
-    const [ isOpen, setIsOpen ] = useState(false)
-    
-    function handleCancel() {
-        setIsOpen(true)
+    const [modalType, setModalType] = useState(null); 
+
+    function handleCancelRequest() {
+        setModalType("cancelRequest");
+    }
+
+    function handleClear() {
+        setModalType("clearFields");
+    }
+
+    function handleDelete() {
+        setModalType("deleteRow");
     }
 
     function handleClose() {
-        setIsOpen(false)
+        setModalType(null);
     }
 
     return (
@@ -99,11 +107,7 @@ function Reembolso() {
                             
                             <Button icon={<FaCheck />} text="Salvar" type="button" className={styles.save}/>
 
-                            <Button onClick={handleCancel} icon={<RiDeleteBack2Line />} type="button" className={styles.delete}/>
-                            
-
-                            
-                            
+                            <Button onClick={handleClear} icon={<RiDeleteBack2Line />} type="button" className={styles.delete}/>
                         </div>
                     </section>
                 </form>
@@ -131,7 +135,7 @@ function Reembolso() {
                         </thead>
                         <tbody className={styles.containerTbody}>
                             <tr className={styles.containerTr}>
-                                <td onClick={handleCancel}><FaTrashAlt /></td>
+                                <td onClick={handleDelete}><FaTrashAlt /></td>
                                 <td>Vitor Carvalho</td>
                                 <td>WSS001</td>
                                 <td>329456</td>
@@ -149,7 +153,7 @@ function Reembolso() {
                                 <td>40.05</td>
                             </tr>
                             <tr className={styles.containerTr}>
-                                <td onClick={handleCancel}><FaTrashAlt /></td>
+                                <td onClick={handleDelete}><FaTrashAlt /></td>
                                 <td>Vanessa Porto</td>
                                 <td>WSS002</td>
                                 <td>987789</td>
@@ -167,7 +171,7 @@ function Reembolso() {
                                 <td>0.00</td>
                             </tr>
                             <tr className={styles.containerTr}>
-                                <td onClick={handleCancel}><FaTrashAlt /></td>
+                                <td onClick={handleDelete}><FaTrashAlt /></td>
                                 <td>Washington Klein</td>
                                 <td>WSS003</td>
                                 <td>546791</td>
@@ -195,7 +199,7 @@ function Reembolso() {
                        
                         
                             <Button icon={<FaCheck />} text="Enviar para Análise" type="button" className={styles.send}/>
-                            <Button onClick={handleCancel} icon={<IoMdClose />} type="button" text="Cancelar Solicitação" className={styles.cancel}/>
+                            <Button onClick={handleCancelRequest} icon={<IoMdClose />} type="button" text="Cancelar Solicitação" className={styles.cancel}/>
                         
                     </div>
 
@@ -204,55 +208,41 @@ function Reembolso() {
                 </section>
 
             </main>
-            {isOpen && (
+            {modalType === "clearFields" && (
                 <section className={styles.modalBackround}>
                     <div className={styles.modalCancel}>
                         <h3>Deseja realmente limpar os campos preenchidos acima?</h3>
                         <div>
-                            <button className={styles.edit} type="button">
-                                Continuar Editando
-                            </button>
-                            <button className={styles.clean} type="button" onClick={handleClose}>
-                                Sim, limpar
-                            </button>
+                            <button className={styles.edit} type="button">Continuar Editando</button>
+                            <button className={styles.clean} type="button" onClick={handleClose}>Sim, limpar</button>
                         </div>
                     </div>
                 </section>
             )}
 
-            {isOpen && (
+            {modalType === "deleteRow" && (
                 <section className={styles.modalBackround}>
                     <div className={styles.modalCancel}>
                         <h3>Deseja realmente excluir os dados dessa linha?</h3>
                         <div>
-                            <button className={styles.edit} type="button">
-                                Continuar Editando
-                            </button>
-                            <button className={styles.clean} type="button" onClick={handleClose}>
-                                Sim, excluir
-                            </button>
+                            <button className={styles.edit} type="button">Continuar Editando</button>
+                            <button className={styles.clean} type="button" onClick={handleClose}>Sim, excluir</button>
                         </div>
                     </div>
                 </section>
             )}
 
-            {isOpen && (
+            {modalType === "cancelRequest" && (
                 <section className={styles.modalBackround}>
                     <div className={styles.modalCancel}>
                         <h3>Tem certeza que deseja cancelar a solicitação?</h3>
                         <div>
-                            <button className={styles.edit} type="button">
-                                Continuar Editando
-                            </button>
-                            <button className={styles.clean} type="button" onClick={handleClose}>
-                                Sim, cancelar
-                            </button>
+                            <button className={styles.edit} type="button">Continuar Editando</button>
+                            <button className={styles.clean} type="button" onClick={handleClose}>Sim, cancelar</button>
                         </div>
                     </div>
                 </section>
             )}
-            
-            
         </div>
         
     )
