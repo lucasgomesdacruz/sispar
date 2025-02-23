@@ -17,6 +17,7 @@ import { MdOutlineFileDownloadDone } from "react-icons/md";
 import { BsX } from "react-icons/bs";
 import { VscCloudUpload } from "react-icons/vsc";
 import Header from "../../components/header/Header.jsx";
+import { Link } from "react-router-dom";
 
 function Dashboard() {
     return (
@@ -34,13 +35,21 @@ function Dashboard() {
                 <section className={styles.mode}>
                     <ul className={styles.modeView}>
                         <li>
-                            <Modalidades icon={<BsClipboardData />} text="Solicitar Reembolso"/>
+                            <Link to="/reembolso">
+                                <Modalidades icon={<BsClipboardData />} text="Solicitar Reembolso"/>
+                            </Link>
+                            
                         </li>
                         <li>
-                            <Modalidades icon={<IoIosList />} text="Verificar análises"/>
+                            <Link to="/analises">
+                                <Modalidades icon={<IoIosList />} text="Verificar análises"/>
+                            </Link>
                         </li>
                         <li>
-                            <Modalidades icon={<VscHistory />} text="Histórico"/>
+                            <Link to="/historico">  
+                                <Modalidades icon={<VscHistory />} text="Histórico"/>
+                            </Link>
+                            
                         </li>
                     </ul>
 
