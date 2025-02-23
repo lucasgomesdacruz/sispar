@@ -34,6 +34,10 @@ function Reembolso() {
         setModalType("deleteRow");
     }
 
+    function handleMotive() {
+        setModalType("motive")
+    }
+
     function handleClose() {
         setModalType(null);
     }
@@ -56,18 +60,11 @@ function Reembolso() {
                     {/* Pode criar uma div vazia para fazer uma barra vertical com css */}
                     <section className={styles.formDetails}>
                         
-                        {/* <Input className={styles.backround} type="date" label="Data" placeholder="DD/MM/AAAA" id="data"/> */}
                         <div className={styles.containerDate}>
                             <label htmlFor="date">Data</label>
                             <input className={styles.input} type="date" id="data" placeholder="DD/MM/AAAA"/>
-
-                            
                         </div>
 
-                            
-                            
-                        
-                        
                         <div className={styles.containerSelect}>
                             <label htmlFor="tipoDespesa">Tipo de Despesa</label>
                             <select className={styles.select} name="tipoDespesa" id="tipoDespesa">
@@ -139,12 +136,12 @@ function Reembolso() {
                         </thead>
                         <tbody className={styles.containerTbody}>
                             <tr className={styles.containerTr}>
-                                <td onClick={handleDelete}><FaTrashAlt /></td>
+                                <td className={styles.clickHover} onClick={handleDelete}><FaTrashAlt /></td>
                                 <td>Vitor Carvalho</td>
                                 <td>WSS001</td>
                                 <td>329456</td>
                                 <td>08/01/2025</td>
-                                <td><IoDocumentTextSharp /></td>
+                                <td className={styles.motiveHover} onClick={handleMotive}><IoDocumentTextSharp /></td>
                                 <td>Desp. de viagem a...</td>
                                 <td>1100110002 - FIN...</td>
                                 <td>0003</td>
@@ -157,12 +154,12 @@ function Reembolso() {
                                 <td>40.05</td>
                             </tr>
                             <tr className={styles.containerTr}>
-                                <td onClick={handleDelete}><FaTrashAlt /></td>
+                                <td className={styles.clickHover} onClick={handleDelete}><FaTrashAlt /></td>
                                 <td>Vanessa Porto</td>
                                 <td>WSS002</td>
                                 <td>987789</td>
                                 <td>01/01/2025</td>
-                                <td><IoDocumentTextSharp /></td>
+                                <td className={styles.motiveHover} onClick={handleMotive}><IoDocumentTextSharp /></td>
                                 <td>Desp. de viagem a...</td>
                                 <td>1100110102 - FIN C...</td>
                                 <td>0002</td>
@@ -175,12 +172,12 @@ function Reembolso() {
                                 <td>0.00</td>
                             </tr>
                             <tr className={styles.containerTr}>
-                                <td onClick={handleDelete}><FaTrashAlt /></td>
+                                <td className={styles.clickHover} onClick={handleDelete}><FaTrashAlt /></td>
                                 <td>Washington Klein</td>
                                 <td>WSS003</td>
                                 <td>546791</td>
                                 <td>03/01/2025</td>
-                                <td><IoDocumentTextSharp /></td>
+                                <td className={styles.motiveHover} onClick={handleMotive}><IoDocumentTextSharp /></td>
                                 <td>Eventos de apresen...</td>
                                 <td>1100109002 - FIN...</td>
                                 <td>0001</td>
@@ -243,6 +240,18 @@ function Reembolso() {
                         <div>
                             <button className={styles.edit} type="button">Continuar Editando</button>
                             <button className={styles.clean} type="button" onClick={handleClose}>Sim, cancelar</button>
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {modalType === "motive" && (
+                <section className={styles.modalBackround}>
+                    <div className={styles.modalCancel}>
+                        <h3>Lorem ipsum, dolor sit amet consectetur adipisicing. Lorem ipsum dolor, sit amet consectetur adipisicing.</h3>
+                        <div>
+                            <button className={styles.edit} type="button">Continuar Editando</button>
+                            <button className={styles.clean} type="button" onClick={handleClose}>Fechar</button>
                         </div>
                     </div>
                 </section>
