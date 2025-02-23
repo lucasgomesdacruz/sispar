@@ -35,12 +35,12 @@
         background: none;
         border: none;
         color: white;
-        font-size: 24px;
+        font-size: 1.5rem;
         cursor: pointer;
         margin-top: 24px;
         background-color: #0844C4;
-        width: 48px;
-        height: 48px;
+        width: 2.5vw;
+        height: 2.5vw;
         border-radius: 6px;
 
         transition: all 0.3s ease-in-out;
@@ -68,13 +68,13 @@
         
         h2 {
             font-weight: 700;
-            font-size: 16px;
+            font-size: 1rem;
             color: #000000;
         }
 
         p {
             font-weight: 400;
-            font-size: 14px;
+            font-size: 0.87rem;
             color: #0844C4;
         }
     }
@@ -109,8 +109,8 @@
                     justify-content: center;
                     align-items: center;
                     background-color: #0844C4;
-                    width: 48px;
-                    height: 48px;
+                    width: 2.5vw;
+                    height: 2.5vw;
                     border-radius: 6px;
                     transition: all 0.3s ease-in-out;
 
@@ -132,17 +132,16 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 48px;
-        height: 48px;
+        width: 2.5vw;
+        height: 2.5vw;
         border-radius: 6px;
         background-color: #63758D;
         cursor: pointer;
         margin-bottom: 20px;
         border: none;
         
-
         svg {
-            font-size: 24px;
+            font-size: 1.5rem;
             color: #fff;
         }
     }
