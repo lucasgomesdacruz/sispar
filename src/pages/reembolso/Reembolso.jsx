@@ -1,5 +1,7 @@
 import styles from "./Reembolso.module.scss"
 
+
+
 import { IoDocumentTextSharp } from "react-icons/io5";
 import { FaTrashAlt } from "react-icons/fa";
 import { IoIosInformationCircleOutline } from "react-icons/io";
@@ -11,10 +13,11 @@ import { FaCheck } from "react-icons/fa6";
 import { IoMdClose } from "react-icons/io";
 
 
-
+import Header from "../../components/header/Header.jsx"
 import Input from "../../components/Input/Input.jsx"
 import Button from "../../components/button/Button.jsx";
 import { useState } from "react";
+import { MdOutlineNavigateNext } from "react-icons/md";
 
 function Reembolso() {
     const [modalType, setModalType] = useState(null); 
@@ -38,7 +41,8 @@ function Reembolso() {
     return (
 
         <div className={styles.reembolso}>
-
+            
+        <Header  icon={<MdOutlineNavigateNext />} text="Solicitação de Reembolso"/>
             <main className={styles.mainContainer}>
 
                 <form className={styles.infoContainer}>

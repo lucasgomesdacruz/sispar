@@ -3,7 +3,7 @@ import { AiOutlineHome } from "react-icons/ai"
 import { MdOutlineNavigateNext } from "react-icons/md";
 
 
-function Header() {
+function Header({icon, text}) {
     return (
         <header className={styles.header}>    
             <AiOutlineHome />
@@ -12,7 +12,9 @@ function Header() {
 
             <nav>
                 <ul>
-                    <li>Reembolsos</li>
+                    <li>Reembolsos</li> 
+                    <li>{icon}</li>
+                    <li>{text}</li>
                 </ul>
             </nav>
         </header>

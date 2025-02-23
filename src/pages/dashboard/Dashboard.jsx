@@ -16,11 +16,13 @@ import { TbArrowBackUp } from "react-icons/tb";
 import { MdOutlineFileDownloadDone } from "react-icons/md";
 import { BsX } from "react-icons/bs";
 import { VscCloudUpload } from "react-icons/vsc";
+import Header from "../../components/header/Header.jsx";
 
 function Dashboard() {
     return (
         <>
         <div className={styles.dashboard}>
+        <Header />
 
             <main className={styles.mainContainer}>
                 <div className={styles.mainHeader}>
