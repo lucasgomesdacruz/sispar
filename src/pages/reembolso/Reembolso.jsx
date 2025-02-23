@@ -100,7 +100,20 @@ function Reembolso() {
                             <Input type="text" label="PEP" id="pep"/>
                             <Input type="text" label="Div." id="div"/>
                             <Input type="text" label="Dist. / Km" id="km"/>
-                            <Input type="text" label="Moeda" id="moedas"/>
+
+                            <div className={styles.containerSelectMoeda}>
+                            <label htmlFor="moeda">Moeda</label>
+                            <select className={styles.select} name="moeda" id="moeda">
+                                <option value="">$</option>
+                                <option value="real">REAL</option>
+                                <option value="dolar">DOLAR</option>
+                                <option value="euro">EURO</option>
+                            </select>
+                            <div className={styles.icon}>
+                                <AiOutlineCaretDown />
+                            </div>
+
+                        </div>
                             <Input type="text" label="Valor / Km" id="valor"/>
                             <Input type="text" label="Val. Taxa" id="taxa"/>
                             <Input type="text" label="Val. Faturado" id="val"/>
