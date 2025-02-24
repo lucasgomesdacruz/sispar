@@ -22,6 +22,62 @@ import { MdOutlineNavigateNext } from "react-icons/md";
 function Reembolso() {
     const [modalType, setModalType] = useState(null); 
 
+    const [formData, setFormData] = useState({
+        nome: '',
+        empresa: '',
+        contas: '',
+        descricao: '',
+        data: '',
+        tipoDespesa: '',
+        centroCusto: '',
+        ordInt: '',
+        pep: '',
+        div: '',
+        km: '',
+        moeda: '',
+        valor: '',
+        taxa: '',
+        val: '',
+        despesa: ''
+    });
+
+    // Estado para armazenar a lista de tarefas
+    const [taskList, setTaskList] = useState([]);
+
+    console.log(taskList)
+
+    // Função para lidar com a alteração dos campos de input
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+
+    // Função para salvar a tarefa e adicionar na lista
+    const handleSave = () => {
+        setTaskList([...taskList, formData]);
+        // Limpar os campos do formulário após salvar
+        setFormData({
+            nome: '',
+            empresa: '',
+            contas: '',
+            descricao: '',
+            data: '',
+            tipoDespesa: '',
+            centroCusto: '',
+            ordInt: '',
+            pep: '',
+            div: '',
+            km: '',
+            moeda: '',
+            valor: '',
+            val: '',
+            despesa: '',
+        });
+    };
+
     function handleCancelRequest() {
         setModalType("cancelRequest");
     }
@@ -52,22 +108,23 @@ function Reembolso() {
                 <form className={styles.infoContainer}>
                     
                     <section className={styles.form}>
-                        <Input type="text" label="Nome Completo" id="nome"/>
-                        <Input type="text" label="Empresa" id="empresa"/>
-                        <Input type="text" label="Nº Prest. Contas" id="contas"/>
-                        <Input type="text" label="Descrição / Motivo do Reembolso" id="descricao"/>
+
+                        <Input type="text" name="nome" label="Nome Completo" id="nome" value={formData.nome} onChange={handleInputChange}/>
+                        <Input type="text" name="empresa" label="Empresa" id="empresa" value={formData.empresa} onChange={handleInputChange}/>
+                        <Input type="text" name="contas" label="Nº Prest. Contas" id="contas" value={formData.contas} onChange={handleInputChange}/>
+                        <Input type="text" name="descricao" label="Descrição / Motivo do Reembolso" id="descricao" value={formData.descricao} onChange={handleInputChange}/>
                     </section>
                     {/* Pode criar uma div vazia para fazer uma barra vertical com css */}
                     <section className={styles.formDetails}>
                         
                         <div className={styles.containerDate}>
                             <label htmlFor="date">Data</label>
-                            <input className={styles.input} type="date" id="data" placeholder="DD/MM/AAAA"/>
+                            <input className={styles.input} name="data" type="date" id="data" placeholder="DD/MM/AAAA" value={formData.data} onChange={handleInputChange}/>
                         </div>
 
                         <div className={styles.containerSelect}>
                             <label htmlFor="tipoDespesa">Tipo de Despesa</label>
-                            <select className={styles.select} name="tipoDespesa" id="tipoDespesa">
+                            <select className={styles.select} name="tipoDespesa" id="tipoDespesa" value={formData.tipoDespesa} onChange={handleInputChange}>
                                 <option value="">Selecionar</option>
                                 <option value="alimentacao">Alimentação</option>
                                 <option value="combustivel">Combustível</option>
@@ -83,7 +140,7 @@ function Reembolso() {
                         </div>
                         <div className={styles.containerSelect}>
                             <label htmlFor="centroCusto">Centro de Custo</label>
-                            <select className={styles.select} name="centroCusto" id="centroCusto">
+                            <select className={styles.select} name="centroCusto" id="centroCusto" value={formData.centroCusto} onChange={handleInputChange}>
                                 <option value="">Selecionar</option>
                                 <option value="controles-internos">1100109002 - FIN COTROLES INTERNOS MTZ</option>
                                 <option value="presidencia-financas">1100109002 FIM VICE-PRESIDENCIA FINANCAS MTZ</option>
@@ -96,30 +153,29 @@ function Reembolso() {
                         </div>
                         {/* <Input type="date" label="Controle de Custo" id="contas"/> */}
                         <div className={styles.rows}>
-                            <Input type="text" label="Ord. Int." id="descricao"/>
-                            <Input type="text" label="PEP" id="pep"/>
-                            <Input type="text" label="Div." id="div"/>
-                            <Input type="text" label="Dist. / Km" id="km"/>
-
+                            <Input type="text" name="ordInt" label="Ord. Int." id="ordInt" value={formData.ordInt} onChange={handleInputChange}/>
+                            <Input type="text" name="div" label="Div." id="div" value={formData.div} onChange={handleInputChange}/>
+                            <Input type="text" name="pep" label="PEP" id="pep" value={formData.pep} onChange={handleInputChange}/>
                             <div className={styles.containerSelectMoeda}>
-                            <label htmlFor="moeda">Moeda</label>
-                            <select className={styles.select} name="moeda" id="moeda">
-                                <option value="">$</option>
-                                <option value="real">REAL</option>
-                                <option value="dolar">DOLAR</option>
-                                <option value="euro">EURO</option>
-                            </select>
-                            <div className={styles.icon}>
-                                <AiOutlineCaretDown />
+                                <label htmlFor="moeda">Moeda</label>
+                                <select className={styles.select} name="moeda" id="moeda" value={formData.moeda} onChange={handleInputChange}>
+                                    <option value="">$</option>
+                                    <option value="real">REAL</option>
+                                    <option value="dolar">DOLAR</option>
+                                    <option value="euro">EURO</option>
+                                </select>
+                                <div className={styles.icon}>
+                                    <AiOutlineCaretDown />
+                                </div>
                             </div>
+                            <Input type="text" name="km" label="Dist. / Km" id="km" value={formData.km} onChange={handleInputChange}/>
 
-                        </div>
-                            <Input type="text" label="Valor / Km" id="valor"/>
-                            <Input type="text" label="Val. Taxa" id="taxa"/>
-                            <Input type="text" label="Val. Faturado" id="val"/>
+                            <Input type="text" name="valor" label="Valor / Km" id="valor" value={formData.valor} onChange={handleInputChange}/>
+                            <Input type="text" name="val" label="Val. Faturado" id="val" value={formData.val} onChange={handleInputChange}/>
+                            <Input type="text" name="despesa" label="Despesa" id="despesa" value={formData.despesa} onChange={handleInputChange}/>
 
                             
-                            <Button icon={<FaCheck />} text="Salvar" type="button" className={styles.save}/>
+                            <Button icon={<FaCheck />} text="Salvar" type="button" className={styles.save} onClick={handleSave}/>
 
                             <Button onClick={handleClear} icon={<RiDeleteBack2Line />} type="button" className={styles.delete}/>
                         </div>
@@ -202,23 +258,38 @@ function Reembolso() {
                                 <td>109.75</td>
                                 <td>29.97</td>
                             </tr>
+
+                            {taskList.map((task, index) => (
+                                <tr key={index} className={styles.containerTr}>
+                                    <td className={styles.clickHover} onClick={handleDelete}><FaTrashAlt /></td>
+                                    <td>{task.nome}</td>
+                                    <td>{task.empresa}</td>
+                                    <td>{task.contas}</td>
+                                    <td>{task.data}</td>
+                                    <td className={styles.motiveHover} onClick={handleMotive}><IoDocumentTextSharp /></td>
+                                    <td>{task.tipoDespesa}</td>
+                                    <td>{task.centroCusto}</td>
+                                    <td>{task.ordInt}</td>
+                                    <td>{task.pep}</td>
+                                    <td>{task.div}</td>
+                                    <td>{task.km}</td>
+                                    <td>{task.moeda}</td>
+                                    <td>{task.valor}</td>
+                                    <td>{task.val}</td>
+                                    <td>{task.despesa}</td>
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
                 </div>
                 <section className={styles.containerFull}>
                     <div className={styles.containerGroups}>
-                        
                             <Input type="text" label="Total Faturado" id="faturado" placeholder="0.00"/>
                             <Input type="text" label="Total Despesa" id="despesa" placeholder="0.00"/>
                        
-                        
                             <Button icon={<FaCheck />} text="Enviar para Análise" type="button" className={styles.send}/>
                             <Button onClick={handleCancelRequest} icon={<IoMdClose />} type="button" text="Cancelar Solicitação" className={styles.cancel}/>
-                        
                     </div>
-
-                    
-                    
                 </section>
 
             </main>
