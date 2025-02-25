@@ -7,7 +7,7 @@ import Historico from "./pages/historico/Historico.jsx";
 import Analises from "./pages/analises/Analises.jsx"
 import Reembolso from "./pages/reembolso/Reembolso.jsx"
 import Recuperar from "./pages/recuperarSenha/Recuperar.jsx";
-import Criar from "./pages/criarConta/criar.jsx";
+import Criar from "./pages/criarConta/Criar.jsx";
 
 const router = createBrowserRouter([
   {
