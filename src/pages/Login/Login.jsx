@@ -4,7 +4,7 @@ import logo from "../../assets/images/TelaLogin/logo.png";
 
 import Button from "../../components/button/Button.jsx";
 import Input from "../../components/Input/Input.jsx";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 function Login() {
@@ -32,11 +32,11 @@ function Login() {
           <fieldset>
             <Input placeholder="Email" type="email" />
             <Input placeholder="Senha" type="password" />
-            <a href="#" className={styles.Password}>Esqueci minha senha</a>
+            <Link to="/recuperarSenha" href="#" className={styles.Password}>Esqueci minha senha</Link>
 
             <div className={styles.buttonGroup}>
               <Button text="Entrar" type="submit" className={styles.btnDark} />
-              <Button text="Criar Conta" type="button" className={styles.btnPrimary}/>
+              <Link to="/criarConta" className={styles.btnPrimary}> Criar Conta</Link>
             </div>
           </fieldset>
         </form>

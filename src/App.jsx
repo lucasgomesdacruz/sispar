@@ -6,11 +6,21 @@ import Dashboard from "./pages/dashboard/Dashboard.jsx";
 import Historico from "./pages/historico/Historico.jsx";
 import Analises from "./pages/analises/Analises.jsx"
 import Reembolso from "./pages/reembolso/Reembolso.jsx"
+import Recuperar from "./pages/recuperarSenha/Recuperar.jsx";
+import Criar from "./pages/criarConta/criar.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Login />
+    element: <Login />,
+  },
+  {
+    path: "/recuperarSenha",
+    element: <Recuperar />
+  },
+  {
+    path: "/criarConta",
+    element: <Criar />
   },
   {
     element: <Layout />,

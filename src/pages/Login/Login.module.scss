@@ -90,6 +90,21 @@
             color: white;
             cursor: pointer;
             font-weight: 700;
+            font-size: 1rem;
+          }
+
+          a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30%;
+            padding: 15px 10px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1rem;
           }
 
           .btnDark {
