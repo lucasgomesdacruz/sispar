@@ -1,4 +1,4 @@
-import styles from "./criar.module.scss"
+import styles from "./Criar.module.scss"
 function Criar() {
     return (
         <main className={styles.create}>
