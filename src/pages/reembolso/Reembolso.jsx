@@ -1,23 +1,19 @@
 import styles from "./Reembolso.module.scss"
 
-
-
 import { IoDocumentTextSharp } from "react-icons/io5";
 import { FaTrashAlt } from "react-icons/fa";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import { RiDeleteBack2Line } from 'react-icons/ri'
-
 import { AiOutlineCaretDown } from 'react-icons/ai'
-
+import { MdOutlineNavigateNext } from "react-icons/md";
 import { FaCheck } from "react-icons/fa6";
 import { IoMdClose } from "react-icons/io";
-
 
 import Header from "../../components/header/Header.jsx"
 import Input from "../../components/Input/Input.jsx"
 import Button from "../../components/button/Button.jsx";
+
 import { useState } from "react";
-import { MdOutlineNavigateNext } from "react-icons/md";
 
 function Reembolso() {
     const [modalType, setModalType] = useState(null); 
@@ -41,12 +37,10 @@ function Reembolso() {
         despesa: ''
     });
 
-    // Estado para armazenar a lista de tarefas
     const [taskList, setTaskList] = useState([]);
 
     console.log(taskList)
 
-    // Função para lidar com a alteração dos campos de input
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData(prevState => ({
@@ -55,10 +49,9 @@ function Reembolso() {
         }));
     };
 
-    // Função para salvar a tarefa e adicionar na lista
     const handleSave = () => {
         setTaskList([...taskList, formData]);
-        // Limpar os campos do formulário após salvar
+
         setFormData({
             nome: '',
             empresa: '',
@@ -114,7 +107,7 @@ function Reembolso() {
                         <Input type="text" name="contas" label="Nº Prest. Contas" id="contas" value={formData.contas} onChange={handleInputChange}/>
                         <Input type="text" name="descricao" label="Descrição / Motivo do Reembolso" id="descricao" value={formData.descricao} onChange={handleInputChange}/>
                     </section>
-                    {/* Pode criar uma div vazia para fazer uma barra vertical com css */}
+
                     <section className={styles.formDetails}>
                         
                         <div className={styles.containerDate}>
@@ -151,7 +144,7 @@ function Reembolso() {
                                 <AiOutlineCaretDown />
                             </div>
                         </div>
-                        {/* <Input type="date" label="Controle de Custo" id="contas"/> */}
+                       
                         <div className={styles.rows}>
                             <Input type="text" name="ordInt" label="Ord. Int." id="ordInt" value={formData.ordInt} onChange={handleInputChange}/>
                             <Input type="text" name="div" label="Div." id="div" value={formData.div} onChange={handleInputChange}/>
@@ -173,10 +166,8 @@ function Reembolso() {
                             <Input type="text" name="valor" label="Valor / Km" id="valor" value={formData.valor} onChange={handleInputChange}/>
                             <Input type="text" name="val" label="Val. Faturado" id="val" value={formData.val} onChange={handleInputChange}/>
                             <Input type="text" name="despesa" label="Despesa" id="despesa" value={formData.despesa} onChange={handleInputChange}/>
-
                             
                             <Button icon={<FaCheck />} text="Salvar" type="button" className={styles.save} onClick={handleSave}/>
-
                             <Button onClick={handleClear} icon={<RiDeleteBack2Line />} type="button" className={styles.delete}/>
                         </div>
                     </section>
@@ -341,8 +332,6 @@ function Reembolso() {
                 </section>
             )}
         </div>
-        
     )
 }
-
 export default Reembolso
