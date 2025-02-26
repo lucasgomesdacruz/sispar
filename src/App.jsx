@@ -8,6 +8,7 @@ import Analises from "./pages/analises/Analises.jsx"
 import Reembolso from "./pages/reembolso/Reembolso.jsx"
 import Recuperar from "./pages/recuperarSenha/Recuperar.jsx";
 import Criar from "./pages/criarConta/Criar.jsx";
+import NotFound from "./pages/notFound/NotFound.jsx";
 
 const router = createBrowserRouter([
   {
@@ -42,7 +43,11 @@ const router = createBrowserRouter([
         element: <Analises />
       },
     ]
-  }
+  },
+  {
+    path: "*",
+    element: <NotFound />,
+  },
 ])
 
 export { router }
