@@ -153,9 +153,9 @@ function Reembolso() {
                                 <label htmlFor="moeda">Moeda</label>
                                 <select className={styles.select} name="moeda" id="moeda" value={formData.moeda} onChange={handleInputChange}>
                                     <option value="">$</option>
-                                    <option value="real">BRL</option>
-                                    <option value="dolar">ARS</option>
-                                    <option value="euro">USD</option>
+                                    <option value="BRL">BRL</option>
+                                    <option value="ARS">ARS</option>
+                                    <option value="USD">USD</option>
                                 </select>
                                 <div className={styles.icon}>
                                     <AiOutlineCaretDown />
