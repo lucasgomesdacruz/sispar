@@ -153,9 +153,9 @@ function Reembolso() {
                                 <label htmlFor="moeda">Moeda</label>
                                 <select className={styles.select} name="moeda" id="moeda" value={formData.moeda} onChange={handleInputChange}>
                                     <option value="">$</option>
-                                    <option value="real">REAL</option>
-                                    <option value="dolar">DOLAR</option>
-                                    <option value="euro">EURO</option>
+                                    <option value="real">BRL</option>
+                                    <option value="dolar">ARS</option>
+                                    <option value="euro">USD</option>
                                 </select>
                                 <div className={styles.icon}>
                                     <AiOutlineCaretDown />
@@ -263,8 +263,8 @@ function Reembolso() {
                                     <td>{task.ordInt}</td>
                                     <td>{task.pep}</td>
                                     <td>{task.div}</td>
-                                    <td>{task.km}</td>
                                     <td>{task.moeda}</td>
+                                    <td>{task.km}</td>
                                     <td>{task.valor}</td>
                                     <td>{task.val}</td>
                                     <td>{task.despesa}</td>
