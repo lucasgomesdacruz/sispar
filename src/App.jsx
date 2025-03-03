@@ -1,4 +1,4 @@
-import Login from "./pages/login/Login";
+import Login from "./pages/login/Login.jsx";
 
 import Layout from "./components/Layouts/Layout";
 import { createBrowserRouter } from "react-router-dom";
