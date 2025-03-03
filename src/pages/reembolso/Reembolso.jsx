@@ -13,6 +13,9 @@ import Header from "../../components/header/Header.jsx"
 import Input from "../../components/Input/Input.jsx"
 import Button from "../../components/button/Button.jsx";
 
+import Modal from "./components/modal/Modal.jsx"
+import OptionsDate from "./components/OptionsDate/OptionsDate.jsx";
+
 import { useState } from "react";
 
 function Reembolso() {
@@ -87,15 +90,13 @@ function Reembolso() {
         setModalType("motive")
     }
 
-    function handleClose() {
-        setModalType(null);
-    }
+    // function handleClose() {
+    //      setModalType(null);
+    // }
 
     return (
-
         <div className={styles.reembolso}>
-            
-        <Header  icon={<MdOutlineNavigateNext />} text="Solicitação de Reembolso"/>
+            <Header  icon={<MdOutlineNavigateNext />} text="Solicitação de Reembolso"/>
             <main className={styles.mainContainer}>
 
                 <form className={styles.infoContainer}>
@@ -149,18 +150,9 @@ function Reembolso() {
                             <Input type="text" name="ordInt" label="Ord. Int." id="ordInt" value={formData.ordInt} onChange={handleInputChange}/>
                             <Input type="text" name="div" label="Div." id="div" value={formData.div} onChange={handleInputChange}/>
                             <Input type="text" name="pep" label="PEP" id="pep" value={formData.pep} onChange={handleInputChange}/>
-                            <div className={styles.containerSelectMoeda}>
-                                <label htmlFor="moeda">Moeda</label>
-                                <select className={styles.select} name="moeda" id="moeda" value={formData.moeda} onChange={handleInputChange}>
-                                    <option value="">$</option>
-                                    <option value="BRL">BRL</option>
-                                    <option value="ARS">ARS</option>
-                                    <option value="USD">USD</option>
-                                </select>
-                                <div className={styles.icon}>
-                                    <AiOutlineCaretDown />
-                                </div>
-                            </div>
+                            
+                            <OptionsDate  value={formData.moeda} onChange={handleInputChange}/>
+
                             <Input type="text" name="km" label="Dist. / Km" id="km" value={formData.km} onChange={handleInputChange}/>
 
                             <Input type="text" name="valor" label="Valor / Km" id="valor" value={formData.valor} onChange={handleInputChange}/>
@@ -282,55 +274,14 @@ function Reembolso() {
                             <Button onClick={handleCancelRequest} icon={<IoMdClose />} type="button" text="Cancelar Solicitação" className={styles.cancel}/>
                     </div>
                 </section>
-
             </main>
-            {modalType === "clearFields" && (
-                <section className={styles.modalBackround}>
-                    <div className={styles.modalCancel}>
-                        <h3>Deseja realmente limpar os campos preenchidos acima?</h3>
-                        <div>
-                            <button className={styles.edit} type="button">Continuar Editando</button>
-                            <button className={styles.clean} type="button" onClick={handleClose}>Sim, limpar</button>
-                        </div>
-                    </div>
-                </section>
-            )}
-
-            {modalType === "deleteRow" && (
-                <section className={styles.modalBackround}>
-                    <div className={styles.modalCancel}>
-                        <h3>Deseja realmente excluir os dados dessa linha?</h3>
-                        <div>
-                            <button className={styles.edit} type="button">Continuar Editando</button>
-                            <button className={styles.clean} type="button" onClick={handleClose}>Sim, excluir</button>
-                        </div>
-                    </div>
-                </section>
-            )}
-
-            {modalType === "cancelRequest" && (
-                <section className={styles.modalBackround}>
-                    <div className={styles.modalCancel}>
-                        <h3>Tem certeza que deseja cancelar a solicitação?</h3>
-                        <div>
-                            <button className={styles.edit} type="button">Continuar Editando</button>
-                            <button className={styles.clean} type="button" onClick={handleClose}>Sim, cancelar</button>
-                        </div>
-                    </div>
-                </section>
-            )}
-
-            {modalType === "motive" && (
-                <section className={styles.modalBackround}>
-                    <div className={styles.modalCancel}>
-                        <h3>Lorem ipsum, dolor sit amet consectetur adipisicing. Lorem ipsum dolor, sit amet consectetur adipisicing.</h3>
-                        <div>
-                            <button className={styles.edit} type="button">Continuar Editando</button>
-                            <button className={styles.clean} type="button" onClick={handleClose}>Fechar</button>
-                        </div>
-                    </div>
-                </section>
-            )}
+            <div tabIndex="-1">
+                <div tabIndex="-1" role="button" onClick={() => setModalType("clearFields")}></div>
+                <div tabIndex="-1" role="button" onClick={() => setModalType("deleteRow")}></div>
+                <div tabIndex="-1" role="button" onClick={() => setModalType("cancelRequest")}></div>
+                <div tabIndex="-1" role="button" onClick={() => setModalType("motive")}></div>
+                <Modal modalType={modalType} onClose={() => setModalType(null)} />
+            </div>
         </div>
     )
 }
