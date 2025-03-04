@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import styles from "./Construction.module.scss"
 
 function Construction() {
@@ -18,6 +19,8 @@ function Construction() {
             <p className={styles.constructionText}>
                Esta seção ainda está em construção. Em breve teremos novidades!
             </p>
+
+            <Link to="/">Voltar para o Login</Link>
         </section>
     )
 }
