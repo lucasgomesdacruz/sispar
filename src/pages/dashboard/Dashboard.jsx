@@ -9,8 +9,8 @@ import { MdOutlineFileDownloadDone } from "react-icons/md";
 import { BsX } from "react-icons/bs";
 import { VscCloudUpload } from "react-icons/vsc";
 
-import Modalidades from "../../components/modalidades/Modalidades.jsx";
-import Analysis from "../../components/analysis/Analysis.jsx";
+import Modalidades from "./components/modalidades/Modalidades.jsx";
+import Analysis from "./components/analysis/Analysis.jsx";
 import Header from "../../components/header/Header.jsx";
 
 import { Link } from "react-router-dom";
