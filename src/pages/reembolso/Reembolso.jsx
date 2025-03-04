@@ -12,10 +12,10 @@ import Header from "../../components/header/Header.jsx"
 import Input from "../../components/Input/Input.jsx"
 import Button from "../../components/button/Button.jsx";
 
-import Modal from "./components/modal/Modal.jsx"
-import OptionsDate from "./components/OptionsDate/OptionsDate.jsx";
-import OptionsExpense from "./components/OptionsExpense/OptionsExpense.jsx";
-import OptionsConst from "./components/OptionsConst/OptionsConst.jsx";
+import Modal from "./_components/modal/Modal.jsx"
+import OptionsDate from "./_components/OptionsDate/OptionsDate.jsx";
+import OptionsExpense from "./_components/OptionsExpense/OptionsExpense.jsx";
+import OptionsConst from "./_components/OptionsConst/OptionsConst.jsx";
 
 import { useState } from "react";
 
