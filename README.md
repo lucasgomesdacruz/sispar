@@ -3,13 +3,14 @@
 Sistema de Reembolsos
 
 ## 📖 Descrição
-Este é um sistema web desenvolvido em React.js que permite aos usuários solicitar reembolsos, verificar análises e acessar o histórico de pedidos. O projeto foi construído utilizando React Router para gerenciar a navegação e SCSS para estilização dos componentes.
+Este é um sistema web desenvolvido em React.js que permite aos usuários solicitar reembolsos, verificar análises e acessar o histórico de pedidos. O projeto foi construído utilizando React Router para gerenciar a navegação e SCSS para estilização dos componentes. Também estou utilizando o Helmet para otimizar o SEO do site, gerenciando as meta tags e garantindo um melhor ranqueamento nos motores de busca.
 
 ## 🚀 Tecnologias Utilizadas
 - React.js
 - React Router
 - SCSS (SASS)
 - React Icons
+- Helmet (para SEO)
 
 ## O projeto utiliza o React Router para gerenciar a navegação entre as páginas. A estrutura de roteamento está definida no arquivo router.js, onde cada rota é associada ao seu respectivo componente:
 ![codeasdasdasd](https://github.com/user-attachments/assets/d7e2ddb8-2351-43ce-bc10-67b97426af39)
@@ -17,6 +18,11 @@ Este é um sistema web desenvolvido em React.js que permite aos usuários solici
 ## Componentes 
 ## Esse componente Input é um componente funcional em React que recebe diversas propriedades (props) para renderizar um campo de entrada de dados personalizável, com base nas necessidades do usuário.
 ![cadadadodeasdasdasd](https://github.com/user-attachments/assets/16a4cd2b-061a-4bcc-a568-813ca2369938)
+
+## Seo
+## Essa abordagem garante que as páginas do SISPAR tenham informações detalhadas para SEO, como descrição, palavras-chave, e informações de compartilhamento em redes sociais.
+![coaaaade](https://github.com/user-attachments/assets/239cd742-bc8d-46fb-bff3-e0e0ba0f7d01) ![coaaaaaaade](https://github.com/user-attachments/assets/4bc575b2-5ccd-4d00-bfc1-0257670e15bb)
+
 
 ## login 
 ## No código da página de Login, eu usei o useNavigate para realizar a navegação programática após o login. Basicamente, assim que o usuário envia o formulário de login, eu redireciono ele para a página de dashboard.
