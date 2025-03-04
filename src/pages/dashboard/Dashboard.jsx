@@ -14,11 +14,31 @@ import Analysis from "./_components/analysis/Analysis.jsx";
 import Header from "../../components/header/Header.jsx";
 
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 function Dashboard() {
     return (
         <>
+            <Helmet>
+                <title>Solicitação de Reembolso | SISPAR</title>
+                <meta name="description" content="Faça sua solicitação de reembolso de forma rápida e segura." />
+                <meta name="keywords" content="reembolso, solicitação de reembolso, financeiro, SISPAR" />
+                <meta name="author" content="Nome da Empresa ou Seu Nome" />
+                <meta name="robots" content="index, follow" />
+
+                <meta property="og:title" content="Solicitação de Reembolso | SISPAR" />
+                <meta property="og:description" content="Faça sua solicitação de reembolso de forma rápida e segura." />
+                <meta property="og:image" content="URL_da_imagem_de_compartilhamento" />
+                <meta property="og:url" content="URL_da_sua_página" />
+                <meta property="og:type" content="website" />
+
+                <meta name="twitter:title" content="Solicitação de Reembolso | SISPAR" />
+                <meta name="twitter:description" content="Faça sua solicitação de reembolso de forma rápida e segura." />
+                <meta name="twitter:image" content="URL_da_imagem_de_compartilhamento" />
+                <meta name="twitter:card" content="summary_large_image" />
+            </Helmet>
             <div className={styles.dashboard}>
+                
                 <Header />
 
                 <main className={styles.mainContainer}>

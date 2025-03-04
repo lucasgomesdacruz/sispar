@@ -18,6 +18,7 @@ import OptionsExpense from "./_components/OptionsExpense/OptionsExpense.jsx";
 import OptionsConst from "./_components/OptionsConst/OptionsConst.jsx";
 
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 function Reembolso() {
     const [modalType, setModalType] = useState(null); 
@@ -97,6 +98,26 @@ function Reembolso() {
 
     return (
         <div className={styles.reembolso}>
+            <Helmet>
+                <title>Solicitação de Reembolso | SISPAR</title>
+                <meta name="description" content="Preencha e gerencie suas solicitações de reembolso de forma eficiente." />
+                <meta name="keywords" content="reembolso, solicitação, financeiro, despesas, empresa" />
+
+                <meta name="author" content="Nome da Empresa ou Seu Nome" />
+                <meta name="robots" content="index, follow" />
+
+                <meta property="og:title" content="Solicitação de Reembolso | SISPAR" />
+                <meta property="og:description" content="Preencha e gerencie suas solicitações de reembolso de forma eficiente." />
+                <meta property="og:image" content="URL_da_imagem_de_compartilhamento" />
+                <meta property="og:url" content="URL_da_sua_página" />
+                <meta property="og:type" content="website" />
+
+            
+                <meta name="twitter:title" content="Solicitação de Reembolso | SISPAR" />
+                <meta name="twitter:description" content="Preencha e gerencie suas solicitações de reembolso de forma eficiente." />
+                <meta name="twitter:image" content="URL_da_imagem_de_compartilhamento" />
+                <meta name="twitter:card" content="summary_large_image" />
+            </Helmet>
             <Header  icon={<MdOutlineNavigateNext />} text="Solicitação de Reembolso"/>
             <main className={styles.mainContainer}>
 
