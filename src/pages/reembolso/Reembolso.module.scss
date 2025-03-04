@@ -103,60 +103,6 @@
                     }
                     
                 }
-                
-                .containerSelect {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-around;
-                    position: relative;
-
-                    label {
-                        font-size: 1rem;
-                        font-weight: 700;
-                        color: #23282F;
-                    }
-
-                    .select {
-                        width: 100%;
-                        padding: 10px;
-                        height: 5vh;
-                        margin-bottom: 10px;
-                        border: 1px solid #ccc;
-                        border-radius: 5px;
-                        transition: all 0.3s ease-in-out;
-                        z-index: 10;
-                        background-color: transparent;
-                        -webkit-appearance: none;
-                        -moz-appearance: none;
-                        font-size: 0.8rem;
-                        font-weight: 400;
-                        color: #898D93;
-                    
-                        &:hover {
-                            outline: 1px solid #007bff;
-                        }
-                        
-                        &:focus {
-                            box-shadow: 1px #001A3D;
-                            outline: 1px solid #007bff;
-                        }
-                    }
-
-                    .icon {
-                        position: absolute;
-                        right: 0px;
-                        top: 34px;
-                        width: 50px;
-                        height: 5vh;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        border-radius: 0 6px 6px 0;
-                        color: #fff;
-                        background-color: #001A3D;
-                    }
-                }
-    
                 .rows {
                     grid-column: 1 / 4;
                     display: grid;

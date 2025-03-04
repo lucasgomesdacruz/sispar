@@ -4,7 +4,6 @@ import { IoDocumentTextSharp } from "react-icons/io5";
 import { FaTrashAlt } from "react-icons/fa";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import { RiDeleteBack2Line } from 'react-icons/ri'
-import { AiOutlineCaretDown } from 'react-icons/ai'
 import { MdOutlineNavigateNext } from "react-icons/md";
 import { FaCheck } from "react-icons/fa6";
 import { IoMdClose } from "react-icons/io";
@@ -15,6 +14,8 @@ import Button from "../../components/button/Button.jsx";
 
 import Modal from "./components/modal/Modal.jsx"
 import OptionsDate from "./components/OptionsDate/OptionsDate.jsx";
+import OptionsExpense from "./components/OptionsExpense/OptionsExpense.jsx";
+import OptionsConst from "./components/OptionsConst/OptionsConst.jsx";
 
 import { useState } from "react";
 
@@ -116,35 +117,8 @@ function Reembolso() {
                             <input className={styles.input} name="data" type="date" id="data" placeholder="DD/MM/AAAA" value={formData.data} onChange={handleInputChange}/>
                         </div>
 
-                        <div className={styles.containerSelect}>
-                            <label htmlFor="tipoDespesa">Tipo de Despesa</label>
-                            <select className={styles.select} name="tipoDespesa" id="tipoDespesa" value={formData.tipoDespesa} onChange={handleInputChange}>
-                                <option value="">Selecionar</option>
-                                <option value="alimentacao">Alimentação</option>
-                                <option value="combustivel">Combustível</option>
-                                <option value="conducao">Condução</option>
-                                <option value="estacionamento">Estacionamento</option>
-                                <option value="viagem-admin">Viagem admin.</option>
-                                <option value="viagem-operacional">Viagem operacional</option>
-                                <option value="eventos-representacao">Eventos de representação</option>
-                            </select>
-                            <div className={styles.icon}>
-                                <AiOutlineCaretDown />
-                            </div>
-                        </div>
-                        <div className={styles.containerSelect}>
-                            <label htmlFor="centroCusto">Centro de Custo</label>
-                            <select className={styles.select} name="centroCusto" id="centroCusto" value={formData.centroCusto} onChange={handleInputChange}>
-                                <option value="">Selecionar</option>
-                                <option value="controles-internos">1100109002 - FIN COTROLES INTERNOS MTZ</option>
-                                <option value="presidencia-financas">1100109002 FIM VICE-PRESIDENCIA FINANCAS MTZ</option>
-                                <option value="contabilidade-mtz">1100109002 FIN CONTABILIDADE MTZ</option>
-                                
-                            </select>
-                            <div className={styles.icon}>
-                                <AiOutlineCaretDown />
-                            </div>
-                        </div>
+                        <OptionsExpense onChange={handleInputChange} value={formData.tipoDespesa}/>
+                        <OptionsConst value={formData.centroCusto} onChange={handleInputChange}/>
                        
                         <div className={styles.rows}>
                             <Input type="text" name="ordInt" label="Ord. Int." id="ordInt" value={formData.ordInt} onChange={handleInputChange}/>
