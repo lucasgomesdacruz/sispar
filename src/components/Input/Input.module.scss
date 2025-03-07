@@ -21,11 +21,13 @@
     
         &:hover {
             outline: 1px solid #007bff;
+            border-radius: 5px;
         }
         
         &:focus {
             box-shadow: 1px #001A3D;
             outline: 1px solid #007bff;
+            border-radius: 5px;
         }
     }
 }
