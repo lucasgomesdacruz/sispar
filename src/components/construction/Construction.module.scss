@@ -1,3 +1,5 @@
+@use "../../index.scss" as *;
+
 .constructionContainer {
     display: flex;
     flex-direction: column;
@@ -21,11 +23,31 @@
         margin-top: 10px;
         font-size: 1.12rem;
         font-weight: bold;
-        color: #0844C4;
+        color: $primary-accent;
     }
 
     a {
         font-weight: 700;
         font-size: 1.2rem; 
     }
+}
+
+@media (max-width: 767px) { 
+    .constructionContainer {
+        
+        img {
+            width: 200px;
+            height: 200px;
+        }
+    
+        .constructionText {
+            font-size: 1rem;
+        }
+    
+        a {
+            margin-top: 10px;
+            font-size: 1rem; 
+        }
+    }
+    
 }
