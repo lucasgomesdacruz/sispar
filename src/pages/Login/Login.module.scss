@@ -1,3 +1,5 @@
+@use "../../index.scss" as *;
+
 .container {
   display: flex;
   justify-content: center;
@@ -39,15 +41,15 @@
         font-size: 2rem;
         font-weight: bold;
         text-align: center;
-        color: #23282F;
+        color: $secondary-bg;
       }
 
       .subtitle {
         font-size: 1rem;
-        text-align: center;
-        color: #0844C4;
-        margin-bottom: 20px;
         font-weight: 700;
+        text-align: center;
+        color: $primary-accent;
+        margin-bottom: 20px;
       }
       
     }
@@ -67,9 +69,14 @@
           display: flex;
           justify-content: center;
           font-size: 1rem;
-          color: #23282F;
+          color: $secondary-bg;
           font-weight: 400;
           margin-top: 10px;
+          transition: all 0.3s ease-in-out;
+
+          &:hover {
+            color: $primary-accent
+          }
         }
         
         .buttonGroup {
@@ -83,7 +90,7 @@
             padding: 15px 10px;
             border: none;
             border-radius: 5px;
-            color: white;
+            color: $primary-background;
             cursor: pointer;
             font-weight: 700;
             font-size: 1rem;
@@ -97,20 +104,85 @@
             padding: 15px 10px;
             border: none;
             border-radius: 5px;
-            color: white;
+            color: $primary-background;
             cursor: pointer;
             font-weight: 700;
             font-size: 1rem;
           }
 
           .btnDark {
-            background: #001A3D;
+            background: $primary-bg;
+
+            &:hover {
+              background: #011125;
+              transition: all 0.3s ease-in-out;
+            }
           }
           
           .btnPrimary {
-            background: #007bff;
+            background: $primary-element;
+
+            &:hover {
+              background: #019eb6;
+              transition: all 0.3s ease-in-out;
+            }
           }
 
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+
+    .imageContainer {
+      display: none; 
+    }
+  
+    .formContainer {
+      width: 100%; 
+    }
+  }
+}
+
+@media (max-width: 767px) {
+
+  .container {
+ 
+    .imageContainer {
+      display: none;
+    }
+  
+    .formContainer {
+      width: 100%;
+      
+      .containerTitle {
+        width: 70%;
+
+        .title {
+          font-size: 1.5rem;
+        }
+  
+      }
+  
+      .form {
+        width: 70%;
+        
+        fieldset {
+          
+          .buttonGroup {
+            flex-direction: column;
+
+            button {
+              width: 100%;
+            }
+  
+            a {
+              width: 100%;
+            }
+          }
         }
       }
     }

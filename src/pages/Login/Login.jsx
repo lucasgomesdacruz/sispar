@@ -62,8 +62,8 @@ function Login() {
           
           <form className={styles.form} onSubmit={handleLogin}>
             <fieldset>
-              <Input placeholder="Email" type="email" />
-              <Input placeholder="Senha" type="password" />
+              <Input placeholder="Email" type="email"/>
+              <Input placeholder="Senha" type="password"/>
               <Link to="/recuperarSenha" href="#" className={styles.Password}>Esqueci minha senha</Link>
 
               <div className={styles.buttonGroup}>

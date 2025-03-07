@@ -12,3 +12,27 @@ a {
 li {
   list-style: none;
 }
+
+
+$primary-background: #FFFFFF;
+$primary-bg: #001A3D;        
+$secondary-bg: #23282F;
+$primary-accent: #0844C4;  
+$secondary-accent: #A60B2F;   
+
+$primary-element: #00BEDD;    
+$background-area: #F1F4F9;    
+$surface-layer: #CBD4E1;      
+$secondary-layer: #63758D; 
+
+// // Mixin Global
+
+// @mixin Tipografia1 {
+//   font-size: 2rem;
+//   font-weight: 700;
+// }
+
+// @mixin Tipografia2 {
+//   font-size: 1rem;
+//   font-weight: 700;
+// }
