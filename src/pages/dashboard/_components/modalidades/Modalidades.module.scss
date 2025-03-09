@@ -1,9 +1,11 @@
+@use "../../../../index.scss" as *;
+
 .containerModalidade {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    outline: 1px solid #CBD4E1;
+    outline: 1px solid $surface-layer;
     width: 15vw;
     height: 209px;
     gap: 10px;
@@ -16,8 +18,53 @@
     }
 
     h2 {
-        color: #23282F;
+        color: $secondary-bg;
         font-weight: 700;
         font-size: 1.3rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) { 
+    .containerModalidade {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        outline: 1px solid $surface-layer;
+        width: 100%; //tablet
+        height: 209px;
+        gap: 10px;
+        padding: 30px;
+        border-radius: 6px;
+    
+        svg {
+            width: 48px;
+            height: 48px;
+        }
+    
+        h2 {
+            color: $secondary-bg;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+    }
+}
+
+@media (max-width: 768px) { 
+    .containerModalidade {
+        width: 100%;
+        height: 80px;
+        gap: 10px;
+        padding: 0px;
+        border-radius: 6px;
+    
+        svg {
+            width: 28px;
+            height: 28px;
+        }
+    
+        h2 {
+            font-size: 1rem; 
+        }
     }
 }
