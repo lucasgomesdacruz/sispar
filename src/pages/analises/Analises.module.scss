@@ -6,3 +6,15 @@
     align-items: center;
     flex-direction: column;
 }
+
+@media (min-width: 768px) and (max-width: 1024px) { 
+    .analises {
+        width: 85vw;
+    }
+}
+
+@media (max-width: 767px) {
+    .analises {
+        width: 85vw;
+    }
+}
