@@ -18,6 +18,10 @@ function NavBar() {
         setCollapsed(prevState => !prevState);
     };
 
+    const closeMenu = () => {
+        setCollapsed(true);
+    };
+
     function handleLogOut(event) {
         event.preventDefault();
         navigate("/");
@@ -42,7 +46,7 @@ function NavBar() {
 
                 <ul className={styles.navList}>
                     <li>
-                    <Link to="/dashboard">
+                    <Link to="/dashboard" onClick={closeMenu}>
                         <span className={styles.containerIcon}><AiOutlineHome /></span>
 
                         <span className={collapsed ? styles.hidden : ""}>Início</span>
@@ -50,7 +54,7 @@ function NavBar() {
                         
                     </li>
                     <li>
-                    <Link to="reembolso">
+                    <Link to="reembolso" onClick={closeMenu}>
                         <span className={styles.containerIcon}>
                             <FaFileInvoiceDollar />
                         </span>
@@ -59,7 +63,7 @@ function NavBar() {
                         
                     </li>
                     <li>
-                        <Link to="analises">
+                        <Link to="analises" onClick={closeMenu}>
                             <span className={styles.containerIcon}><TbClipboardSearch /></span>
                             
                             <span className={collapsed ? styles.hidden : ""}>Análises</span>
@@ -67,7 +71,7 @@ function NavBar() {
                         
                     </li>
                     <li>
-                    <Link to="historico"> 
+                    <Link to="historico" onClick={closeMenu}> 
                         <span className={styles.containerIcon}><LuHistory /></span>
                         
                         <span className={collapsed ? styles.hidden : ""}>Histórico</span>

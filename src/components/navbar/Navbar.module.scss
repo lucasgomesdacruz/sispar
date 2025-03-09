@@ -1,3 +1,5 @@
+@use "../../index.scss" as *;
+
 .navbar.collapsed {
     width: 4vw;
     box-shadow: none;
@@ -15,13 +17,13 @@
     width: 250px;
     height: 100vh;
     transition: width 0.3s ease;
-    background-color: #FFF;
-    color: white;
+    background-color: $primary-background;
+    color: $primary-background;
     padding: 0.62rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;  
-    box-shadow: 0 0 1.25rem 0 #63758D;
+    box-shadow: 0 0 1.25rem 0 $secondary-layer;
     position: absolute;
     top: 0;
     left: 0;
@@ -34,11 +36,11 @@
         justify-content: center;
         background: none;
         border: none;
-        color: white;
+        color: $primary-background;
         font-size: 1.5rem;
         cursor: pointer;
         margin-top: 24px;
-        background-color: #0844C4;
+        background-color: $primary-accent;
         width: 2.5vw;
         height: 2.5vw;
         border-radius: 6px;
@@ -75,7 +77,7 @@
         p {
             font-weight: 400;
             font-size: 0.87rem;
-            color: #0844C4;
+            color: $primary-accent;
         }
     }
 
@@ -94,13 +96,13 @@
             align-items: center;
             cursor: pointer;
             border-radius: 6px;
-            color: white;
+            color: $primary-background;
 
             a {
                 display: flex;
                 align-items: center;
                 gap: 10px;
-                color: black;
+                color: #000;
                 width: 100%;
                 font-size: 1.2rem;
                 
@@ -109,7 +111,7 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    background-color: #0844C4;
+                    background-color: $primary-accent;
                     width: 2.5vw;
                     height: 2.5vw;
                     border-radius: 6px;
@@ -120,7 +122,7 @@
                     }
 
                     svg {
-                        color: #fff;
+                        color: $primary-background;
                         font-size: 24px;
                     }
                 }
@@ -136,14 +138,240 @@
         width: 2.5vw;
         height: 2.5vw;
         border-radius: 6px;
-        background-color: #63758D;
+        background-color: $secondary-layer;
         cursor: pointer;
         margin-bottom: 20px;
         border: none;
         
         svg {
             font-size: 1.5rem;
-            color: #fff;
+            color: $primary-background;
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .navbar.collapsed {
+        width: 10vw;
+
+        /* Botão de abrir/fechar menu */
+        .menuToggle {
+            width: 7vw;
+            height: 5vh;
+        }
+    
+        /* Usuário */
+        .userInfo {
+           
+            svg {
+                width: 7vw;
+                height: 5vh;
+            }
+        }
+    
+        /* Lista de navegação */
+        .navList {
+            
+            align-items: center;
+            justify-content: center;
+   
+            li {
+                width: 7vw;
+                height: 5vh;
+                background-color: $primary-accent;
+                color: $primary-background;
+    
+                a {
+                    justify-content: center;
+                    color: $primary-background;
+                }
+            } 
+        }
+    
+        /* Ícone de Logout */
+        .fiLogOut {
+            width: 7vw;
+            height: 5vh;
+        }
+    }
+    
+    .hidden {
+        display: none;
+    }
+    
+    .navbar {
+        width: 100%;
+        z-index: 1000;
+    
+        /* Botão de abrir/fechar menu */
+        .menuToggle {
+            width: 60px;
+            height: 60px;
+        }
+    
+        /* Usuário */
+        .userInfo {
+            
+            svg {
+                width: 70px;
+                height: 70px;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+    
+            p {
+                font-size: 1.2rem;
+            }
+        }
+    
+        /* Lista de navegação */
+        .navList {
+            align-items: center;
+            justify-content: center;
+    
+            li {
+                width: 50%;
+                background-color: $primary-accent;
+                height: 5vh;
+                
+
+    
+                a {
+                    justify-content: center;
+                    color: $primary-background;
+                }
+            } 
+        }
+    
+        /* Ícone de Logout */
+        .fiLogOut {
+            width: 60px;
+            height: 60px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar.collapsed {
+        width: 15vw; 
+
+        /* Botão de abrir/fechar menu */
+        .menuToggle {
+            width: 10vw;
+            height: 7vh;
+        }
+    
+        /* Usuário */
+        .userInfo {
+        
+            svg {
+                width: 10vw;
+                height: 7vh;
+            }
+        }
+    
+        /* Lista de navegação */
+        .navList {
+            align-items: center;
+            justify-content: center;   
+    
+            li {
+                width: 10vw;  
+                height: 7vh;
+                background-color: $primary-accent;
+               
+                a {
+                    justify-content: center;
+                    color: $primary-background;
+
+                    .containerIcon {
+                        width: 10vw;
+                        height: 7vh;
+                    }
+                }
+            } 
+        }
+    
+        /* Ícone de Logout */
+        .fiLogOut {
+            width: 10vw;
+            height: 7vh;
+        }
+    }
+    
+    .hidden {
+        display: none;
+    }
+    
+    .navbar {
+        width: 100%;
+        z-index: 1000;
+
+    
+        /* Botão de abrir/fechar menu */
+        .menuToggle {
+            width: 10vw;
+            height: 7vh
+        }
+    
+        /* Usuário */
+        .userInfo {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            height: 15%;
+            justify-content: space-between;
+       
+            svg {
+                width: 10vw;
+                height: 7vh;
+            }
+            
+            h2 {
+                font-size: 1.2rem;
+            }
+    
+            p {
+                font-size: 1rem;
+            }
+        }
+    
+        /* Lista de navegação */
+        .navList {
+            align-items: center;
+            justify-content: center;
+
+               
+    
+            li {
+                width: 60%;
+                background-color: $primary-accent;
+                height: 7vh;
+                
+                a {
+                    justify-content: center;
+                    color: $primary-background;
+                    gap: 1px;
+                    
+                    .containerIcon {
+                        width: 10vw;
+                        height: 7vh;
+                  
+    
+                        &:hover {
+                            background-color: #094cdd;
+                        }
+                    }
+                }
+            } 
+        }
+    
+        /* Ícone de Logout */
+        .fiLogOut {
+            width: 10vw;
+            height: 7vh;
         }
     }
 }
