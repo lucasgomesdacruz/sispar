@@ -3,11 +3,14 @@
     flex-direction: column;
     justify-content: space-around;
     height: 100%;
+    white-space: nowrap;
+
 
     label {
         font-size: 16px;
         font-weight: 700;
         color: #23282F;
+        white-space: nowrap;
     }
     
     .input {
@@ -32,11 +35,28 @@
     }
 }
 
-@media (max-width: 767px) { 
-
+@media (min-width: 768px) and (max-width: 1024px) { 
     .containerInput { 
         .input {
             height: 50px;
+        }
+    }
+
+}
+
+@media (max-width: 767px) { 
+
+    .containerInput { 
+
+        label {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #23282F;
+            white-space: nowrap;
+        }
+
+        .input {
+            height: 30px;
         }
     }
 
