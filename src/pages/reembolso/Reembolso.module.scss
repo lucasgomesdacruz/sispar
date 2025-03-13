@@ -841,7 +841,7 @@
             .tableContainer {
                 display: flex; //mobile 
                 align-items: start;
-                width: 99%;
+                width: 100%; //mobile
                 height: 25vh; //tablet
                 border-radius: 5px;
                 outline: 1px solid $surface-layer;
@@ -863,7 +863,7 @@
                             width: 100%;
                             display: grid;
                             // grid-template-columns: 3% 9% 6% 6% 7% 7% 11% 10% 5% 5% 5% 5% 5% 5% 5% 6%;
-                            grid-template-columns: 10% 15% 10% 10% 10% 10% 20% 20% 10% 10% 10% 10% 10% 10% 15% 10%; //tablet
+                            grid-template-columns: 8% 15% 10% 10% 10% 10% 20% 20% 10% 10% 10% 10% 10% 10% 15% 10%; //tablet
     
                             th {
                                 width: 100%;
@@ -873,7 +873,8 @@
                                 border-right: 1px solid $surface-layer;
                                 border-bottom: 1px solid $surface-layer;
                                 grid-template-columns: auto; //tablet
-
+                                background-color: #007bff;
+                                
                                 // text-overflow: ellipsis;
                                 white-space: nowrap; //tablet
                                 // overflow: hidden;
@@ -881,7 +882,8 @@
                                 
                                 height: 5vh;
                                 font-weight: 400;
-                                font-size: 1rem;
+                                
+                                font-size: 0.90rem;//mobile
                                 color: $secondary-bg;
                             }
                         }
@@ -896,7 +898,7 @@
                             width: 100%;
                             display: grid;
                             // grid-template-columns: 3% 9% 6% 6% 7% 7% 11% 10% 5% 5% 5% 5% 5% 5% 5% 6%;
-                            grid-template-columns: 10% 15% 10% 10% 10% 10% 20% 20% 10% 10% 10% 10% 10% 10% 15% 10%;
+                            grid-template-columns: 8% 15% 10% 10% 10% 10% 20% 20% 10% 10% 10% 10% 10% 10% 15% 10%;
     
                             .clickHover,
                             .motiveHover {
@@ -926,7 +928,8 @@
     
                                 height: 5vh;
                                 font-weight: 400;
-                                font-size: 1rem;
+                                
+                                font-size: 0.90rem;//mobile
                                 color: $secondary-bg;
     
                                 svg {
