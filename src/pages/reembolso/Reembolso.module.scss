@@ -691,7 +691,7 @@
                     justify-content: space-between;
                     grid-template-columns: none; //mobile
                     // grid-template-rows: auto auto; tablet
-                    border-right: none; //tablet
+                    border-right: 1px solid $surface-layer; //tablet
                     padding-right: 0px; //tablet
                     
                     > *:nth-child(4) {
@@ -783,8 +783,8 @@
                         justify-content: space-between;
                         gap: 10px;
                         // grid-template-columns: 6% 6% 6% 10% 8% 12% 12% 12% 10% 5%;
-                        grid-template-columns: none; //tablet //mobile
-                        grid-template-rows: none; //tablet //mobile
+                        grid-template-columns: 1px solid $surface-layer; //tablet //mobile
+                        grid-template-rows: 1px solid $surface-layer; //tablet //mobile
     
                         .save {
                             display: flex;
@@ -851,6 +851,7 @@
                 .customTable {
                     display: grid;
                     width: 100%;
+                    border-collapse: collapse; 
     
                     .containerThead {
                         height: 5vh;
@@ -862,28 +863,30 @@
                         .containerTr {
                             width: 100%;
                             display: grid;
-                            // grid-template-columns: 3% 9% 6% 6% 7% 7% 11% 10% 5% 5% 5% 5% 5% 5% 5% 6%;
-                            grid-template-columns: 8% 15% 10% 10% 10% 10% 20% 20% 10% 10% 10% 10% 10% 10% 15% 10%; //tablet
+                            
+                            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     
                             th {
-                                width: 100%;
+                                width: 150px; //mobile
                                 display: grid;
                                 justify-content: center;
                                 align-items: center;
                                 border-right: 1px solid $surface-layer;
                                 border-bottom: 1px solid $surface-layer;
                                 grid-template-columns: auto; //tablet
-                                background-color: #007bff;
                                 
-                                // text-overflow: ellipsis;
-                                white-space: nowrap; //tablet
-                                // overflow: hidden;
+                                
+                                
+                                
+                                text-overflow: ellipsis; //mobile
+                                white-space: nowrap; //mobile
+                                overflow: hidden; //mobile
                                 
                                 
                                 height: 5vh;
                                 font-weight: 400;
                                 
-                                font-size: 0.90rem;//mobile
+                                font-size: 1rem;//mobile
                                 color: $secondary-bg;
                             }
                         }
@@ -898,7 +901,9 @@
                             width: 100%;
                             display: grid;
                             // grid-template-columns: 3% 9% 6% 6% 7% 7% 11% 10% 5% 5% 5% 5% 5% 5% 5% 6%;
-                            grid-template-columns: 8% 15% 10% 10% 10% 10% 20% 20% 10% 10% 10% 10% 10% 10% 15% 10%;
+                            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+                            
+
     
                             .clickHover,
                             .motiveHover {
@@ -918,18 +923,22 @@
                                 display: grid;
                                 align-items: center;
                                 justify-content: center;
-                                border-right: 1px solid $surface-layer;
-                                border-bottom: 1px solid $surface-layer;
+                                border-right: 1px solid $surface-layer; //mobile
+                                border-bottom: 1px solid $surface-layer; //mobile
 
-                                white-space: nowrap; //tablet
-                                // overflow: hidden; //tablet 
-                                // text-overflow: ellipsis; //tablet
+                               
+                                width: 150px; //mobile
+                                text-overflow: ellipsis; //mobile
+                                white-space: nowrap; //mobile
+                                overflow: hidden; //mobile
+                                
+                                
                                 
     
                                 height: 5vh;
                                 font-weight: 400;
                                 
-                                font-size: 0.90rem;//mobile
+                                font-size: 1rem;//mobile
                                 color: $secondary-bg;
     
                                 svg {
