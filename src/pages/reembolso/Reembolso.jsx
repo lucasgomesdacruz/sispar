@@ -27,15 +27,14 @@ function Reembolso() {
         nome: '',
         empresa: '',
         contas: '',
-        descricao: '',
         data: '',
         tipoDespesa: '',
         centroCusto: '',
         ordInt: '',
         pep: '',
         div: '',
-        km: '',
         moeda: '',
+        km: '',
         valor: '',
         taxa: '',
         val: '',
@@ -61,18 +60,18 @@ function Reembolso() {
             nome: '',
             empresa: '',
             contas: '',
-            descricao: '',
             data: '',
             tipoDespesa: '',
             centroCusto: '',
             ordInt: '',
             pep: '',
             div: '',
-            km: '',
             moeda: '',
+            km: '',
             valor: '',
+            taxa: '',
             val: '',
-            despesa: '',
+            despesa: ''
         });
     };
 
@@ -143,8 +142,9 @@ function Reembolso() {
                        
                         <div className={styles.rows}>
                             <Input type="text" name="ordInt" label="Ord. Int." id="ordInt" value={formData.ordInt} onChange={handleInputChange}/>
-                            <Input type="text" name="div" label="Div." id="div" value={formData.div} onChange={handleInputChange}/>
                             <Input type="text" name="pep" label="PEP" id="pep" value={formData.pep} onChange={handleInputChange}/>
+
+                            <Input type="text" name="div" label="Div." id="div" value={formData.div} onChange={handleInputChange}/>
                             
                             <OptionsDate  value={formData.moeda} onChange={handleInputChange}/>
 
@@ -248,8 +248,8 @@ function Reembolso() {
                                     <td>{task.tipoDespesa}</td>
                                     <td>{task.centroCusto}</td>
                                     <td>{task.ordInt}</td>
-                                    <td>{task.pep}</td>
                                     <td>{task.div}</td>
+                                    <td>{task.pep}</td>
                                     <td>{task.moeda}</td>
                                     <td>{task.km}</td>
                                     <td>{task.valor}</td>
