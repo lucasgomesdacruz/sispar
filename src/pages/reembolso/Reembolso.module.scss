@@ -318,43 +318,35 @@
 
 @media (min-width: 768px) and (max-width: 1024px) { 
     .reembolso {
-        width: 85vw; //tablet
-    
+        width: 85vw;
+
         .mainContainer {
-            width: 95%; //tablet
+            width: 95%;
             display: flex;
-            align-items: center; // tablet
-            
-            gap: 60px; //tablet
+            align-items: center;
+            gap: 60px;
     
             .infoContainer {
-                flex-direction: column; //tablet
-                gap: 5px; //tablet
-        
+                flex-direction: column;
+                gap: 5px;
+                
                 .form {
-                    width: 100%; //tablet
-                    border-right: none; //tablet
-                    padding-right: 0px; //tablet
+                    width: 100%;
+                    border-right: none;
+                    padding-right: 0px;
                 }
-        
+                
                 .formDetails {
-                    width: 100%; //tablet
-                    justify-content: space-between; //tablet
-                    // grid-template-rows: auto auto; //tablet
-    
+                    width: 100%;
+                    justify-content: space-between;
+                    
                     .containerDate {
                        
-    
-                       
-    
                         .input {
                             
-                        
-                               
-    
                                 &::after {
                         
-                                    top: 56%; //tablet
+                                    top: 56%;
                                     right: 0px;
                                     transform: translateY(-50%);
                                 }
@@ -362,46 +354,34 @@
                         
                     }
                     .rows {
-                        grid-template-columns: 1fr 1fr 1fr 1fr 1fr; //tablet
-                        grid-template-rows: 1fr 1fr; //tablet
+                        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+                        grid-template-rows: 1fr 1fr;
     
                         .save {
-                            top: 6px; //tablet
+                            top: 6px;
                         }
     
                         .delete {
-                            top: 6px; //tablet
-                            
-    
-                           
+                            top: 6px;
                         }
                     }
                 }
             }
     
             .tableContainer {
-             
-                height: 25vh; //tablet
-                overflow-x: scroll; //tablet
+                height: 25vh;
+                overflow-x: scroll;
     
                 .customTable {
                     
-    
                     .containerThead {
                         
-    
                         .containerTr {
-                           
-                            
-                            grid-template-columns: 10% 15% 10% 10% 10% 10% 20% 20% 10% 10% 10% 10% 10% 10% 15% 10%; //tablet
+                            grid-template-columns: 10% 15% 10% 10% 10% 10% 20% 20% 10% 10% 10% 10% 10% 10% 15% 10%;
     
                             th {
-                                
-                                grid-template-columns: auto; //tablet
-
-                                // text-overflow: ellipsis;
-                                white-space: nowrap; //tablet
-                                // overflow: hidden;
+                                grid-template-columns: auto;
+                                white-space: nowrap;
                             }
                         }
                     }
@@ -409,21 +389,10 @@
                     .containerTbody {
     
                         .containerTr {
-                            
-                            
                             grid-template-columns: 10% 15% 10% 10% 10% 10% 20% 20% 10% 10% 10% 10% 10% 10% 15% 10%;
     
-                            
-    
-    
                             td {
-                                
-
-                                white-space: nowrap; //tablet
-                                // overflow: hidden; //tablet 
-                                // text-overflow: ellipsis; //tablet
-                                
-    
+                                white-space: nowrap;
                                 height: 5vh;
                                 font-weight: 400;
                                 font-size: 1rem;
@@ -440,32 +409,25 @@
             }
     
             .containerFull {
-              
-                height: 15vh; //tablet
-               
+                height: 15vh;
                 
                 .containerGroups {
-                    width: 100%; //tablet
-                  
-                  
-                    display: grid;     //tablet
-                    grid-template-columns: 1fr 1fr; //tablet
-                    gap: 10px; //tablet
+                    width: 100%;
+                    display: grid;    
+                    grid-template-columns: 1fr 1fr;
+                    gap: 10px;
                 } 
     
                 .send {
-                    width: 100%; //tablet
-                    white-space: nowrap; //tablet
-                    
-                    font-size: 0.90rem; //tablet
+                    width: 100%;
+                    white-space: nowrap;
+                    font-size: 0.90rem;
                 }
     
                 .cancel {
-                    
-                    width: 100%; //tablet
-                    white-space: nowrap; //tablet
-                   
-                    font-size: 0.90rem; //tablet
+                    width: 100%;
+                    white-space: nowrap;
+                    font-size: 0.90rem;
     
                     svg {
                         display: flex;
@@ -481,57 +443,46 @@
 
 @media (max-width: 767px) {
     .reembolso {
-        width: 85vw; //tablet
+        width: 85vw;
     
         .mainContainer {
-            width: 90%; //tablet //mobile
-            margin: 0 auto; //tablet //mobile
-            align-items: center; // tablet
+            width: 90%;
+            margin: 0 auto;
+            align-items: center;
             flex-direction: column;
-            gap: 5px; //tablet
+            gap: 5px;
     
             .infoContainer {
-                margin-top: 10px; //mobile
-                flex-direction: column; //tablet
-                gap: 5px; //tablet
-
-                height: 25vh; //tablet
-                // outline: 1px solid red; //tablet
+                margin-top: 10px;
+                flex-direction: column;
+                gap: 5px;
+                height: 25vh;
                 overflow-y: scroll;
         
                 .form {
-                    width: 100%; //tablet
-                    height: auto; //mobile
-                    display: flex; //mobile
-                    flex-direction: column; //mobile
+                    width: 100%;
+                    height: auto;
+                    display: flex;
+                    flex-direction: column;
                     justify-content: space-between;
-                    grid-template-columns: none; //mobile
-                    // grid-template-rows: auto auto; tablet
-                    border-right: 1px solid $surface-layer; //tablet
-                    padding-right: 0px; //tablet
-                    
+                    grid-template-columns: none;
+                    border-right: 1px solid $surface-layer;
+                    padding-right: 0px;
                 }
         
                 .formDetails {
-                    width: 100%; //tablet
-                    height: auto; //mobile
-                    display: flex; //mobile
-                    flex-direction: column; //mobile
+                    width: 100%;
+                    height: auto;
+                    display: flex;
+                    flex-direction: column;
                     justify-content: space-between;
-                    grid-template-columns: none; //mobile
-                    // grid-template-rows: auto auto; //tablet
+                    grid-template-columns: none;
     
                     .containerDate {
                        
-    
-                        
-    
                         .input {
-                            
-                            height: 40px; //mobile
+                            height: 40px;
                            
-                            
-                        
                                 &:hover {
                                     outline: 1px solid #007bff;
                                 }
@@ -542,11 +493,7 @@
                                 }
     
                                 &::after {
-                                    
-                                    height: 40px; //mobile
-                                    
-                                    
-                                    
+                                    height: 40px;
                                 }
     
                                 &::-webkit-calendar-picker-indicator {
@@ -560,75 +507,55 @@
                         
                     }
                     .rows {
-                        // grid-column: 1 / 4; //mobile
-                        display: flex; //mobile
-                        flex-direction: column; //mobile
+                        display: flex;
+                        flex-direction: column;
                         gap: 10px;
-                        // grid-template-columns: 6% 6% 6% 10% 8% 12% 12% 12% 10% 5%;
-                        grid-template-columns: 1px solid $surface-layer; //tablet //mobile
-                        grid-template-rows: 1px solid $surface-layer; //tablet //mobile
+                        grid-template-columns: 1px solid $surface-layer;
+                        grid-template-rows: 1px solid $surface-layer;
     
                         .save {
-                        
-                            position: none; //mobile
-                            top: 6px; //tablet
+                            position: none;
+                            top: 6px;
                             background-color: $primary-bg;
-                           
-                            min-height: 50px; //mobile
-                        
-    
+                            min-height: 50px;
                         }
     
                         .delete {
-                            position: none; //mobile
-                            
-                            top: 6px; //tablet
-                           
+                            position: none;
+                            top: 6px;
                             background-color: $primary-element;
-                           
-                            min-height: 50px; //mobile
-                            
-                           
-    
-                           
+                            min-height: 50px;
                         }
                     }
                 }
             }
     
             .tableContainer {
-                display: flex; //mobile 
+                display: flex; 
                 align-items: start;
-                width: 100%; //mobile
-                height: 25vh; //tablet
+                width: 100%;
+                height: 25vh;
                 border-radius: 5px;
-                overflow-x: scroll; //tablet
+                overflow-x: scroll;
     
                 .customTable {
                     
-    
                     .containerThead {
                         
-    
                         .containerTr {
-                            width: 100%; //mobile
-                            display: grid; //mobile
-                            
-                            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; //mobile
+                            width: 100%;
+                            display: grid;
+                            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     
                             th {
-                                width: 150px; //mobile
-                                grid-template-columns: auto; //tablet
-                                
-                                text-overflow: ellipsis; //mobile
-                                white-space: nowrap; //mobile
-                                overflow: hidden; //mobile
-                                
-                                
+                                width: 150px;
+                                grid-template-columns: auto;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                                overflow: hidden;
                                 height: 5vh;
                                 font-weight: 400;
-                                
-                                font-size: 1rem;//mobile
+                                font-size: 1rem;
                                 
                             }
                         }
@@ -636,30 +563,19 @@
     
                     .containerTbody {
                         
-    
                         .containerTr {
-                            width: 100%; //mobile
-                            display: grid; //mobile
-                            // grid-template-columns: 3% 9% 6% 6% 7% 7% 11% 10% 5% 5% 5% 5% 5% 5% 5% 6%;
-                            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; //mobile
+                            width: 100%;
+                            display: grid;
+                            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
                             
-
-    
-                            
-    
                             td {
-                                
-                                border-right: 1px solid $surface-layer; //mobile
-                                border-bottom: 1px solid $surface-layer; //mobile
-
-                               
-                                width: 150px; //mobile
-                                text-overflow: ellipsis; //mobile
-                                white-space: nowrap; //mobile
-                                overflow: hidden; //mobile
-                                
-                                font-size: 1rem;//mobile
-                                
+                                border-right: 1px solid $surface-layer;
+                                border-bottom: 1px solid $surface-layer;
+                                width: 150px;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                font-size: 1rem;
                             }
                         }
     
@@ -668,27 +584,27 @@
             }
     
             .containerFull {
-                height: 15vh; //tablet
-                display: flex; //mobile
+                height: 15vh;
+                display: flex;
                
                 .containerGroups {
-                    width: 100%; //tablet
+                    width: 100%;
                     height: 100%;
                     display: grid;     
-                    grid-template-columns: 1fr; //mobile
+                    grid-template-columns: 1fr;
                     gap: 10px;
                 } 
     
                 .send {
-                    width: 100%; //tablet
-                    white-space: nowrap; //tablet
-                    font-size: 0.90rem; //tablet
+                    width: 100%;
+                    white-space: nowrap;
+                    font-size: 0.90rem;
                 }
     
                 .cancel {
-                    width: 100%; //tablet
-                    white-space: nowrap; //tablet
-                    font-size: 0.90rem; //tablet
+                    width: 100%;
+                    white-space: nowrap;
+                    font-size: 0.90rem;
                 }
             }
         }
