@@ -58,7 +58,7 @@ function Criar() {
                         
                         <Input type="text" label="Telefone" placeholder="(00)0000000000"/>
                         <Input type="text" label="Email"/>
-                        <Input type="text" label="Confirmar Email"/>
+                        <Input type="email" label="Confirmar Email"/>
                         <Input type="password" label="Senha"/>
                         <Input type="password" label="Confirmar senha"/>
                     </fieldset>
