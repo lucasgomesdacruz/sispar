@@ -1,8 +1,16 @@
 import { Helmet } from "react-helmet-async";
-import Construction from "../../components/construction/Construction.jsx";
+import logo from "../../assets/images/TelaLogin/logo.png"
 import styles from "./Recuperar.module.scss"
+import Input from "../../components/Input/Input.jsx";
+import Button from "../../components/button/Button.jsx";
 
 function Recuperar() {
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        alert("Form enviado")
+    }
+
     return (
         <>
             <Helmet>
@@ -35,8 +43,19 @@ function Recuperar() {
                 <meta name="twitter:image" content="URL_da_imagem_de_compartilhamento" />
                 <meta name="twitter:card" content="summary_large_image" />
             </Helmet>
-            <main className={styles.retrieve}>
-                <Construction />
+            <main className={styles.recover}>
+                <div>
+                    <img src={logo} alt="Lodo da wison sons" />
+                </div>
+                <form action="" onSubmit={handleSubmit}>
+                    <fieldset>
+                        <Input type="text" label="CPF"/>
+                        <Input type="email" label="Confirmar Email"/>
+                    </fieldset>
+
+                    <Button text="Recuperar" type="submit" className={styles.btnDark} />
+                    <p className={styles.enter}>Ja possui uma conta? Entrar</p>
+                </form>
             </main>
         </>
         

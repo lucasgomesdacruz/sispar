@@ -1,15 +1,51 @@
-.retrieve {
+@use "../../index.scss" as *;
+
+.recover {
     width: 100vw;
+    height: 100vh;
     display: flex;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
-    text-align: center;
+
+    form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        max-width: 700px;
+        width: 95%;
+
+        fieldset {
+            width: 100%;
+            border: none;
+        }
+
+        .btnDark {
+            width: 30%;
+            padding: 15px 10px;
+            border: none;
+            border-radius: 5px;
+            color: $primary-background;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1rem;
+            background-color: $primary-accent;
+            margin-top: 20px;
+        }
+
+        .btnDark {
+            background: $primary-bg;
+
+            &:hover {
+              background: #011125;
+              transition: all 0.3s ease-in-out;
+            }
+        }
+
+        .enter {
+            color: #011125;
+            margin-top: 10px;
+        }   
+    }
 }
-
-
-
-
-
-
-
