@@ -17,7 +17,11 @@
         width: 95%;
 
         fieldset {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
             width: 100%;
+            height: 100%;
             border: none;
         }
 
@@ -47,5 +51,29 @@
             color: #011125;
             margin-top: 10px;
         }   
+    }
+}
+
+
+
+@media (max-width: 767px) {
+    .recover {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            max-width: 700px;
+            width: 95%;
+            // height: 100%;
+        }
+
     }
 }
