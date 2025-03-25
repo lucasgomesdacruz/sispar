@@ -12,7 +12,7 @@ Este é um sistema web desenvolvido em React.js que permite aos usuários solici
 - React Icons
 - Helmet (para SEO)
 
-## O projeto utiliza o React Router para gerenciar a navegação entre as páginas. A estrutura de roteamento está definida no arquivo router.js, onde cada rota é associada ao seu respectivo componente:
+## O projeto utiliza o React Router para gerenciar a navegação entre as páginas. A estrutura de roteamento está definida no arquivo App.jsx, onde cada rota é associada ao seu respectivo componente:
 ![codeasdasdasd](https://github.com/user-attachments/assets/d7e2ddb8-2351-43ce-bc10-67b97426af39)
 
 ## Componentes 
