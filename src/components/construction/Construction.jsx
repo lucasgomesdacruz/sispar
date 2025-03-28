@@ -19,8 +19,6 @@ function Construction() {
             <p className={styles.constructionText}>
                Esta seção ainda está em construção. Em breve teremos novidades!
             </p>
-
-            <Link to="/">Voltar para o Login</Link>
         </section>
     )
 }
