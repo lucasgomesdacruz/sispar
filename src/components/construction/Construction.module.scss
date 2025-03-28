@@ -26,10 +26,7 @@
         color: $primary-accent;
     }
 
-    a {
-        font-weight: 700;
-        font-size: 1.2rem; 
-    }
+    
 }
 
 @media (max-width: 767px) { 
@@ -45,10 +42,6 @@
             text-align: center;
         }
     
-        a {
-            margin-top: 10px;
-            font-size: 1rem; 
-        }
     }
     
 }
