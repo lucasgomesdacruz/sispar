@@ -50,11 +50,14 @@
         .enter {
             color: #011125;
             margin-top: 10px;
+
+            a {
+                font-weight: bold;
+                color: $primary-accent;
+            }
         }   
     }
 }
-
-
 
 @media (max-width: 767px) {
     .recover {
@@ -74,6 +77,5 @@
             width: 95%;
             // height: 100%;
         }
-
     }
 }

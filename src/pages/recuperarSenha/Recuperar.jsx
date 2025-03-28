@@ -3,6 +3,7 @@ import logo from "../../assets/images/TelaLogin/logo.png"
 import styles from "./Recuperar.module.scss"
 import Input from "../../components/Input/Input.jsx";
 import Button from "../../components/button/Button.jsx";
+import { Link } from "react-router-dom";
 
 function Recuperar() {
 
@@ -54,7 +55,7 @@ function Recuperar() {
                     </fieldset>
 
                     <Button text="Recuperar" type="submit" className={styles.btnDark} />
-                    <p className={styles.enter}>Ja possui uma conta? Entrar</p>
+                    <p className={styles.enter}>Ja possui uma conta? <Link to="/">Entrar</Link></p>
                 </form>
             </main>
         </>

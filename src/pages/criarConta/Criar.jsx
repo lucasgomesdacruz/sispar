@@ -3,6 +3,7 @@ import styles from "./Criar.module.scss"
 import Input from "../../components/Input/Input.jsx";
 import logo from "../../assets/images/TelaLogin/logo.png"
 import Button from "../../components/button/Button.jsx";
+import { Link } from "react-router-dom";
 
 function Criar() {
     
@@ -64,7 +65,7 @@ function Criar() {
                     </fieldset>
 
                     <Button text="Entrar" type="submit" className={styles.btnDark} />
-                    <p className={styles.enter}>Ja possui uma conta? Entrar</p>
+                    <p className={styles.enter}>Ja possui uma conta? <Link to="/">Entrar</Link></p>
                 </form>
             </main>
         </>
