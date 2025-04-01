@@ -50,6 +50,35 @@ Este é um sistema web desenvolvido em React.js que permite aos usuários solici
 ## A página NotFound é uma página de erro personalizada, normalmente exibida quando o usuário tenta acessar uma rota que não existe, ou seja, uma página 404. 
 ![Macbook-Air-localhost (1)](https://github.com/user-attachments/assets/c58f25e7-9809-4220-9ace-b9c7c6c7174f)
 
+## 📋 Formulário de Criação de Conta
+
+## A página de criação de conta permite que novos usuários se registrem no SISPAR preenchendo um formulário com as seguintes informações:
+
+- Nome completo
+
+- CPF
+
+- Matrícula
+
+- Data de nascimento
+
+- Telefone
+
+- E-mail e confirmação
+
+- Senha e confirmação
+
+![image](https://github.com/user-attachments/assets/4e097fc5-77bb-4374-97fe-d970e4209125)
+
+
+
+
+## 🔑 Recuperação de Senha
+
+Formulário para recuperação de conta
+![image](https://github.com/user-attachments/assets/a1394730-4cdc-4132-b5ef-8a2d5ece2dd4)
+
+
 
 
 ## 📂 Estrutura do Projeto
