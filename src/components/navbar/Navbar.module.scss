@@ -254,8 +254,16 @@
 }
 
 @media (max-width: 767px) {
+    
     .navbar.collapsed {
-        width: 15vw; 
+        width: 15vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh; // fallback
+        height: 100dvh; // altura dinâmica real
+        overflow-y: auto; // permite rolar o conteúdo interno
+        z-index: 1000; 
 
         /* Botão de abrir/fechar menu */
         .menuToggle {
@@ -308,6 +316,13 @@
     .navbar {
         width: 100%;
         z-index: 1000;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh; // fallback
+        height: 100dvh; // altura dinâmica real
+        overflow-y: auto; // permite rolar o conteúdo interno
+        z-index: 1000; 
 
     
         /* Botão de abrir/fechar menu */
