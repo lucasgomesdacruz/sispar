@@ -28,6 +28,39 @@
             }
         }
     }
+}
 
+@media (max-width: 767px) {
+    .header {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        width: 100%;
+        height: 5vh;
+        color: #23282F;
+    
+        .next {
+            font-size: 18px;
+            color: #CBD4E1;
+        }
+    
+        ul {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+    
+            li {
+                color: #23282F;
+                font-weight: 400;
+                font-size: 13px;
+    
+                svg {
+                    display: flex;
+                    align-items: center;
+                    color: #CBD4E1;
+                }
+            }
+        }
+    }
     
 }
