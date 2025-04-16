@@ -17,7 +17,9 @@ import OptionsDate from "./_components/OptionsDate/OptionsDate.jsx";
 import OptionsExpense from "./_components/OptionsExpense/OptionsExpense.jsx";
 import OptionsConst from "./_components/OptionsConst/OptionsConst.jsx";
 
-import { useState } from "react";
+import Api from "../../Services/Api.jsx";
+
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 
 function Reembolso() {
@@ -98,6 +100,30 @@ function Reembolso() {
     // function handleClose() {
     //      setModalType(null);
     // }
+
+    // cria uma função para enviar os dados para o banco de daods
+    const [ foiEnviado, setFoiEnviado ] = useState(false) //criando um estado
+
+    const enviarParaAnalise = async () => {
+        try {
+            const response = await Api.post("/refunds/new", taskList);
+            console.log("Resposta da Api", response);
+            alert("Reembolso solicitado com sucesso!");
+            setFoiEnviado(true);
+            setTaskList([]);
+        } catch (error) {
+            console.error("Erro ao enviar reembolso:", error);
+            alert("Erro ao solicitar reembolso. Tente novamente.");
+        }
+    };
+
+    useEffect(() => {
+        if(foiEnviado === true) {
+            //Se "foi Enviado for true, segnicica que o reembolso foi enviado com sucesso"
+            setFoiEnviado(false);
+            setTaskList([]);
+        }
+    }, [foiEnviado])
 
     return (
         <div className={styles.reembolso}>
@@ -269,7 +295,7 @@ function Reembolso() {
                             <Input type="text" label="Total Faturado" id="faturado" placeholder="0.00"/>
                             <Input type="text" label="Total Despesa" id="despesa" placeholder="0.00"/>
                        
-                            <Button icon={<FaCheck />} text="Enviar para Análise" type="button" className={styles.send}/>
+                            <Button icon={<FaCheck />} text="Enviar para Análise" type="button" className={styles.send} onClick={enviarParaAnalise}/>
                             <Button onClick={handleCancelRequest} icon={<IoMdClose />} type="button" text="Cancelar Solicitação" className={styles.cancel}/>
                     </div>
                 </section>
