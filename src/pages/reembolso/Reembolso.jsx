@@ -54,6 +54,10 @@ function Reembolso() {
     };
 
     const handleSave = () => {
+        if (!formData.nome || !formData.empresa || !formData.contas) {
+            alert("Preencha os campos obrigatórios!");
+            return;
+        }
         setTaskList([...taskList, formData]);
 
         setFormData({
