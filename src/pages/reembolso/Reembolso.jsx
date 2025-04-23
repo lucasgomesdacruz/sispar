@@ -1,5 +1,8 @@
 import styles from "./Reembolso.module.scss"
 
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { IoDocumentTextSharp } from "react-icons/io5";
 import { FaTrashAlt } from "react-icons/fa";
 import { IoIosInformationCircleOutline } from "react-icons/io";
@@ -57,7 +60,7 @@ function Reembolso() {
 
     const handleSave = () => {
         if (!formData.nome || !formData.empresa || !formData.contas) {
-            alert("Preencha os campos obrigatórios!");
+            toast.error("Preencha os campos obrigatórios!");
             return;
         }
         setTaskList([...taskList, formData]);
@@ -108,12 +111,12 @@ function Reembolso() {
         try {
             const response = await Api.post("/refunds/new", taskList);
             console.log("Resposta da Api", response);
-            alert("Reembolso solicitado com sucesso!");
+            toast.success("Reembolso solicitado com sucesso!");
             setFoiEnviado(true);
             setTaskList([]);
         } catch (error) {
             console.error("Erro ao enviar reembolso:", error);
-            alert("Erro ao solicitar reembolso. Tente novamente.");
+            toast.error("Erro ao solicitar reembolso. Tente novamente.");
         }
     };
 
@@ -212,61 +215,6 @@ function Reembolso() {
                             </tr>
                         </thead>
                         <tbody className={styles.containerTbody}>
-                            <tr className={styles.containerTr}>
-                                <td className={styles.clickHover} onClick={handleDelete}><FaTrashAlt /></td>
-                                <td>Vitor Carvalho</td>
-                                <td>WSS001</td>
-                                <td>329456</td>
-                                <td>08/01/2025</td>
-                                <td className={styles.motiveHover} onClick={handleMotive}><IoDocumentTextSharp /></td>
-                                <td>Desp. de viagem a...</td>
-                                <td>1100110002 - FIN...</td>
-                                <td>0003</td>
-                                <td>002</td>
-                                <td>001</td>
-                                <td>BRL</td>
-                                <td>434Km</td>
-                                <td>0.65</td>
-                                <td>242.10</td>
-                                <td>40.05</td>
-                            </tr>
-                            <tr className={styles.containerTr}>
-                                <td className={styles.clickHover} onClick={handleDelete}><FaTrashAlt /></td>
-                                <td>Vanessa Porto</td>
-                                <td>WSS002</td>
-                                <td>987789</td>
-                                <td>01/01/2025</td>
-                                <td className={styles.motiveHover} onClick={handleMotive}><IoDocumentTextSharp /></td>
-                                <td>Desp. de viagem a...</td>
-                                <td>1100110102 - FIN C...</td>
-                                <td>0002</td>
-                                <td>005</td>
-                                <td>001</td>
-                                <td>ARS</td>
-                                <td>289Km</td>
-                                <td>0.37</td>
-                                <td>106.93</td>
-                                <td>0.00</td>
-                            </tr>
-                            <tr className={styles.containerTr}>
-                                <td className={styles.clickHover} onClick={handleDelete}><FaTrashAlt /></td>
-                                <td>Washington Klein</td>
-                                <td>WSS003</td>
-                                <td>546791</td>
-                                <td>03/01/2025</td>
-                                <td className={styles.motiveHover} onClick={handleMotive}><IoDocumentTextSharp /></td>
-                                <td>Eventos de apresen...</td>
-                                <td>1100109002 - FIN...</td>
-                                <td>0001</td>
-                                <td>005</td>
-                                <td>001</td>
-                                <td>USD</td>
-                                <td>197Km</td>
-                                <td>0.75</td>
-                                <td>109.75</td>
-                                <td>29.97</td>
-                            </tr>
-
                             {taskList.map((task, index) => (
                                 <tr key={index} className={styles.containerTr}>
                                     <td className={styles.clickHover} onClick={handleDelete}><FaTrashAlt /></td>
@@ -307,6 +255,7 @@ function Reembolso() {
                 <div tabIndex="-1" role="button" onClick={() => setModalType("motive")}></div>
                 <Modal modalType={modalType} onClose={() => setModalType(null)} />
             </div>
+            <ToastContainer position="top-right" autoClose={3000} />
         </div>
     )
 }
