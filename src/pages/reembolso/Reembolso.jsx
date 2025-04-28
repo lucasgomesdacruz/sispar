@@ -15,10 +15,14 @@ import Header from "../../components/header/Header.jsx"
 import Input from "../../components/Input/Input.jsx"
 import Button from "../../components/button/Button.jsx";
 
-import Modal from "./_components/modal/Modal.jsx"
 import OptionsDate from "./_components/OptionsDate/OptionsDate.jsx";
 import OptionsExpense from "./_components/OptionsExpense/OptionsExpense.jsx";
 import OptionsConst from "./_components/OptionsConst/OptionsConst.jsx";
+
+import ClearFieldsModal from "../reembolso/_components/modals/clearFieldsModal/ClearFieldsModal.jsx";
+import DeleteRowModal from "../reembolso/_components/modals/deleteRowModal/DeleteRowModal.jsx";
+import CancelRequestModal from "../reembolso/_components/modals/cancelRequestModal/CancelRequestModal.jsx";
+import MotiveModal from "../reembolso/_components/modals/motiveModal/MotiveModal.jsx";
 
 import Api from "../../Services/Api.jsx";
 
@@ -26,7 +30,6 @@ import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 
 function Reembolso() {
-    const [modalType, setModalType] = useState(null); 
 
     const [formData, setFormData] = useState({
         nome: '',
@@ -84,6 +87,23 @@ function Reembolso() {
         });
     };
 
+    const [modalType, setModalType] = useState(null);
+
+    const renderModal = () => {
+        switch (modalType) {
+            case "clearFields":
+            return <ClearFieldsModal onClose={() => setModalType(null)} />;
+            case "deleteRow":
+            return <DeleteRowModal onClose={() => setModalType(null)} />;
+            case "cancelRequest":
+            return <CancelRequestModal onClose={() => setModalType(null)} />;
+            case "motive":
+            return <MotiveModal onClose={() => setModalType(null)} />;
+            default:
+            return null;
+        }
+    };
+
     function handleCancelRequest() {
         setModalType("cancelRequest");
     }
@@ -99,10 +119,6 @@ function Reembolso() {
     function handleMotive() {
         setModalType("motive")
     }
-
-    // function handleClose() {
-    //      setModalType(null);
-    // }
 
     // cria uma função para enviar os dados para o banco de daods
     const [ foiEnviado, setFoiEnviado ] = useState(false) //criando um estado
@@ -248,12 +264,12 @@ function Reembolso() {
                     </div>
                 </section>
             </main>
-            <div tabIndex="-1">
+            <div>
                 <div tabIndex="-1" role="button" onClick={() => setModalType("clearFields")}></div>
                 <div tabIndex="-1" role="button" onClick={() => setModalType("deleteRow")}></div>
                 <div tabIndex="-1" role="button" onClick={() => setModalType("cancelRequest")}></div>
                 <div tabIndex="-1" role="button" onClick={() => setModalType("motive")}></div>
-                <Modal modalType={modalType} onClose={() => setModalType(null)} />
+                {renderModal()}
             </div>
             <ToastContainer position="top-right" autoClose={3000} />
         </div>
