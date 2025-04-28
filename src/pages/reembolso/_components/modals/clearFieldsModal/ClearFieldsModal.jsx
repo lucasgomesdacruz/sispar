@@ -1,6 +1,6 @@
 
 // ClearFieldsModal.js
-import styles from "./clearFieldsModal.module.scss"
+import styles from "./ClearFieldsModal.module.scss"
 import Modal from "../modal/Modal";
 
 const ClearFieldsModal = ({ onClose }) => {
