@@ -9,7 +9,8 @@ import Reembolso from "./pages/reembolso/Reembolso.jsx"
 import Recuperar from "./pages/recuperarSenha/Recuperar.jsx";
 import Criar from "./pages/criarConta/Criar.jsx";
 import NotFound from "./pages/notFound/NotFound.jsx";
-import Perfil from "./pages/perfil/perfil.jsx";
+import Perfil from "./pages/perfil/Perfil.jsx";
+
 
 const router = createBrowserRouter([
   {
