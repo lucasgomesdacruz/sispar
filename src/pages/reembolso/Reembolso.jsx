@@ -88,13 +88,56 @@ function Reembolso() {
     };
 
     const [modalType, setModalType] = useState(null);
+    const [indexToRemove, setIndexToRemove] = useState(null);
+
+    const handleDelete = (index) => {
+        setIndexToRemove(index);
+        setModalType("deleteRow");
+    };
+
+    const handleRemoveTask = (indexToRemove) => {
+        const newTaskList = taskList.filter((_, index) => index !== indexToRemove);
+        setTaskList(newTaskList);
+        toast.info("Item removido da lista.");
+    };
+
+    const clearInputs = () => {
+        const allFieldsEmpty = Object.values(formData).every(value => value === '');
+    
+        if (allFieldsEmpty) {
+            toast.error("Os campos já estão limpos.");
+            return;
+        }
+    
+        setFormData({
+            nome: '',
+            empresa: '',
+            contas: '',
+            data: '',
+            tipoDespesa: '',
+            centroCusto: '',
+            ordInt: '',
+            pep: '',
+            div: '',
+            descricao: '',
+            moeda: '',
+            km: '',
+            valor: '',
+            taxa: '',
+            val: '',
+            despesa: ''
+        });
+    
+        toast.info("Campos limpos.");
+    };
+    
 
     const renderModal = () => {
         switch (modalType) {
             case "clearFields":
-            return <ClearFieldsModal onClose={() => setModalType(null)} />;
+            return <ClearFieldsModal onClose={() => setModalType(null)} onConfirm={() => { clearInputs(), setModalType(null) }}/>;
             case "deleteRow":
-            return <DeleteRowModal onClose={() => setModalType(null)} />;
+            return <DeleteRowModal onClose={() => setModalType(null)}  onConfirm={() => { handleRemoveTask(indexToRemove),  setModalType(null) }}/>;
             case "cancelRequest":
             return <CancelRequestModal onClose={() => setModalType(null)} />;
             case "motive":
@@ -112,9 +155,9 @@ function Reembolso() {
         setModalType("clearFields");
     }
 
-    function handleDelete() {
-        setModalType("deleteRow");
-    }
+    // function handleDelete() {
+    //     setModalType("deleteRow");
+    // }
 
     function handleMotive() {
         setModalType("motive")
@@ -138,7 +181,7 @@ function Reembolso() {
 
     useEffect(() => {
         if(foiEnviado === true) {
-            //Se "foi Enviado for true, segnicica que o reembolso foi enviado com sucesso"
+            //Se "foi Enviado for true, segnifica que o reembolso foi enviado com sucesso"
             setFoiEnviado(false);
             setTaskList([]);
         }
@@ -233,7 +276,10 @@ function Reembolso() {
                         <tbody className={styles.containerTbody}>
                             {taskList.map((task, index) => (
                                 <tr key={index} className={styles.containerTr}>
-                                    <td className={styles.clickHover} onClick={handleDelete}><FaTrashAlt /></td>
+                                    <td className={styles.clickHover} onClick={() => handleDelete(index)}>
+                                        <FaTrashAlt />
+                                    </td>
+
                                     <td>{task.nome}</td>
                                     <td>{task.empresa}</td>
                                     <td>{task.contas}</td>
