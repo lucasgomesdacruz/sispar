@@ -35,14 +35,16 @@ function NavBar() {
                 </button>
 
                 <section className={styles.userInfo}>
-                    <FaUserCircle />
-                    {!collapsed && (
-                        <>
-                            <h2>Dominick Silva</h2>
-                            <p>Comércio Exterior</p>
-                        </>
-                    )}
-                </section>
+                        <FaUserCircle />
+                        {!collapsed && (
+                            <>
+                                <h2>Dominick Silva</h2>
+                                <p>Comércio Exterior</p>
+                                <Link to="perfil" onClick={closeMenu}>Perfil</Link>
+                            </>
+                        )}
+                    </section>
+                
 
                 <ul className={styles.navList}>
                     <li>

@@ -57,12 +57,13 @@
         display: flex;
         align-items: center;
         flex-direction: column;
-        height: 10%;
+        height: 15%;
         justify-content: space-between;
+        outline: 1px solid red;
    
         svg {
-            width: 2.5vw;
-            height: 2.5vw;
+            width: 50px;
+            height: 50px;
             background-color: gray;
             border-radius: 50%;
             padding: 5px;
@@ -77,6 +78,13 @@
         p {
             font-weight: 400;
             font-size: 0.87rem;
+            color: $primary-accent;
+        }
+
+        a {
+            text-decoration: underline;
+            margin-top: 5px;
+            font-weight: bold;
             color: $primary-accent;
         }
     }
@@ -162,6 +170,7 @@
     
         /* Usuário */
         .userInfo {
+            
            
             svg {
                 width: 7vw;
@@ -273,7 +282,8 @@
     
         /* Usuário */
         .userInfo {
-        
+            
+
             svg {
                 width: 40px;
                 height: 40px;
@@ -336,7 +346,7 @@
             display: flex;
             align-items: center;
             flex-direction: column;
-            height: 15%;
+            height: 20%;
             justify-content: space-between;
        
             svg {
