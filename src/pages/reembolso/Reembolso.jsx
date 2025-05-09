@@ -24,29 +24,31 @@ import DeleteRowModal from "../reembolso/_components/modals/deleteRowModal/Delet
 import CancelRequestModal from "../reembolso/_components/modals/cancelRequestModal/CancelRequestModal.jsx";
 import MotiveModal from "../reembolso/_components/modals/motiveModal/MotiveModal.jsx";
 
-import Api from "../../Services/Api.jsx";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
+
+import Api from "../../Services/Api.jsx"
 
 function Reembolso() {
 
     const [formData, setFormData] = useState({
-        nome: '',
-        empresa: '',
-        contas: '',
-        data: '',
-        tipoDespesa: '',
-        centroCusto: '',
-        ordInt: '',
-        pep: '',
-        div: '',
-        moeda: '',
-        km: '',
-        valor: '',
-        taxa: '',
-        val: '',
-        despesa: ''
+        colaborador: "",
+        empresa: "",
+        num_prestacao: "",
+        descricao: "",
+        data: "",
+        tipo_reembolso: "",
+        centro_custo: "",
+        ordem_interna: "",
+        divisao: "",
+        pep: "",
+        moeda: "",
+        distancia_km: "",
+        valor_km: "",
+        valor_faturado: "",
+        despesa: "",
+        status: 'Em analise',
     });
 
     const [taskList, setTaskList] = useState([]);
@@ -62,28 +64,29 @@ function Reembolso() {
     };
 
     const handleSave = () => {
-        if (!formData.nome || !formData.empresa || !formData.contas) {
+        if (!formData.colaborador || !formData.empresa || !formData.num_prestacao || !formData.data) {
             toast.error("Preencha os campos obrigatórios!");
             return;
         }
         setTaskList([...taskList, formData]);
 
         setFormData({
-            nome: '',
-            empresa: '',
-            contas: '',
-            data: '',
-            tipoDespesa: '',
-            centroCusto: '',
-            ordInt: '',
-            pep: '',
-            div: '',
-            moeda: '',
-            km: '',
-            valor: '',
-            taxa: '',
-            val: '',
-            despesa: ''
+            colaborador: "",
+            empresa: "",
+            num_prestacao: "",
+            descricao: "",
+            data: "",
+            tipo_reembolso: "",
+            centro_custo: "",
+            ordem_interna: "",
+            divisao: "",
+            pep: "",
+            moeda: "",
+            distancia_km: "",
+            valor_km: "",
+            valor_faturado: "",
+            despesa: "",
+            status: 'Em analise',
         });
     };
 
@@ -102,35 +105,37 @@ function Reembolso() {
     };
 
     const clearInputs = () => {
-        const allFieldsEmpty = Object.values(formData).every(value => value === '');
-    
+        // Faz uma cópia sem o campo "status"
+        const { status, ...rest } = formData;
+
+        const allFieldsEmpty = Object.values(rest).every(value => value === '');
+
         if (allFieldsEmpty) {
             toast.error("Os campos já estão limpos.");
             return;
         }
     
         setFormData({
-            nome: '',
-            empresa: '',
-            contas: '',
-            data: '',
-            tipoDespesa: '',
-            centroCusto: '',
-            ordInt: '',
-            pep: '',
-            div: '',
-            descricao: '',
-            moeda: '',
-            km: '',
-            valor: '',
-            taxa: '',
-            val: '',
-            despesa: ''
+            colaborador: "",
+            empresa: "",
+            num_prestacao: "",
+            descricao: "",
+            data: "",
+            tipo_reembolso: "",
+            centro_custo: "",
+            ordem_interna: "",
+            divisao: "",
+            pep: "",
+            moeda: "",
+            distancia_km: "",
+            valor_km: "",
+            valor_faturado: "",
+            despesa: "",
+            status: 'Em analise',
         });
     
         toast.info("Campos limpos.");
     };
-    
 
     const renderModal = () => {
         switch (modalType) {
@@ -155,38 +160,44 @@ function Reembolso() {
         setModalType("clearFields");
     }
 
-    // function handleDelete() {
-    //     setModalType("deleteRow");
-    // }
-
     function handleMotive() {
         setModalType("motive")
     }
 
-    // cria uma função para enviar os dados para o banco de daods
-    const [ foiEnviado, setFoiEnviado ] = useState(false) //criando um estado
+    const [foiEnviado, setFoiEnviado] = useState(false);
 
     const enviarParaAnalise = async () => {
         try {
-            const response = await Api.post("/refunds/new", taskList);
-            console.log("Resposta da Api", response);
-            toast.success("Reembolso solicitado com sucesso!");
-            setFoiEnviado(true);
-            setTaskList([]);
+          if (taskList.length === 0) {
+            toast.warning("Nenhuma tarefa para enviar.");
+            return;
+          }
+      
+          for (const item of taskList) {
+            const payload = {
+              ...item,
+              id_colaborador: 7 // Substitua pelo ID real, se necessário
+            };
+      
+            await Api.post("colaborador/reembolsos", payload, {
+              headers: {
+                "Content-Type": "application/json"
+              }
+            });
+
+            console.log(foiEnviado)
+          }
+      
+          toast.success("Todos os reembolsos foram enviados com sucesso!");
+          setFoiEnviado(true);
+          setTaskList([]);
+      
         } catch (error) {
-            console.error("Erro ao enviar reembolso:", error);
-            toast.error("Erro ao solicitar reembolso. Tente novamente.");
+          console.error("Erro ao enviar reembolsos:", error.response?.data || error.message);
+          toast.error("Erro ao solicitar reembolsos. Verifique os dados.");
         }
-    };
-
-    useEffect(() => {
-        if(foiEnviado === true) {
-            //Se "foi Enviado for true, segnifica que o reembolso foi enviado com sucesso"
-            setFoiEnviado(false);
-            setTaskList([]);
-        }
-    }, [foiEnviado])
-
+      };
+      
     return (
         <div className={styles.reembolso}>
             <Helmet>
@@ -216,9 +227,9 @@ function Reembolso() {
                     
                     <section className={styles.form}>
 
-                        <Input type="text" name="nome" label="Nome Completo" id="nome" value={formData.nome} onChange={handleInputChange}/>
+                        <Input type="text" name="colaborador" label="Nome Completo" id="nome" value={formData.colaborador} onChange={handleInputChange}/>
                         <Input type="text" name="empresa" label="Empresa" id="empresa" value={formData.empresa} onChange={handleInputChange}/>
-                        <Input type="text" name="contas" label="Nº Prest. Contas" id="contas" value={formData.contas} onChange={handleInputChange}/>
+                        <Input type="text" name="num_prestacao" label="Nº Prest. Contas" id="contas" value={formData.num_prestacao} onChange={handleInputChange}/>
                         <Input type="text" name="descricao" label="Descrição / Motivo do Reembolso" id="descricao" value={formData.descricao} onChange={handleInputChange}/>
                     </section>
 
@@ -229,21 +240,21 @@ function Reembolso() {
                             <input className={styles.input} name="data" type="date" id="data" placeholder="DD/MM/AAAA" value={formData.data} onChange={handleInputChange}/>
                         </div>
 
-                        <OptionsExpense onChange={handleInputChange} value={formData.tipoDespesa}/>
-                        <OptionsConst value={formData.centroCusto} onChange={handleInputChange}/>
+                        <OptionsExpense value={formData.tipo_reembolso} onChange={handleInputChange}/>
+                        <OptionsConst value={formData.centro_custo} onChange={handleInputChange}/>
                        
                         <div className={styles.rows}>
-                            <Input type="text" name="ordInt" label="Ord. Int." id="ordInt" value={formData.ordInt} onChange={handleInputChange}/>
+                            <Input type="text" name="ordem_interna" label="Ord. Int." id="ordInt" value={formData.ordem_interna} onChange={handleInputChange}/>
                             <Input type="text" name="pep" label="PEP" id="pep" value={formData.pep} onChange={handleInputChange}/>
 
-                            <Input type="text" name="div" label="Div." id="div" value={formData.div} onChange={handleInputChange}/>
+                            <Input type="text" name="divisao" label="Div." id="div" value={formData.divisao} onChange={handleInputChange}/>
                             
                             <OptionsDate  value={formData.moeda} onChange={handleInputChange}/>
 
-                            <Input type="text" name="km" label="Dist. / Km" id="km" value={formData.km} onChange={handleInputChange}/>
+                            <Input type="text" name="distancia_km" label="Dist. / Km" id="km" value={formData.distancia_km} onChange={handleInputChange}/>
 
-                            <Input type="text" name="valor" label="Valor / Km" id="valor" value={formData.valor} onChange={handleInputChange}/>
-                            <Input type="text" name="val" label="Val. Faturado" id="val" value={formData.val} onChange={handleInputChange}/>
+                            <Input type="text" name="valor_km" label="Valor / Km" id="valor" value={formData.valor_km} onChange={handleInputChange}/>
+                            <Input type="text" name="valor_faturado" label="Val. Faturado" id="val" value={formData.valor_faturado} onChange={handleInputChange}/>
                             <Input type="text" name="despesa" label="Despesa" id="despesa" value={formData.despesa} onChange={handleInputChange}/>
                             
                             <Button icon={<FaCheck />} text="Salvar" type="button" className={styles.save} onClick={handleSave}/>
@@ -280,20 +291,20 @@ function Reembolso() {
                                         <FaTrashAlt />
                                     </td>
 
-                                    <td>{task.nome}</td>
+                                    <td>{task.colaborador}</td>
                                     <td>{task.empresa}</td>
-                                    <td>{task.contas}</td>
+                                    <td>{task.num_prestacao}</td>
                                     <td>{task.data}</td>
                                     <td className={styles.motiveHover} onClick={handleMotive}><IoDocumentTextSharp /></td>
-                                    <td>{task.tipoDespesa}</td>
-                                    <td>{task.centroCusto}</td>
-                                    <td>{task.ordInt}</td>
-                                    <td>{task.div}</td>
+                                    <td>{task.tipo_reembolso}</td>
+                                    <td>{task.centro_custo}</td>
+                                    <td>{task.ordem_interna}</td>
+                                    <td>{task.divisao}</td>
                                     <td>{task.pep}</td>
                                     <td>{task.moeda}</td>
-                                    <td>{task.km}</td>
-                                    <td>{task.valor}</td>
-                                    <td>{task.val}</td>
+                                    <td>{task.distancia_km}</td>
+                                    <td>{task.valor_km}</td>
+                                    <td>{task.valor_faturado}</td>
                                     <td>{task.despesa}</td>
                                 </tr>
                             ))}
