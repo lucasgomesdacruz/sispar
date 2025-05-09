@@ -33,6 +33,8 @@ function Login() {
       const resposta = await Api.post("/colaborador/login", {
         "email": email,
         "senha": senha
+      }, {
+        withCredentials: true
       })
       console.log(resposta.data) // 
       toast.success("Login feito com sucesso!");
