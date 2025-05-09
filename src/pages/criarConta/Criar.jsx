@@ -3,14 +3,45 @@ import styles from "./Criar.module.scss"
 import Input from "../../components/Input/Input.jsx";
 import logo from "../../assets/images/TelaLogin/logo.png"
 import Button from "../../components/button/Button.jsx";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import Api from "../../Services/Api.jsx";
 
 function Criar() {
+    const navigate = useNavigate();
+    const [email, setEmail] = useState("")
+    const [senha, setSenha] = useState("")
+    const [nome, setNome] = useState("")
+    const [cargo, setCargo] = useState("")
+    const [salario, setSalario] = useState("")
     
-    const handleSubmit = (event) => {
-        event.preventDefault()
-        alert("Form enviado")
-    }
+    const criarConta = async (e) => {
+        e.preventDefault()
+
+        try {
+
+            const resposta = await Api.post("/colaborador/cadastrar", {
+                "email": email,
+                "senha": senha,
+                "nome": nome,
+                "cargo": cargo,
+                "salario": salario
+            })
+            console.log(resposta.data) // 
+            toast.success("Cadastro feito com sucesso!");
+                setTimeout(() => {
+                navigate("/");
+            }, 3000); 
+        } catch (error) {
+            console.log("Erro ao fazer cadastro", error)
+            toast.error("Erro ao fazer cadastro")
+        }
+    }    
+    // const handleSubmit = (event) => {
+    //     event.preventDefault()
+    //     alert("Form enviado")
+    // }
 
     return (
         <>
@@ -48,25 +79,19 @@ function Criar() {
                 <div>
                     <img src={logo} alt="Lodo da wison sons" />
                 </div>
-                <form action="" onSubmit={handleSubmit}>
+                <form action="" onSubmit={criarConta}>
                     <fieldset>
-                        <Input type="text" label="Nome completo"/>
-                        <div className={styles.container}>
-                            <Input type="text" label="CPF"/>
-                            <Input type="text" label="Matricula"/>
-                            <Input type="date" label="Data de nascimento" placeholder="(DD/MM/AAAA)"/>
-                        </div>
-                        
-                        <Input type="text" label="Telefone" placeholder="(00)0000000000"/>
-                        <Input type="text" label="Email"/>
-                        <Input type="email" label="Confirmar Email"/>
-                        <Input type="password" label="Senha"/>
-                        <Input type="password" label="Confirmar senha"/>
+                        <Input type="text" label="Nome completo" onChange={ (e) => setNome(e.target.value)}/>
+                        <Input type="text" label="Email" onChange={ (e) => setEmail(e.target.value)}/>
+                        <Input type="password" label="Senha" onChange={ (e) => setSenha(e.target.value)}/>
+                        <Input type="text" label="Cargo" onChange={ (e) => setCargo(e.target.value)}/>
+                        <Input type="text" label="Salario" onChange={ (e) => setSalario(e.target.value)}/>
                     </fieldset>
 
-                    <Button text="Entrar" type="submit" className={styles.btnDark} />
+                    <Button text="Cadastrar" type="submit" className={styles.btnDark} />
                     <p className={styles.enter}>Ja possui uma conta? <Link to="/">Entrar</Link></p>
                 </form>
+                <ToastContainer position="top-right" autoClose={3000} />
             </main>
         </>
         
