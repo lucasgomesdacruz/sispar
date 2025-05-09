@@ -6,7 +6,7 @@ function OptionsExpense({ onChange, value }) {
     return (
         <div className={styles.containerSelect}>
             <label htmlFor="tipoDespesa">Tipo de Despesa</label>
-            <select className={styles.select} name="tipoDespesa" id="tipoDespesa"  value={value} onChange={onChange}>
+            <select className={styles.select} name="tipo_reembolso" id="tipoDespesa"  value={value} onChange={onChange}>
                 <option value="">Selecionar</option>
                 <option value="alimentacao">Alimentação</option>
                 <option value="combustivel">Combustível</option>

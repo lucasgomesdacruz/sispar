@@ -5,7 +5,7 @@ function OptionsConst({ onChange, value }) {
     return (
         <div className={styles.containerSelect}>
             <label htmlFor="centroCusto">Centro de Custo</label>
-            <select className={styles.select} name="centroCusto" id="centroCusto" value={value} onChange={onChange} >
+            <select className={styles.select} name="centro_custo" id="centroCusto" value={value} onChange={onChange} >
                 <option value="">Selecionar</option>
                 <option value="controles-internos">1100109002 - FIN COTROLES INTERNOS MTZ</option>
                 <option value="presidencia-financas">1100109002 FIM VICE-PRESIDENCIA FINANCAS MTZ</option>
