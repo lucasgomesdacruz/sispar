@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MdMenuOpen } from "react-icons/md";
 import { AiOutlineHome } from "react-icons/ai";
 import { FaFileInvoiceDollar } from "react-icons/fa6";
@@ -9,10 +9,12 @@ import { FaUserCircle } from "react-icons/fa";
 
 import styles from "./Navbar.module.scss";
 import { Link, useNavigate } from "react-router-dom";
+import Api from "../../Services/Api";
 
 function NavBar() {
     const navigate = useNavigate();
     const [collapsed, setCollapsed] = useState(true); 
+
 
     const toggleCollapse = () => {
         setCollapsed(prevState => !prevState);
@@ -27,6 +29,29 @@ function NavBar() {
         navigate("/");
     }
 
+    
+    const [userData, setUserData] = useState({ id: '', nome: '', cargo: '' });
+
+    useEffect(() => {
+        async function fetchPerfil() {
+            try {
+                const response = await Api.get("colaborador/perfil", {
+                    withCredentials: true,
+                });
+
+                // Atualiza o estado com os dados retornados pela API, incluindo o ID
+                setUserData({
+                    id: response.data.id,
+                    nome: response.data.nome,
+                    cargo: response.data.cargo
+                });
+            } catch (error) {
+                console.error("Erro ao carregar perfil:", error);
+            }
+        }
+
+        fetchPerfil();
+    }, []);
     return (
         <nav>
             <aside className={`${styles.navbar} ${collapsed ? styles.collapsed : ""}`}>
@@ -34,7 +59,7 @@ function NavBar() {
                     <MdMenuOpen />
                 </button>
 
-                <section className={styles.userInfo}>
+                {/* <section className={styles.userInfo}>
                         <FaUserCircle />
                         {!collapsed && (
                             <>
@@ -43,7 +68,20 @@ function NavBar() {
                                 <Link to="perfil" onClick={closeMenu}>Perfil</Link>
                             </>
                         )}
-                    </section>
+                    </section> */}
+
+                <section className={styles.userInfo}>
+                    <FaUserCircle />
+                    {!collapsed && (
+                        <>
+                            <h2>{userData.nome || "Usuário"}</h2>
+                            <p>{userData.cargo || "Cargo"}</p>
+                            <Link to="perfil" onClick={closeMenu}>Perfil</Link>
+                            {/* Se precisar mostrar o ID */}
+                            <p>ID: {userData.id}</p>
+                        </>
+                    )}
+                </section>
                 
 
                 <ul className={styles.navList}>
