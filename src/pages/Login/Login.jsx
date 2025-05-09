@@ -7,13 +7,42 @@ import Input from "../../components/Input/Input.jsx";
 import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
+import { toast, ToastContainer } from "react-toastify";
+import { useState } from "react";
+import Api from "../../Services/Api.jsx";
+
 
 function Login() {
   const navigate = useNavigate();
 
-  function handleLogin(event) {
-    event.preventDefault();
-    navigate("/dashboard")
+  // function handleLogin(event) {
+  //   event.preventDefault();
+  //   navigate("/dashboard")
+  // }
+
+  // conteudo da aula do dia 28/04/25
+
+  const [email, setEmail] = useState("")
+  const [senha, setSenha] = useState("")
+
+  const fazerLogin = async (e) => {
+    e.preventDefault()
+
+    try {
+
+      const resposta = await Api.post("/colaborador/login", {
+        "email": email,
+        "senha": senha
+      })
+      console.log(resposta.data) // 
+      toast.success("Login feito com sucesso!");
+      navigate("/dashboard")
+      
+
+    } catch(error) {
+      console.log("Erro ao fazer o Login:", error)
+      toast.error("erro Usuario não encontrado")
+    }
   }
   
   return (
@@ -59,21 +88,24 @@ function Login() {
             <h1 className={styles.title}>Boas vindas ao Novo Portal SISPAR</h1>
             <p className={styles.subtitle}>Sistema de Emissão de Boletos e Parcelamento</p>
           </div>
-          
-          <form className={styles.form} onSubmit={handleLogin}>
+          {/* handleLogin para deploy no momento */}
+          <form className={styles.form} onSubmit={fazerLogin}> 
             <fieldset>
-              <Input placeholder="Email" type="email"/>
-              <Input placeholder="Senha" type="password"/>
+              <Input placeholder="Email" type="email" value={email} onChange={ (e) => setEmail(e.target.value) }/>
+              <Input placeholder="Senha" type="password" value={senha} onChange={ (e) => setSenha(e.target.value) } />
+              {/* <Input placeholder="Email" type="email"/>
+              <Input placeholder="Senha" type="password"/> */}
               <Link to="/recuperarSenha" href="#" className={styles.Password}>Esqueci minha senha</Link>
 
               <div className={styles.buttonGroup}>
-                <Button text="Entrar" type="submit" className={styles.btnDark} />
+                <Button text="Entrar" type="submit" className={styles.btnDark}/>
                 <Link to="/criarConta" className={styles.btnPrimary}> Criar Conta</Link>
               </div>
             </fieldset>
           </form>
           
         </section>
+        <ToastContainer position="top-right" autoClose={3000} />
       </main>
     </>
   );
