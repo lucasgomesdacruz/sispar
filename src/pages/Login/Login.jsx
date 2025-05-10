@@ -15,18 +15,16 @@ import Api from "../../Services/Api.jsx";
 function Login() {
   const navigate = useNavigate();
 
-  // function handleLogin(event) {
-  //   event.preventDefault();
-  //   navigate("/dashboard")
-  // }
-
-  // conteudo da aula do dia 28/04/25
-
   const [email, setEmail] = useState("")
   const [senha, setSenha] = useState("")
 
   const fazerLogin = async (e) => {
     e.preventDefault()
+
+    if (!email || !senha) {
+      toast.error("Por favor, preencha todos os campos.");
+      return;
+    }
 
     try {
 
@@ -43,9 +41,18 @@ function Login() {
 
     } catch(error) {
       console.log("Erro ao fazer o Login:", error)
-      toast.error("erro Usuario não encontrado")
+      // toast.error("erro Usuario não encontrado")
+
+      if (error.response && error.response.status === 401) {
+        toast.error("Senha incorreta. Tente novamente.");
+      } else if (error.response && error.response.status === 404) {
+        toast.error("Usuário não encontrado. Verifique seu email.");
+      } else {
+        toast.error("Erro ao fazer login. Tente novamente.");
+      }
+
     }
-  }
+  };
   
   return (
     <>
@@ -90,13 +97,11 @@ function Login() {
             <h1 className={styles.title}>Boas vindas ao Novo Portal SISPAR</h1>
             <p className={styles.subtitle}>Sistema de Emissão de Boletos e Parcelamento</p>
           </div>
-          {/* handleLogin para deploy no momento */}
+
           <form className={styles.form} onSubmit={fazerLogin}> 
             <fieldset>
               <Input placeholder="Email" type="email" value={email} onChange={ (e) => setEmail(e.target.value) }/>
               <Input placeholder="Senha" type="password" value={senha} onChange={ (e) => setSenha(e.target.value) } />
-              {/* <Input placeholder="Email" type="email"/>
-              <Input placeholder="Senha" type="password"/> */}
               <Link to="/recuperarSenha" href="#" className={styles.Password}>Esqueci minha senha</Link>
 
               <div className={styles.buttonGroup}>
