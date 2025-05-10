@@ -14,10 +14,8 @@ const Perfil = () => {
                   const response = await Api.get("colaborador/perfil", {
                       withCredentials: true,
                   });
-  
                   // Atualiza o estado com os dados retornados pela API, incluindo o ID
                   setUserData({
-                      id: response.data.id,
                       nome: response.data.nome,
                       cargo: response.data.cargo
                   });
@@ -35,9 +33,7 @@ const Perfil = () => {
               <FaUserCircle />
               <h2>{userData.nome || "Usuário"}</h2>
               <p>{userData.cargo || "Cargo"}</p>
-              <Link to="perfil">Perfil</Link>
-              {/* Se precisar mostrar o ID */}
-              <p>ID: {userData.id}</p>      
+              <Link to="perfil">Perfil</Link> 
           </section>
 
     </main>
