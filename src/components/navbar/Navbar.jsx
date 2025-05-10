@@ -41,7 +41,6 @@ function NavBar() {
 
                 // Atualiza o estado com os dados retornados pela API, incluindo o ID
                 setUserData({
-                    id: response.data.id,
                     nome: response.data.nome,
                     cargo: response.data.cargo
                 });
@@ -59,17 +58,6 @@ function NavBar() {
                     <MdMenuOpen />
                 </button>
 
-                {/* <section className={styles.userInfo}>
-                        <FaUserCircle />
-                        {!collapsed && (
-                            <>
-                                <h2>Dominick Silva</h2>
-                                <p>Comércio Exterior</p>
-                                <Link to="perfil" onClick={closeMenu}>Perfil</Link>
-                            </>
-                        )}
-                    </section> */}
-
                 <section className={styles.userInfo}>
                     <FaUserCircle />
                     {!collapsed && (
@@ -77,8 +65,6 @@ function NavBar() {
                             <h2>{userData.nome || "Usuário"}</h2>
                             <p>{userData.cargo || "Cargo"}</p>
                             <Link to="perfil" onClick={closeMenu}>Perfil</Link>
-                            {/* Se precisar mostrar o ID */}
-                            <p>ID: {userData.id}</p>
                         </>
                     )}
                 </section>
