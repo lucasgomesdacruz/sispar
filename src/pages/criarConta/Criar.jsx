@@ -19,6 +19,30 @@ function Criar() {
     const criarConta = async (e) => {
         e.preventDefault()
 
+            // Validações simples
+        if (!nome || !email || !senha || !cargo || !salario) {
+            toast.error("Preencha todos os campos.");
+            return;
+        }
+
+        const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        if (!emailValido) {
+            toast.error("Email inválido.");
+            return;
+        }
+
+        if (senha.length < 3 || senha.length > 6) {
+            toast.error("A senha deve ter entre 3 e 6 caracteres.");
+            return;
+        }
+
+        const salarioNumero = Number(salario);
+
+        if (isNaN(salarioNumero) || salarioNumero <= 0 || salarioNumero >= 100000) {
+            toast.error("Salário deve ser um número válido maior que 0 e menor que 100.000.");
+            return;
+        }
+        
         try {
 
             const resposta = await Api.post("/colaborador/cadastrar", {
@@ -32,16 +56,12 @@ function Criar() {
             toast.success("Cadastro feito com sucesso!");
                 setTimeout(() => {
                 navigate("/");
-            }, 3000); 
+            }, 1500); 
         } catch (error) {
             console.log("Erro ao fazer cadastro", error)
-            toast.error("Erro ao fazer cadastro")
+            toast.error(error?.response?.data?.erro || "Erro ao fazer cadastro.");
         }
-    }    
-    // const handleSubmit = (event) => {
-    //     event.preventDefault()
-    //     alert("Form enviado")
-    // }
+    }
 
     return (
         <>
@@ -77,15 +97,15 @@ function Criar() {
             </Helmet>
             <main className={styles.create}>
                 <div>
-                    <img src={logo} alt="Lodo da wison sons" />
+                    <img src={logo} alt="Logo da Wilson Sons" />
                 </div>
-                <form action="" onSubmit={criarConta}>
+                <form onSubmit={criarConta}>
                     <fieldset>
                         <Input type="text" label="Nome completo" onChange={ (e) => setNome(e.target.value)}/>
                         <Input type="text" label="Email" onChange={ (e) => setEmail(e.target.value)}/>
                         <Input type="password" label="Senha" onChange={ (e) => setSenha(e.target.value)}/>
                         <Input type="text" label="Cargo" onChange={ (e) => setCargo(e.target.value)}/>
-                        <Input type="text" label="Salario" onChange={ (e) => setSalario(e.target.value)}/>
+                        <Input type="Number" label="Salario" onChange={ (e) => setSalario(e.target.value)}/>
                     </fieldset>
 
                     <Button text="Cadastrar" type="submit" className={styles.btnDark} />
