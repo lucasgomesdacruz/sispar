@@ -113,8 +113,8 @@ function Historico() {
                                     <td>{task.moeda}</td>
                                     <td>{task.distancia_km}</td>
                                     <td>{task.valor_km}</td>
-                                    <td>{task.valor_faturado}</td>
-                                    <td>{task.despesa}</td>
+                                    <td>R$ {task.valor_faturado}</td>
+                                    <td>R$ {task.despesa}</td>
                                 </tr>
                             ))}
                             

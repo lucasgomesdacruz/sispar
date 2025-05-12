@@ -118,7 +118,6 @@
                             }
                         }
                     }
-
                 }
             }
         }
@@ -132,43 +131,42 @@
             height: 50vh;
             overflow-x: scroll;
 
-        .customTable {
-            
-            .containerThead {
+            .customTable {
                 
-                .containerTr {
-                    grid-template-columns: 10% 15% 10% 10% 10% 10% 20% 20% 10% 10% 10% 10% 10% 10% 15% 10%;
+                .containerThead {
+                    
+                    .containerTr {
+                        grid-template-columns: 10% 15% 10% 10% 10% 10% 20% 20% 10% 10% 10% 10% 10% 10% 15% 10%;
 
-                    th {
-                        grid-template-columns: auto;
-                        white-space: nowrap;
-                    }
-                }
-            }
-
-            .containerTbody {
-
-                .containerTr {
-                    grid-template-columns: 10% 15% 10% 10% 10% 10% 20% 20% 10% 10% 10% 10% 10% 10% 15% 10%;
-
-                    td {
-                        white-space: nowrap;
-                        height: 5vh;
-                        font-weight: 400;
-                        font-size: 1rem;
-                        color: $secondary-bg;
-
-                        svg {
-                            color: $secondary-layer;
+                        th {
+                            grid-template-columns: auto;
+                            white-space: nowrap;
                         }
                     }
                 }
 
+                .containerTbody {
+
+                    .containerTr {
+                        grid-template-columns: 10% 15% 10% 10% 10% 10% 20% 20% 10% 10% 10% 10% 10% 10% 15% 10%;
+
+                        td {
+                            white-space: nowrap;
+                            height: 5vh;
+                            font-weight: 400;
+                            font-size: 1rem;
+                            color: $secondary-bg;
+
+                            svg {
+                                color: $secondary-layer;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
 }
-    }
     
 
 @media (max-width: 767px) {
