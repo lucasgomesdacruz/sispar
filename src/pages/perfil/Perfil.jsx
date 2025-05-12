@@ -3,6 +3,9 @@ import styles from "./Perfil.module.scss"
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Api from "../../Services/Api";
+import { BsPencilSquare } from "react-icons/bs";
+import { toast, ToastContainer } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const Perfil = () => {
 
@@ -28,15 +31,24 @@ const Perfil = () => {
       }, []);
 
   return (
-    <main className={styles.perfil}>
-        <section className={styles.userInfo}>
-              <FaUserCircle />
-              <h2>{userData.nome || "Usuário"}</h2>
-              <p>{userData.cargo || "Cargo"}</p>
-              <Link to="perfil">Perfil</Link> 
-          </section>
+    <>
+        <Helmet>
+            <title>Perfil | SISPAR</title>
+            <meta name="description" content="Perfil | SISPAR" />
+        </Helmet>
+        <main className={styles.perfil}>
+            <section className={styles.userInfo}>
+                <FaUserCircle />
+                <h2>{userData.nome || "Usuário"}</h2>
+                <p>{userData.cargo || "Cargo"}</p>
+                <BsPencilSquare  className={styles.edit} onClick={() => toast.info("Ainda estamos desenvolvendo essa funcionalidade")}/>
 
-    </main>
+            </section>
+            <ToastContainer position="top-center" autoClose={3000} />
+
+        </main>
+    </>
+    
     
   )
 }
