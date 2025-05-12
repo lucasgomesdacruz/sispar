@@ -1,20 +1,239 @@
+@use "../../index.scss" as *;
+
 .analises {
     width: 95vw;
     height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-}
 
-@media (min-width: 768px) and (max-width: 1024px) { 
-    .analises {
+    .totalSection {
         width: 85vw;
+        display: flex;
+        width: 100%;
+        height: 30vh;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2px;
+
+        .totalContainer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+
+            .logo {
+                width: 100px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+                color: $primary-accent;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            p {
+                color: $primary-accent;
+                font-weight: bolder;
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    .tableContainer {
+        display: grid;
+        align-items: start;
+        width: 99%;
+        height: 60vh;
+        border-radius: 5px;
+        outline: 1px solid $surface-layer;
+        overflow-y: scroll;
+
+        .customTable {
+            display: grid;
+            width: 100%;
+
+            .containerThead {
+                height: 5vh;
+                width: 100%;
+                display: grid;
+                align-items: center;
+                background-color: $background-area;
+
+                .containerTr {
+                    width: 100%;
+                    display: grid;
+                    grid-template-columns: 15% 15% 15% 15% 15% 25%;
+
+                    th {
+                        display: grid;
+                        justify-content: center;
+                        align-items: center;
+                        border-right: 1px solid $surface-layer;
+                        border-bottom: 1px solid $surface-layer;
+                        height: 5vh;
+                        font-weight: 400;
+                        font-size: 1rem;
+                        color: $secondary-bg;
+                    }
+                }
+
+
+            }
+        }
+
+        .containerTbody {
+            width: 100%;
+            display: grid;
+            align-items: center;
+
+            .containerTr {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 15% 15% 15% 15% 15% 25%;
+
+                .clickHover,
+                .motiveHover {
+                    transition: all 0.3s ease-in-out;
+                    cursor: pointer;
+                    
+                    &:hover {
+                        background-color: #7f96b4;
+                    }
+                }
+
+                .motiveHover {
+                    font-size: 1.2rem;
+                }
+
+                td {
+                    display: grid;
+                    align-items: center;
+                    justify-content: center;
+                    border-right: 1px solid $surface-layer;
+                    border-bottom: 1px solid $surface-layer;
+
+                    height: 5vh;
+                    font-weight: 400;
+                    font-size: 1rem;
+                    color: $secondary-bg;
+
+                    svg {
+                        color: $secondary-layer;
+                    }
+                }
+            }
+        }
     }
 }
 
+@media (min-width: 768px) and (max-width: 1024px) {
+    .analises {
+        width: 80vw;
+
+        .tableContainer {
+            height: 50vh;
+            overflow-x: scroll;
+
+            .customTable {
+                
+                .containerThead {
+                    
+                    .containerTr {
+                        grid-template-columns: 15% 15% 15% 15% 15% 25%;
+
+                        th {
+                            grid-template-columns: auto;
+                            white-space: nowrap;
+                        }
+                    }
+                }
+
+                .containerTbody {
+
+                    .containerTr {
+                        grid-template-columns: 15% 15% 15% 15% 15% 25%;
+
+                        td {
+                            white-space: nowrap;
+                            height: 5vh;
+                            font-weight: 400;
+                            font-size: 1rem;
+                            color: $secondary-bg;
+
+                            svg {
+                                color: $secondary-layer;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+    
+
 @media (max-width: 767px) {
     .analises {
-        width: 85vw;
+        width: 80vw;
+
+        .tableContainer {
+            display: flex; 
+            align-items: start;
+            width: 100%;
+            height: 40vh;
+            border-radius: 5px;
+            overflow-x: scroll;
+
+            .customTable {
+                
+                .containerThead {
+                    
+                    .containerTr {
+                        width: 100%;
+                        display: grid;
+                        grid-template-columns: 15% 15% 15% 15% 15% 25%;
+
+                        th {
+                            width: 150px;
+                            grid-template-columns: auto;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            height: 5vh;
+                            font-weight: 400;
+                            font-size: 1rem;
+                            
+                        }
+                    }
+                }
+
+                .containerTbody {
+                    
+                    .containerTr {
+                        width: 100%;
+                        display: grid;
+                        grid-template-columns: 15% 15% 15% 15% 15% 25%;
+                        
+                        td {
+                            border-right: 1px solid $surface-layer;
+                            border-bottom: 1px solid $surface-layer;
+                            width: 150px;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
