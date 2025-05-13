@@ -173,60 +173,72 @@
     .historico {
         width: 80vw;
 
-        .tableContainer {
-        display: flex; 
-        align-items: start;
-        width: 100%;
-        height: 40vh;
-        border-radius: 5px;
-        overflow-x: scroll;
+        .containerTitle {
+            display: flex;
+            width: 100%;
+            height: 35vh;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
 
-        .customTable {
-            
-            .containerThead {
-                
-                .containerTr {
-                    width: 100%;
-                    display: grid;
-                    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-
-                    th {
-                        width: 150px;
-                        grid-template-columns: auto;
-                        text-overflow: ellipsis;
-                        white-space: nowrap;
-                        overflow: hidden;
-                        height: 5vh;
-                        font-weight: 400;
-                        font-size: 1rem;
-                        
-                    }
-                }
+            .logo {
+                width: 70px;
             }
 
-            .containerTbody {
+            .title {
+                width: 300px;
+                font-size: 1.5rem;
+                font-weight: bold;
+                text-align: center;
+                color: $secondary-bg;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+                font-weight: 700;
+                text-align: center;
+                color: $primary-accent;
+                margin-bottom: 20px;
+            }
+        
+        }
+
+        .tableContainer {
+        
+
+            .customTable {
                 
-                .containerTr {
-                    width: 100%;
-                    display: grid;
-                    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+                .containerThead {
                     
-                    td {
-                        border-right: 1px solid $surface-layer;
-                        border-bottom: 1px solid $surface-layer;
-                        width: 150px;
-                        text-overflow: ellipsis;
-                        white-space: nowrap;
-                        overflow: hidden;
-                        font-size: 1rem;
+                    .containerTr {
+                        
+                        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+                    
                     }
                 }
 
+                .containerTbody {
+                    
+                    .containerTr {
+                        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+                        
+                        td {
+                            border-right: 1px solid $surface-layer;
+                            border-bottom: 1px solid $surface-layer;
+                            width: 150px;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            font-size: 1rem;
+                        }
+                    }
+
+                }
             }
         }
     }
-    }
-    
 }
             
         
