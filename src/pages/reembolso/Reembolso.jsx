@@ -68,6 +68,26 @@ function Reembolso() {
             toast.error("Preencha os campos obrigatórios!");
             return;
         }
+
+        // Lista de campos numéricos que não podem ser menores que 1
+        const numericFields = [
+            "ordem_interna",
+            "pep",
+            "divisao",
+            "distancia_km",
+            "valor_km",
+            "valor_faturado",
+            "despesa"
+        ];
+
+        for (const field of numericFields) {
+            const value = Number(formData[field]);
+
+            if (value < 1) {
+                toast.error(`O campo "${field}" deve ser maior ou igual a 1.`);
+                return;
+            }
+        }
         setTaskList([...taskList, formData]);
 
         setFormData({
@@ -244,18 +264,18 @@ function Reembolso() {
                         <OptionsConst value={formData.centro_custo} onChange={handleInputChange}/>
                        
                         <div className={styles.rows}>
-                            <Input type="text" name="ordem_interna" label="Ord. Int." id="ordInt" value={formData.ordem_interna} onChange={handleInputChange}/>
-                            <Input type="text" name="pep" label="PEP" id="pep" value={formData.pep} onChange={handleInputChange}/>
+                            <Input type="number" name="ordem_interna" label="Ord. Int." id="ordInt" min={0} value={formData.ordem_interna} onChange={handleInputChange}/>
+                            <Input type="number" name="pep" label="PEP" id="pep"  min={0} value={formData.pep} onChange={handleInputChange}/>
 
-                            <Input type="text" name="divisao" label="Div." id="div" value={formData.divisao} onChange={handleInputChange}/>
+                            <Input type="number" name="divisao" label="Div." id="div" min={0} value={formData.divisao} onChange={handleInputChange}/>
                             
                             <OptionsDate  value={formData.moeda} onChange={handleInputChange}/>
 
-                            <Input type="text" name="distancia_km" label="Dist. / Km" id="km" value={formData.distancia_km} onChange={handleInputChange}/>
+                            <Input type="number" name="distancia_km" label="Dist. / Km" id="km" min={0} value={formData.distancia_km} onChange={handleInputChange}/>
 
-                            <Input type="text" name="valor_km" label="Valor / Km" id="valor" value={formData.valor_km} onChange={handleInputChange}/>
-                            <Input type="text" name="valor_faturado" label="Val. Faturado" id="val" value={formData.valor_faturado} onChange={handleInputChange}/>
-                            <Input type="text" name="despesa" label="Despesa" id="despesa" value={formData.despesa} onChange={handleInputChange}/>
+                            <Input type="number" name="valor_km" label="Valor / Km" id="valor" min={0} value={formData.valor_km} onChange={handleInputChange}/>
+                            <Input type="number" name="valor_faturado" label="Val. Faturado" id="val" min={0} value={formData.valor_faturado} onChange={handleInputChange}/>
+                            <Input type="number" name="despesa" label="Despesa" id="despesa" min={0} value={formData.despesa} onChange={handleInputChange}/>
                             
                             <Button icon={<FaCheck />} text="Salvar" type="button" className={styles.save} onClick={handleSave}/>
                             <Button onClick={handleClear} icon={<RiDeleteBack2Line />} type="button" className={styles.delete}/>
