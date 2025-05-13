@@ -138,6 +138,8 @@
     .analises {
         width: 80vw;
 
+
+
         .tableContainer {
             height: 50vh;
             overflow-x: scroll;
@@ -183,6 +185,48 @@
 @media (max-width: 767px) {
     .analises {
         width: 80vw;
+
+            .totalSection {
+                width: 85vw;
+                display: flex;
+                width: 100%;
+                height: 35vh;
+                justify-content: space-evenly;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 2px;
+
+            .totalContainer {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+
+                .logo {
+                    width: 70px;
+                }
+
+                h1 {
+                    font-size: 1.5rem;
+                    color: $primary-accent;
+                }
+
+                h2 {
+                    font-size: 1.2rem;
+                }
+
+                p {
+                    color: $primary-accent;
+                    font-weight: bolder;
+                    font-size: 1rem;
+                }
+            }
+        }
+
+
+       
 
         .tableContainer {
             display: flex; 
