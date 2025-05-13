@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { IoDocumentTextSharp } from "react-icons/io5";
 import { FaTrashAlt } from "react-icons/fa";
 import MotiveModal from "./_components/motiveModal/MotiveModal.jsx";
+import { toast, ToastContainer } from "react-toastify";
 
 
 
@@ -40,6 +41,7 @@ function Historico() {
             await Api.delete('/colaborador/reembolsos', {
                 data: { id: selectedId }
             });
+            toast.success("Reembolso excluido com sucesso!");
             fetchReembolsos(); // Atualiza a lista
         } catch (err) {
             console.error("Erro ao deletar reembolso:", err);
@@ -151,6 +153,7 @@ function Historico() {
                         onConfirm={handleConfirmDelete}
                     />
                 )}
+                <ToastContainer position="top-right" autoClose={3000} />
             </main>
         </>
         
