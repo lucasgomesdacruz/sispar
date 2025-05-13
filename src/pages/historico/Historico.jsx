@@ -8,6 +8,8 @@ import { IoIosInformationCircleOutline } from "react-icons/io";
 import Api from "../../Services/Api.jsx";
 import { useEffect, useState } from "react";
 import { IoDocumentTextSharp } from "react-icons/io5";
+import { FaTrashAlt } from "react-icons/fa";
+import MotiveModal from "./_components/motiveModal/MotiveModal.jsx";
 
 
 
@@ -22,6 +24,28 @@ function Historico() {
         } catch (err) {
             console.error("Erro ao buscar reembolsos:", err);
            
+        }
+    };
+
+    const [modalOpen, setModalOpen] = useState(false);
+    const [selectedId, setSelectedId] = useState(null);
+
+    const handleDeleteClick = (id) => {
+        setSelectedId(id);
+        setModalOpen(true);
+    };
+
+    const handleConfirmDelete = async () => {
+        try {
+            await Api.delete('/colaborador/reembolsos', {
+                data: { id: selectedId }
+            });
+            fetchReembolsos(); // Atualiza a lista
+        } catch (err) {
+            console.error("Erro ao deletar reembolso:", err);
+        } finally {
+            setModalOpen(false);
+            setSelectedId(null);
         }
     };
 
@@ -96,9 +120,9 @@ function Historico() {
                         <tbody className={styles.containerTbody}>
                             {reembolsos.map((task, index) => (
                                 <tr key={index} className={styles.containerTr}>
-                                    <td className={styles.clickHover}>
-                                        <IoIosInformationCircleOutline />
-                                    </td>
+                                    <td className={styles.clickHover} onClick={() => handleDeleteClick(task.id)}>
+                                    <FaTrashAlt />
+                                </td>
 
                                     <td>{task.colaborador}</td>
                                     <td>{task.empresa}</td>
@@ -121,6 +145,12 @@ function Historico() {
                         </tbody>
                     </table>
                 </section>
+                {modalOpen && (
+                    <MotiveModal
+                        onClose={() => setModalOpen(false)}
+                        onConfirm={handleConfirmDelete}
+                    />
+                )}
             </main>
         </>
         
