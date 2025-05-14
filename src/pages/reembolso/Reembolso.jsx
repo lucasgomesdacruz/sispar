@@ -164,7 +164,7 @@ function Reembolso() {
             case "deleteRow":
             return <DeleteRowModal onClose={() => setModalType(null)}  onConfirm={() => { handleRemoveTask(indexToRemove),  setModalType(null) }}/>;
             case "cancelRequest":
-            return <CancelRequestModal onClose={() => setModalType(null)} />;
+            return <CancelRequestModal onClose={() => setModalType(null)}  onConfirm={handleCancelRequestConfirm} />;
             case "motive":
             return <MotiveModal onClose={() => setModalType(null)} />;
             default:
@@ -183,6 +183,18 @@ function Reembolso() {
     function handleMotive() {
         setModalType("motive")
     }
+
+    const handleCancelRequestConfirm = () => {
+         if (taskList.length === 0) {
+            toast.error("A lista já está limpa.");
+            setModalType(null);
+            return;
+        }
+        setTaskList([]); // limpa a lista
+        setModalType(null); // fecha o modal
+        toast.info("Solicitação cancelada e lista limpa.");
+    };
+
 
     const [foiEnviado, setFoiEnviado] = useState(false);
 
