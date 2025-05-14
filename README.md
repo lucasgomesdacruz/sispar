@@ -56,19 +56,17 @@ Este é um sistema web desenvolvido em React.js que permite aos usuários solici
 
 - Nome completo
 
-- CPF
+- Email
 
-- Matrícula
+- Senha
 
-- Data de nascimento
+- Cargo
 
-- Telefone
+- Salario
 
-- E-mail e confirmação
 
-- Senha e confirmação
+![image](https://github.com/user-attachments/assets/943f538b-5d9f-4a1a-9994-cf6ce92083b1)
 
-![image](https://github.com/user-attachments/assets/4e097fc5-77bb-4374-97fe-d970e4209125)
 
 
 
