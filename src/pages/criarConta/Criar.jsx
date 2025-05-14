@@ -99,6 +99,9 @@ function Criar() {
                 <div>
                     <img src={logo} alt="Logo da Wilson Sons" />
                 </div>
+                <div>
+                    <h1>Cadastro de Colaborador</h1>
+                </div>
                 <form onSubmit={criarConta}>
                     <fieldset>
                         <Input type="text" label="Nome completo" onChange={ (e) => setNome(e.target.value)}/>

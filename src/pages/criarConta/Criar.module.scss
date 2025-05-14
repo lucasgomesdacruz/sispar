@@ -4,16 +4,21 @@
     width: 100vw;
     height: 100vh;
     display: flex;
+    gap: 10px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+    h1 {
+        color: $primary-bg;
+    }
 
     form {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        max-width: 1000px;
+        max-width: 400px;
         width: 95%;
 
         fieldset {
@@ -64,7 +69,14 @@
                 color: $primary-accent;
             }
         }
-        
-        
+    }
+}
+
+@media (max-width: 500px) {
+    .create {
+
+        h1 {
+            font-size: 1.5rem;
+        }
     }
 }
