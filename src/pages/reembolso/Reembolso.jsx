@@ -259,10 +259,10 @@ function Reembolso() {
                     
                     <section className={styles.form}>
 
-                        <Input type="text" name="colaborador" label="Nome Completo" id="nome" value={formData.colaborador} onChange={handleInputChange}/>
-                        <Input type="text" name="empresa" label="Empresa" id="empresa" value={formData.empresa} onChange={handleInputChange}/>
-                        <Input type="text" name="num_prestacao" label="Nº Prest. Contas" id="contas" value={formData.num_prestacao} onChange={handleInputChange}/>
-                        <Input type="text" name="descricao" label="Descrição / Motivo do Reembolso" id="descricao" value={formData.descricao} onChange={handleInputChange}/>
+                        <Input type="text" name="colaborador" label="Nome Completo" id="nome" value={formData.colaborador} onChange={handleInputChange} title="Digite o nome completo do colaborador sem abreviações."/>
+                        <Input type="text" name="empresa" label="Empresa" id="empresa" value={formData.empresa} onChange={handleInputChange} title="Informe o nome da empresa à qual o colaborador pertence."/>
+                        <Input type="text" name="num_prestacao" label="Nº Prest. Contas" id="contas" value={formData.num_prestacao} onChange={handleInputChange} title="Digite o número da prestação de contas vinculada a este reembolso."/>
+                        <Input type="text" name="descricao" label="Descrição / Motivo do Reembolso" id="descricao" value={formData.descricao} onChange={handleInputChange} title="Descreva brevemente o motivo da solicitação de reembolso."/>
                     </section>
 
                     <section className={styles.formDetails}>
@@ -276,18 +276,18 @@ function Reembolso() {
                         <OptionsConst value={formData.centro_custo} onChange={handleInputChange}/>
                        
                         <div className={styles.rows}>
-                            <Input type="number" name="ordem_interna" label="Ord. Int." id="ordInt" min={0} value={formData.ordem_interna} onChange={handleInputChange}/>
-                            <Input type="number" name="pep" label="PEP" id="pep"  min={0} value={formData.pep} onChange={handleInputChange}/>
+                            <Input type="number" name="ordem_interna" label="Ord. Int." id="ordInt" min={0} value={formData.ordem_interna} onChange={handleInputChange} title="Número da ordem interna relacionada à despesa."/>
+                            <Input type="number" name="pep" label="PEP" id="pep"  min={0} value={formData.pep} onChange={handleInputChange} title="Código PEP (Project Execution Plan), se aplicável."/>
 
-                            <Input type="number" name="divisao" label="Div." id="div" min={0} value={formData.divisao} onChange={handleInputChange}/>
+                            <Input type="number" name="divisao" label="Div." id="div" min={0} value={formData.divisao} onChange={handleInputChange} title="Informe a divisão ou setor responsável pela despesa."/>
                             
                             <OptionsDate  value={formData.moeda} onChange={handleInputChange}/>
 
-                            <Input type="number" name="distancia_km" label="Dist. / Km" id="km" min={0} value={formData.distancia_km} onChange={handleInputChange}/>
+                            <Input type="number" name="distancia_km" label="Dist. / Km" id="km" min={0} value={formData.distancia_km} onChange={handleInputChange} title="Distância percorrida em quilômetros (km)."/>
 
-                            <Input type="number" name="valor_km" label="Valor / Km" id="valor" min={0} value={formData.valor_km} onChange={handleInputChange}/>
-                            <Input type="number" name="valor_faturado" label="Val. Faturado" id="val" min={0} value={formData.valor_faturado} onChange={handleInputChange}/>
-                            <Input type="number" name="despesa" label="Despesa" id="despesa" min={0} value={formData.despesa} onChange={handleInputChange}/>
+                            <Input type="number" name="valor_km" label="Valor / Km" id="valor" min={0} value={formData.valor_km} onChange={handleInputChange} title="Valor pago por quilômetro percorrido."/>
+                            <Input type="number" name="valor_faturado" label="Val. Faturado" id="val" min={0} value={formData.valor_faturado} onChange={handleInputChange} title="Valor total faturado referente à despesa."/>
+                            <Input type="number" name="despesa" label="Despesa" id="despesa" min={0} value={formData.despesa} onChange={handleInputChange} title="Valor total da despesa a ser reembolsada."/>
                             
                             <Button icon={<FaCheck />} text="Salvar" type="button" className={styles.save} onClick={handleSave}/>
                             <Button onClick={handleClear} icon={<RiDeleteBack2Line />} type="button" className={styles.delete}/>
