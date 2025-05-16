@@ -10,6 +10,7 @@ import Recuperar from "./pages/recuperarSenha/Recuperar.jsx";
 import Criar from "./pages/criarConta/Criar.jsx";
 import NotFound from "./pages/notFound/NotFound.jsx";
 import Perfil from "./pages/perfil/Perfil.jsx";
+import Helpdesk from "./pages/helpDesk/Helpdesk.jsx";
 
 
 const router = createBrowserRouter([
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "/perfil",
         element: <Perfil />
+      },
+      {
+        path: "/central-de-ajuda",
+        element: <Helpdesk />
       }
     ]
   },

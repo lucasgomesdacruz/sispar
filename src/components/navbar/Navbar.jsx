@@ -10,6 +10,7 @@ import { FaUserCircle } from "react-icons/fa";
 import styles from "./Navbar.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 import Api from "../../Services/Api";
+import { IoHelpCircleOutline } from "react-icons/io5";
 
 function NavBar() {
     const navigate = useNavigate();
@@ -97,11 +98,19 @@ function NavBar() {
                         
                     </li>
                     <li>
-                    <Link to="historico" onClick={closeMenu}> 
-                        <span className={styles.containerIcon}><LuHistory /></span>
+                        <Link to="historico" onClick={closeMenu}> 
+                            <span className={styles.containerIcon}><LuHistory /></span>
+                            
+                            <span className={collapsed ? styles.hidden : ""}>Histórico</span>
+                        </Link>
                         
-                        <span className={collapsed ? styles.hidden : ""}>Histórico</span>
-                    </Link>
+                    </li>
+                    <li>
+                        <Link to="central-de-ajuda" onClick={closeMenu}> 
+                            <span className={styles.containerIcon}><IoHelpCircleOutline /></span>
+                            
+                            <span className={collapsed ? styles.hidden : ""}>Central de ajuda</span>
+                        </Link>
                         
                     </li>
                 </ul>
