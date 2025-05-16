@@ -2,62 +2,84 @@
 
 .analises {
     width: 95vw;
-    height: 100vh;
+    height: 95vh;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
 
-    .chartSection {
-        width: 95vw;
-        margin: 2rem;
-        padding: 1rem;
-        background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-
-        h2 {
-            text-align: center;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-    }
-
     .totalSection {
-        width: 85vw;
+        width: 99%;
+        height: 50vh;
         display: flex;
-        width: 100%;
-        height: 30vh;
-        justify-content: space-evenly;
-        flex-direction: column;
+        justify-content: start;
         align-items: center;
         text-align: center;
         gap: 2px;
-
+        
         .totalContainer {
             display: flex;
+            width: 35%;
+            height: 280px;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 5px;
+            justify-content: start;
+            align-items: start;
+            gap: 20px;
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 
-            .logo {
-                width: 100px;
+            .contentTitulo {
+                display: flex;
+                width: 50vw;
+                
+                h1 {
+                    font-size: 1.7rem;
+                    color: $primary-accent;
+                }
             }
 
-            h1 {
-                font-size: 2.5rem;
-                color: $primary-accent;
+            .content {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                gap: 10px;
+                outline: 1px solid $surface-layer;
+                background-color: #333;
+                padding: 1rem;
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+                h2 {
+                    font-size: 1.2rem;
+                    color: #333;
+                }
+
+                p {
+                    color: green;
+                    font-weight: bolder;
+                    font-size: 1.5rem;
+                }
             }
+        }
+
+        .chartSection {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin: 2rem;
+            padding: 1rem;
+            height: 280px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 
             h2 {
-                font-size: 1.6rem;
-            }
-
-            p {
-                color: $primary-accent;
-                font-weight: bolder;
-                font-size: 1.5rem;
+                text-align: center;
+                margin-bottom: 1rem;
+                color: #333;
             }
         }
     }
@@ -149,13 +171,86 @@
     }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1380px) {
     .analises {
         width: 80vw;
+        
+        .totalSection {
+            width: 99%;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            text-align: center;
+            gap: 2px;
+            
+            margin-bottom: 20px;
+            height: 40vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+            outline: 1px solid #33333350;
+            flex-direction: column;
+        
+            .totalContainer {
+                display: flex;
+                height: 280px;
+                flex-direction: column;
+                
+                gap: 20px;
+                padding: 1rem;
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                
+                justify-content: center;
+                width: 100%;
+                align-items: center;
+                
+                
+                .contentTitulo {
+                    width: 50vw;
+                    
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    h1 {
+                        font-size: 1.7rem;
+                        color: $primary-accent;
+
+                        
+                    }
+                }
+
+                .content {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: start;
+                    gap: 10px;
+                    outline: 1px solid $surface-layer;
+                    background-color: #333;
+                    padding: 1rem;
+                    background-color: #fff;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+                    h2 {
+                        font-size: 1.2rem;
+                        color: #333;
+                    }
+
+                    p {
+                        color: green;
+                        font-weight: bolder;
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+
 
         .chartSection {
             width: 80vw;
             margin: 2rem;
+            
             padding: 1rem;
             background-color: #fff;
             border-radius: 8px;
@@ -173,6 +268,7 @@
         .tableContainer {
             height: 50vh;
             overflow-x: scroll;
+            
 
             .customTable {
                 
@@ -212,67 +308,27 @@
 }
     
 
-@media (max-width: 767px) {
+@media (max-width: 967px) {
     .analises {
         width: 80vw;
         height: 100%;
+        
+        .totalSection {
+            
 
-            .chartSection {
-                width: 80vw;
-                margin: 2rem;
-                padding: 1rem;
-                background-color: #fff;
-                border-radius: 8px;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-
-                h2 {
-                    text-align: center;
-                    margin-bottom: 1rem;
-                    color: #333;
-                }
-            }
-
-            .totalSection {
-                width: 85vw;
-                display: flex;
-                width: 100%;
-                height: 35vh;
-                justify-content: space-evenly;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 2px;
-
+            flex-direction: column;
+            
             .totalContainer {
                 display: flex;
+                width: 100%;
+                height: 280px;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                gap: 5px;
-
-                .logo {
-                    width: 70px;
-                }
-
-                h1 {
-                    font-size: 1.5rem;
-                    color: $primary-accent;
-                }
-
-                h2 {
-                    font-size: 1.2rem;
-                }
-
-                p {
-                    color: $primary-accent;
-                    font-weight: bolder;
-                    font-size: 1rem;
-                }
+                gap: 20px;
+                
             }
         }
-
-
-       
 
         .tableContainer {
             display: flex; 
@@ -281,6 +337,102 @@
             height: 40vh;
             border-radius: 5px;
             overflow-x: scroll;
+
+            .customTable {
+                
+                .containerThead {
+                    
+                    .containerTr {
+                        width: 100%;
+                        display: grid;
+                        grid-template-columns: 15% 15% 15% 15% 15% 25%;
+
+                        th {
+                            width: 150px;
+                            grid-template-columns: auto;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            height: 5vh;
+                            font-weight: 400;
+                            font-size: 1rem;
+                            
+                        }
+                    }
+                }
+
+                .containerTbody {
+                    
+                    .containerTr {
+                        width: 100%;
+                        display: grid;
+                        grid-template-columns: 15% 15% 15% 15% 15% 25%;
+                        
+                        td {
+                            border-right: 1px solid $surface-layer;
+                            border-bottom: 1px solid $surface-layer;
+                            width: 150px;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 770px) {
+    .analises {
+        width: 80vw;
+        height: 100%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        .totalSection {
+            width: 99%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 2px;
+            margin-top: 15px;
+
+            flex-direction: column;
+            
+            .totalContainer {
+                width: 100%;
+                height: 280px;
+                align-items: center;
+                gap: 20px;
+
+                .contentTitulo {
+                    
+                    h1 {
+                        font-size: 1.5rem;
+                        color: $primary-accent;
+                    }
+                }
+            }
+
+            .chartSection {
+                width: 80vw;
+                margin: 2rem;
+                height: 400px;
+            }
+        }
+
+        .tableContainer {
+            display: flex; 
+            align-items: start;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            overflow-x: scroll;
+            margin-bottom: 20px;
 
             .customTable {
                 
