@@ -5,7 +5,6 @@ import Api from "../../Services/Api.jsx";
 import { MdOutlineNavigateNext } from "react-icons/md";
 import { Helmet } from "react-helmet-async";
 import { IoDocumentTextSharp } from "react-icons/io5";
-import logo from "../../assets/images/TelaLogin/logo.png";
 
 // Import Recharts
 import {
@@ -16,12 +15,17 @@ import {
   Tooltip,
   ResponsiveContainer,
   CartesianGrid,
+  PieChart,
+  Pie,
+  Cell,
+  Legend,
 } from "recharts";
 
 function Analises() {
   const [reembolsos, setReembolsos] = useState([]);
   const [totalReembolsos, setTotalReembolsos] = useState(0);
   const [dadosGrafico, setDadosGrafico] = useState([]);
+  const [dadosEmpresa, setDadosEmpresa] = useState([]);
 
   const fetchReembolsos = async () => {
     try {
@@ -30,6 +34,7 @@ function Analises() {
       setReembolsos(response.data);
       calcularTotal(response.data);
       agruparPorTipo(response.data);
+      agruparPorEmpresa(response.data);
     } catch (err) {
       console.error("Erro ao buscar reembolsos:", err);
     }
@@ -63,9 +68,32 @@ function Analises() {
     setDadosGrafico(resultado);
   };
 
+  const agruparPorEmpresa = (dados) => {
+    const mapa = new Map();
+
+    dados.forEach(({ empresa, valor_faturado }) => {
+      const valor = parseFloat(valor_faturado || 0);
+      if (mapa.has(empresa)) {
+        mapa.set(empresa, mapa.get(empresa) + valor);
+      } else {
+        mapa.set(empresa, valor);
+      }
+    });
+
+    const resultado = Array.from(mapa, ([empresa, valor_faturado]) => ({
+      empresa,
+      valor_faturado,
+    }));
+
+    setDadosEmpresa(resultado);
+  };
+
   useEffect(() => {
     fetchReembolsos();
   }, []);
+
+  // Cores para o gráfico de pizza
+  const cores = ["#0844C4", "#00C49F", "#FFBB28", "#FF8042", "#8884d8", "#A28AC3", "#00B5D8"];
 
   return (
     <>
@@ -84,17 +112,61 @@ function Analises() {
       <main className={styles.analises}>
         <Header icon={<MdOutlineNavigateNext />} text="Análises" />
 
-        {/* Total de reembolsos */}
         <section className={styles.totalSection}>
           <div className={styles.totalContainer}>
-            <img src={logo} alt="Logo" className={styles.logo} />
-            <h1>Painel de Análise de Reembolsos</h1>
-            <h2>Total de Reembolsos</h2>
-            <p>R$ {totalReembolsos.toFixed(2)}</p>
+            <div className={styles.contentTitulo}>
+              <h1>Painel de Análise de Reembolsos</h1>
+            </div>
+            <div className={styles.content}>
+              <h2>R$ Total de Reembolsos</h2>
+              <p>R$ {totalReembolsos.toFixed(2)}</p>
+            </div>
           </div>
+
+          {/* Gráfico de barras por tipo de reembolso */}
+          <section className={styles.chartSection}>
+            <h2>Análise por Tipo de Reembolso</h2>
+            <ResponsiveContainer width="100%" height="100%" className={styles.container}>
+              <BarChart data={dadosGrafico}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="tipo_reembolso" />
+                <YAxis />
+                <Tooltip formatter={(value) => `R$ ${value.toFixed(2)}`} />
+                <Bar dataKey="valor_faturado" fill="#0844C4" />
+              </BarChart>
+            </ResponsiveContainer>
+          </section>
+
+          {/* Gráfico de pizza por empresa */}
+          <section className={styles.chartSection}>
+            <h2>Distribuição de Reembolsos por Empresa</h2>
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart>
+                <Pie
+                  data={dadosEmpresa}
+                  dataKey="valor_faturado"
+                  nameKey="empresa"
+                  cx="50%"
+                  cy="50%"
+                  outerRadius={50}
+                  fill="#8884d8"
+                  label
+                >
+                  {dadosEmpresa.map((entry, index) => (
+                    <Cell
+                      key={`cell-${index}`}
+                      fill={cores[index % cores.length]}
+                    />
+                  ))}
+                </Pie>
+                <Tooltip formatter={(value) => `R$ ${value.toFixed(2)}`} />
+                <Legend />
+              </PieChart>
+            </ResponsiveContainer>
+          </section>
         </section>
 
-        {/* Tabela */}
+        {/* Tabela de dados */}
         <section className={styles.tableContainer}>
           <table className={styles.customTable}>
             <thead className={styles.containerThead}>
@@ -122,20 +194,6 @@ function Analises() {
               ))}
             </tbody>
           </table>
-        </section>
-
-        {/* Gráfico de barras */}
-        <section className={styles.chartSection}>
-          <h2>Análise por Tipo de Reembolso</h2>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={dadosGrafico}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="tipo_reembolso" />
-              <YAxis />
-              <Tooltip formatter={(value) => `R$ ${value.toFixed(2)}`} />
-              <Bar dataKey="valor_faturado" fill="#0844C4" />
-            </BarChart>
-          </ResponsiveContainer>
         </section>
       </main>
     </>
