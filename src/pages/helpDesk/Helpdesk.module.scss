@@ -1,0 +1,152 @@
+.helpdeskMain {
+    width: 95vw;
+    padding: 2rem;
+    background-color: #fff;
+    min-height: 95vh;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    gap: 10px;
+
+    .helpdeskContent {
+        width: 50%;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        outline: 1px solid red;
+
+        .helpdeskTitle {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: #333;
+            text-align: center;
+        }
+
+        .helpdeskSectionContact {
+            width: 50%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+            // outline: 1px solid red;
+
+            h2 {
+                font-size: 1.5rem;
+                color: #444;
+                margin-bottom: 0.5rem;
+            }
+
+            .helpdeskDescription {
+                font-size: 1rem;
+                color: #666;
+                margin-bottom: 1.5rem;
+            }
+
+            .contactMethod {
+                margin-bottom: 1rem;
+                padding: 0.75rem 1rem;
+                background-color: #f1f1f1;
+                border-radius: 4px;
+
+                strong {
+                    display: block;
+                    font-weight: 600;
+                    color: #333;
+                }
+
+                p {
+                    margin: 0.25rem 0 0;
+                    color: #555;
+                }
+            }
+        }
+
+    }   
+}
+
+.helpdeskSection {
+        width: 50%;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        // outline: 1px solid red;
+
+        .helpdeskDescription {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .contactMethod {
+            margin-bottom: 1rem;
+            padding: 0.75rem 1rem;
+            background-color: #f1f1f1;
+            border-radius: 4px;
+
+            strong {
+                display: block;
+                font-weight: 600;
+                color: #333;
+            }
+
+            p {
+                margin: 0.25rem 0 0;
+                color: #555;
+            }
+        }
+
+        .schedule {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+
+            div {
+                display: flex;
+                justify-content: space-between;
+                background-color: #eef1f6;
+                padding: 0.75rem 1rem;
+                border-radius: 4px;
+
+                span {
+                    font-size: 0.95rem;
+                    color: #333;
+                }
+            }
+        }
+
+        
+    }
+
+h2 {
+            font-size: 1.5rem;
+            color: #444;
+            margin-bottom: 0.5rem;
+        }
+
+        details {
+            margin-top: 1rem;
+            padding: 0.75rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #fff;
+
+            summary {
+            cursor: pointer;
+            font-weight: 600;
+            color: #0053b3;
+            }
+
+            p {
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+            color: #333;
+            }
+        }
+
+
+
