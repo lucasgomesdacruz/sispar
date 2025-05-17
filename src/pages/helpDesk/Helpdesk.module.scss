@@ -1,0 +1,217 @@
+.helpdeskMain {
+  width: 95vw;
+  padding: 2rem;
+  background-color: #fff;
+  min-height: 95vh;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  gap: 10px;
+
+  .helpdeskContent {
+    width: 50%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+
+    .helpdeskTitle {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+      color: #333;
+      text-align: center;
+    }
+
+    .helpdeskSectionContact {
+      width: 50%;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+
+      h2 {
+        font-size: 1.5rem;
+        color: #444;
+        margin-bottom: 0.5rem;
+      }
+
+      .helpdeskDescription {
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 1.5rem;
+      }
+
+      .contactMethod {
+        margin-bottom: 1rem;
+        padding: 0.75rem 1rem;
+        background-color: #f1f1f1;
+        border-radius: 4px;
+
+        strong {
+          display: block;
+          font-weight: 600;
+          color: #333;
+        }
+
+        p {
+          margin: 0.25rem 0 0;
+          color: #555;
+        }
+      }
+    }
+
+    .helpdeskSection {
+      width: 50%;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+
+      h2 {
+        font-size: 1.5rem;
+        color: #444;
+        margin-bottom: 0.5rem;
+      }
+
+      .schedule {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+
+        div {
+          display: flex;
+          justify-content: space-between;
+          background-color: #eef1f6;
+          padding: 0.75rem 1rem;
+          border-radius: 4px;
+
+          span {
+            font-size: 0.95rem;
+            color: #333;
+          }
+        }
+      }
+    }
+  }
+
+  .helpdeskSectionFaq {
+    width: 50%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+
+    h2 {
+      font-size: 1.5rem;
+      color: #444;
+      margin-bottom: 0.5rem;
+    }
+
+    details {
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background-color: #fff;
+
+      summary {
+        cursor: pointer;
+        font-weight: 600;
+        color: #0053b3;
+      }
+
+      p {
+        margin-top: 0.5rem;
+        font-size: 0.95rem;
+        color: #333;
+      }
+    }
+  }
+
+  // Media queries para responsividade
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    width: 90vw;
+    padding: 1.5rem;
+
+    .helpdeskContent,
+    .helpdeskSectionFaq {
+      width: 100%;
+      margin: 0 auto 2rem auto;
+      padding: 1.5rem;
+      box-shadow: none;
+    }
+
+    .helpdeskContent {
+      .helpdeskSectionContact,
+      .helpdeskSection {
+        width: 100%;
+        margin: 0 0 1.5rem 0;
+        padding: 1.5rem;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+
+    .helpdeskContent {
+      padding: 1rem;
+
+      .helpdeskTitle {
+        font-size: 2rem;
+      }
+
+      .helpdeskSectionContact,
+      .helpdeskSection {
+        padding: 1rem;
+
+        h2 {
+          font-size: 1.25rem;
+        }
+
+        .contactMethod {
+          padding: 0.5rem 0.75rem;
+
+          strong {
+            font-size: 1rem;
+          }
+
+          p {
+            font-size: 0.9rem;
+          }
+        }
+
+        .schedule div {
+          padding: 0.5rem 0.75rem;
+
+          span {
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+
+    .helpdeskSectionFaq {
+      padding: 1rem;
+
+      h2 {
+        font-size: 1.25rem;
+      }
+
+      details {
+        padding: 0.5rem 0.75rem;
+
+        summary {
+          font-size: 1rem;
+        }
+
+        p {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}
