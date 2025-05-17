@@ -55,7 +55,7 @@ const Helpdesk = () => {
                 
             </div>
                 {/* FAQ */}
-            <section className={styles.helpdeskSection}>
+            <section className={styles.helpdeskSectionFaq}>
                     <h2>Perguntas Frequentes</h2>
 
                     <details>
