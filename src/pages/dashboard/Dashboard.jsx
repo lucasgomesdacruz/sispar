@@ -15,6 +15,7 @@ import Header from "../../components/header/Header.jsx";
 
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import Chatbot from "../../components/chatbot/Chatbot.jsx";
 
 function Dashboard() {
     return (
@@ -81,6 +82,7 @@ function Dashboard() {
                             </li>
                         </ul>
                         <p className={styles.sistem}><VscCloudUpload /> Sistema atualizado</p>
+                        <Chatbot />
                     </section>
                 </main>
             </div>  
