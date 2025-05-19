@@ -26,8 +26,6 @@ Este é um sistema web desenvolvido em React.js que permite aos usuários solici
 
 ## login 
 ## No código da página de Login, eu usei o useNavigate para realizar a navegação programática após o login. Basicamente, assim que o usuário envia o formulário de login, eu redireciono ele para a página de dashboard.
-![cadadasdasddsadodeasdasdasd](https://github.com/user-attachments/assets/1b991c04-1d16-4542-8c1e-0864dc8aeef3)
-
 ![image](https://github.com/user-attachments/assets/a725c10e-ab53-4416-8306-7e0649c52ec0)
 
 ## Dashboard 
