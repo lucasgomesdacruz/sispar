@@ -1,56 +1,117 @@
-import { FaUserCircle } from "react-icons/fa"
-import styles from "./Perfil.module.scss"
+import { FaUserCircle } from "react-icons/fa";
+import styles from "./Perfil.module.scss";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import Api from "../../Services/Api";
 import { BsPencilSquare } from "react-icons/bs";
 import { toast, ToastContainer } from "react-toastify";
 import { Helmet } from "react-helmet-async";
+import { MdSave } from "react-icons/md";
 
 const Perfil = () => {
+  const [userData, setUserData] = useState({
+    nome: "",
+    cargo: "",
+    email: "",
+    senha: ""
+  });
+  const [editMode, setEditMode] = useState(false);
 
-  const [userData, setUserData] = useState({ id: '', nome: '', cargo: '' });
-  
-      useEffect(() => {
-          async function fetchPerfil() {
-              try {
-                  const response = await Api.get("colaborador/perfil", {
-                      withCredentials: true,
-                  });
-                  // Atualiza o estado com os dados retornados pela API, incluindo o ID
-                  setUserData({
-                      nome: response.data.nome,
-                      cargo: response.data.cargo
-                  });
-              } catch (error) {
-                  console.error("Erro ao carregar perfil:", error);
-              }
-          }
-  
-          fetchPerfil();
-      }, []);
+  useEffect(() => {
+    async function fetchPerfil() {
+      try {
+        const response = await Api.get("colaborador/perfil", {
+          withCredentials: true,
+        });
+        setUserData((prev) => ({
+          ...prev,
+          nome: response.data.nome,
+          cargo: response.data.cargo,
+          email: response.data.email || "",
+        }));
+      } catch (error) {
+        console.error("Erro ao carregar perfil:", error);
+      }
+    }
+
+    fetchPerfil();
+  }, []);
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setUserData((prev) => ({ ...prev, [name]: value }));
+  }
+
+  async function handleSave() {
+    try {
+      await Api.put(
+        "colaborador/atualizar-perfil",
+        {
+          nome: userData.nome,
+          cargo: userData.cargo,
+          senha: userData.senha,
+        },
+        { withCredentials: true }
+      );
+      toast.success("Perfil atualizado com sucesso!");
+      setEditMode(false);
+      setUserData((prev) => ({ ...prev, senha: "" }));
+    } catch (error) {
+      console.error(error);
+      toast.error(
+        error?.response?.data?.mensagem || "Erro ao atualizar perfil"
+      );
+    }
+  }
 
   return (
     <>
-        <Helmet>
-            <title>Perfil | SISPAR</title>
-            <meta name="description" content="Perfil | SISPAR" />
-        </Helmet>
-        <main className={styles.perfil}>
-            <section className={styles.userInfo}>
-                <FaUserCircle />
-                <h2>{userData.nome || "Usuário"}</h2>
-                <p>{userData.cargo || "Cargo"}</p>
-                <BsPencilSquare  className={styles.edit} onClick={() => toast.info("Ainda estamos desenvolvendo essa funcionalidade")}/>
+      <Helmet>
+        <title>Perfil | SISPAR</title>
+        <meta name="description" content="Perfil | SISPAR" />
+      </Helmet>
 
-            </section>
-            <ToastContainer position="top-center" autoClose={3000} />
-
-        </main>
+      <main className={styles.perfil}>
+        <section className={styles.userInfo}>
+          <FaUserCircle />
+          {editMode ? (
+            <>
+              <input
+                name="nome"
+                value={userData.nome}
+                onChange={handleChange}
+                placeholder="Nome"
+              />
+              <input
+                name="cargo"
+                value={userData.cargo}
+                onChange={handleChange}
+                placeholder="Cargo"
+              />
+              <input
+                name="senha"
+                type="password"
+                value={userData.senha}
+                onChange={handleChange}
+                placeholder="Nova senha (opcional)"
+              />
+              <MdSave className={styles.edit} onClick={handleSave} />
+            </>
+          ) : (
+            <>
+              <h2>{userData.nome || "Usuário"}</h2>
+              <p>{userData.cargo || "Cargo"}</p>
+              {userData.email && <p>{userData.email}</p>}
+              <BsPencilSquare
+                className={styles.edit}
+                onClick={() => setEditMode(true)}
+              />
+            </>
+          )}
+        </section>
+        <ToastContainer position="top-center" autoClose={3000} />
+      </main>
     </>
-    
-    
-  )
-}
+  );
+};
 
-export default Perfil
+export default Perfil;
