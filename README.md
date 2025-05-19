@@ -26,6 +26,8 @@ Este é um sistema web desenvolvido em React.js que permite aos usuários solici
 
 ## login 
 ## No código da página de Login, eu usei o useNavigate para realizar a navegação programática após o login. Basicamente, assim que o usuário envia o formulário de login, eu redireciono ele para a página de dashboard.
+![novocode](https://github.com/user-attachments/assets/ea1b34a0-4d89-4090-991a-2b1468ad42d1)
+
 ![image](https://github.com/user-attachments/assets/a725c10e-ab53-4416-8306-7e0649c52ec0)
 
 ## Dashboard 
@@ -57,6 +59,10 @@ Este é um sistema web desenvolvido em React.js que permite aos usuários solici
 ![Captura de tela 2025-05-14 143208](https://github.com/user-attachments/assets/343aae86-c717-44c0-b513-8463d101728d)
 
 ![Captura de tela 2025-05-14 143228](https://github.com/user-attachments/assets/7106b3a0-3bb1-4873-a477-551aaf3220ff)
+
+## HelpDesk
+![image](https://github.com/user-attachments/assets/bc54fc39-bd75-49cc-ab73-00bc58a1bdbb)
+
 
 ## NotFound 
 ## A página NotFound é uma página de erro personalizada, normalmente exibida quando o usuário tenta acessar uma rota que não existe, ou seja, uma página 404. 
