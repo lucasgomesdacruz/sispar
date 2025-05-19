@@ -46,7 +46,8 @@ Este é um sistema web desenvolvido em React.js que permite aos usuários solici
 ![image](https://github.com/user-attachments/assets/eb9960b3-bde5-4b3c-b30b-419758e0722e)
 
 ## Analise seus reembolsos 
-![Captura de tela 2025-05-14 143145](https://github.com/user-attachments/assets/71ae6876-1556-4dfc-8888-3d1578b78614)
+![image](https://github.com/user-attachments/assets/7777a5c4-38d3-44c7-80e4-20eba37b36b8)
+
 
 ## Aviso
 ## A página de aviso uma seção simples e eficaz para informar os usuários de que uma parte do site ainda está em desenvolvimento.
