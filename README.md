@@ -53,7 +53,7 @@ Este é um sistema web desenvolvido em React.js que permite aos usuários solici
 ## A página de aviso uma seção simples e eficaz para informar os usuários de que uma parte do site ainda está em desenvolvimento.
 ![image](https://github.com/user-attachments/assets/fa69310a-2adf-4f5f-9b77-a20cfae4e765)
 
-## Veja seu Historico e escluar seu reembolso caso queira
+## Veja seu Historico e exclua seu reembolso caso queira
 ![Captura de tela 2025-05-14 143107](https://github.com/user-attachments/assets/077f7059-810e-4417-bdc6-c598289efcfd)
 
 ![Captura de tela 2025-05-14 143208](https://github.com/user-attachments/assets/343aae86-c717-44c0-b513-8463d101728d)
