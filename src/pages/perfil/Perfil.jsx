@@ -43,15 +43,23 @@ const Perfil = () => {
 
   async function handleSave() {
     try {
+      // Monta os dados a serem enviados
+      const updateData = {
+        nome: userData.nome,
+        cargo: userData.cargo,
+      };
+
+      // Envia senha apenas se não for vazia
+      if (userData.senha.trim() !== "") {
+        updateData.senha = userData.senha;
+      }
+
       await Api.put(
         "colaborador/atualizar-perfil",
-        {
-          nome: userData.nome,
-          cargo: userData.cargo,
-          senha: userData.senha,
-        },
+        updateData,
         { withCredentials: true }
       );
+
       toast.success("Perfil atualizado com sucesso!");
       setEditMode(false);
       setUserData((prev) => ({ ...prev, senha: "" }));
