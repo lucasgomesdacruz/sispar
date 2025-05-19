@@ -6,15 +6,16 @@ import { BsPencilSquare } from "react-icons/bs";
 import { toast, ToastContainer } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 import { MdSave } from "react-icons/md";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Perfil = () => {
   const [userData, setUserData] = useState({
     nome: "",
     cargo: "",
-    email: "",
-    senha: ""
+    email: ""
   });
-  const [editMode, setEditMode] = useState(false);
+    const [editMode, setEditMode] = useState(false);
+    const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchPerfil() {
@@ -22,12 +23,11 @@ const Perfil = () => {
         const response = await Api.get("colaborador/perfil", {
           withCredentials: true,
         });
-        setUserData((prev) => ({
-          ...prev,
+        setUserData({
           nome: response.data.nome,
           cargo: response.data.cargo,
           email: response.data.email || "",
-        }));
+        });
       } catch (error) {
         console.error("Erro ao carregar perfil:", error);
       }
@@ -49,11 +49,6 @@ const Perfil = () => {
         cargo: userData.cargo,
       };
 
-      // Envia senha apenas se não for vazia
-      if (userData.senha.trim() !== "") {
-        updateData.senha = userData.senha;
-      }
-
       await Api.put(
         "colaborador/atualizar-perfil",
         updateData,
@@ -61,8 +56,13 @@ const Perfil = () => {
       );
 
       toast.success("Perfil atualizado com sucesso!");
+      toast.success("Faça o Login novamente!");
+
+      setTimeout(() => {
+        navigate("/"); 
+      }, 2000);
+
       setEditMode(false);
-      setUserData((prev) => ({ ...prev, senha: "" }));
     } catch (error) {
       console.error(error);
       toast.error(
@@ -94,13 +94,6 @@ const Perfil = () => {
                 value={userData.cargo}
                 onChange={handleChange}
                 placeholder="Cargo"
-              />
-              <input
-                name="senha"
-                type="password"
-                value={userData.senha}
-                onChange={handleChange}
-                placeholder="Nova senha (opcional)"
               />
               <MdSave className={styles.edit} onClick={handleSave} />
             </>
