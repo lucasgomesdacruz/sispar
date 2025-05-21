@@ -12,6 +12,35 @@ Este é um sistema web desenvolvido em React.js que permite aos usuários solici
 - React Icons
 - Helmet (para SEO)
 
+## ⚠️ Aviso de Compatibilidade
+![sssdownload](https://github.com/user-attachments/assets/ecc427eb-6c21-4bae-a470-49f0482e5744)
+
+🔧 Aviso Importante:
+Embora o sistema SISPAR funcione na maioria dos navegadores modernos, atualmente alguns recursos podem não funcionar corretamente no navegador Google Chrome em dispositivos iPhone (iOS). 
+
+## ⚠️ Aviso de Compatibilidade
+🔧 Problemas ao usar no iPhone com Google Chrome?
+Se você estiver enfrentando dificuldades para acessar ou usar algumas funcionalidades do SISPAR no Google Chrome (iOS), isso pode estar relacionado ao bloqueio de cookies pelo navegador.
+
+✅ Solução Sugerida:
+Para garantir o funcionamento correto, siga estes passos para habilitar os cookies no Google Chrome (iPhone):
+
+Abra o Google Chrome no seu iPhone.
+
+Toque no menu ⋮ (ou nos ... no canto inferior direito).
+
+Acesse Configurações.
+
+Vá até Privacidade → Cookies.
+
+Selecione a opção "Permitir cookies" ou "Não bloquear cookies de terceiros".
+
+🔄 Após isso, recarregue a página e tente novamente.
+
+Estamos trabalhando para tornar o SISPAR totalmente compatível com todos os navegadores e dispositivos. Agradecemos a compreensão! 🙌
+
+Agradecemos sua compreensão! 🙏
+
 ## O projeto utiliza o React Router para gerenciar a navegação entre as páginas. A estrutura de roteamento está definida no arquivo App.jsx, onde cada rota é associada ao seu respectivo componente:
 ![codeasdasdasd](https://github.com/user-attachments/assets/d7e2ddb8-2351-43ce-bc10-67b97426af39)
 
