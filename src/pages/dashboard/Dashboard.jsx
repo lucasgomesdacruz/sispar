@@ -16,8 +16,31 @@ import Header from "../../components/header/Header.jsx";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Chatbot from "../../components/chatbot/Chatbot.jsx";
+import { useEffect, useState } from "react";
+import Api from "../../Services/Api.jsx"
+import { toast } from "react-toastify";
 
 function Dashboard() {
+    const [resumo, setResumo] = useState({
+        total_solicitados: 0,
+        em_analise: 0,
+        aprovados: 0,
+        rejeitados: 0
+    })
+
+    useEffect(() => {
+        async function fetchResumo() {
+            try {
+                const response = await Api.get("colaborador/reembolsos/resumo");
+                setResumo(response.data)
+            } catch (error) {
+                console.log("Erro ao buscar resumo dos reembolsos", error)
+                toast.error("erro ao buscar dados")
+            }
+        }
+
+        fetchResumo()
+    }, [])
     return (
         <>
             <Helmet>
@@ -69,16 +92,16 @@ function Dashboard() {
                         </ul>
                         <ul className={styles.modeAnalysis}>
                             <li>
-                                <Analysis spanClass={styles.requested} icon={<TbArrowBackUp />} number="182" text="Solicitados"/>
+                                <Analysis spanClass={styles.requested} icon={<TbArrowBackUp />}  number={resumo.total_solicitados} text="Solicitados"/>
                             </li>
                             <li>
-                                <Analysis spanClass={styles.analyze} icon={<FaRegClock />} number="74" text="Em análise"/>
+                                <Analysis spanClass={styles.analyze} icon={<FaRegClock />} number={resumo.em_analise} text="Em análise"/>
                             </li>
                             <li>
-                                <Analysis spanClass={styles.check} icon={<MdOutlineFileDownloadDone />} number="195" text="Aprovados"/>
+                                <Analysis spanClass={styles.check} icon={<MdOutlineFileDownloadDone />} number={resumo.aprovados} text="Aprovados"/>
                             </li>
                             <li>
-                                <Analysis spanClass={styles.wrong} icon={<BsX />} number="41" text="Reijetados"/>
+                                <Analysis spanClass={styles.wrong} icon={<BsX />} number={resumo.rejeitados} text="Reijetados"/>
                             </li>
                         </ul>
                         <p className={styles.sistem}><VscCloudUpload /> Sistema atualizado</p>
