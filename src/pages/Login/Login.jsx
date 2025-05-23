@@ -34,6 +34,8 @@ function Login() {
       }, {
         withCredentials: true
       })
+      document.cookie = "cross-site-cookie=1; SameSite=None; Secure";
+
       console.log(resposta.data) // 
       toast.success("Login feito com sucesso!");
       navigate("/dashboard")
