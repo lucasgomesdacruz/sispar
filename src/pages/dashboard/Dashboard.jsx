@@ -31,7 +31,7 @@ function Dashboard() {
     useEffect(() => {
         async function fetchResumo() {
             try {
-                const response = await Api.get("colaborador/reembolsos/resumo");
+                const response = await Api.get("colaborador/reembolsos/resumo/unico");
                 setResumo(response.data)
             } catch (error) {
                 console.log("Erro ao buscar resumo dos reembolsos", error)
