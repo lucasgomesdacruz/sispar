@@ -6,7 +6,8 @@ import { BsPencilSquare } from "react-icons/bs";
 import { toast, ToastContainer } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 import { MdSave } from "react-icons/md";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Button from "../../components/button/Button";
 
 const Perfil = () => {
   const [userData, setUserData] = useState({
@@ -22,6 +23,7 @@ const Perfil = () => {
       try {
         const response = await Api.get("colaborador/perfil", {
           withCredentials: true,
+          credentials: 'include' 
         });
         setUserData({
           nome: response.data.nome,
@@ -47,6 +49,7 @@ const Perfil = () => {
       const updateData = {
         nome: userData.nome,
         cargo: userData.cargo,
+        email: userData.email
       };
 
       await Api.put(
@@ -79,10 +82,11 @@ const Perfil = () => {
       </Helmet>
 
       <main className={styles.perfil}>
+        <h1>Seu perfil</h1>
         <section className={styles.userInfo}>
           <FaUserCircle />
           {editMode ? (
-            <>
+            <div className={styles.editando}>
               <input
                 name="nome"
                 value={userData.nome}
@@ -95,17 +99,25 @@ const Perfil = () => {
                 onChange={handleChange}
                 placeholder="Cargo"
               />
-              <MdSave className={styles.edit} onClick={handleSave} />
-            </>
+              <input
+                name="email"
+                value={userData.email}
+                onChange={handleChange}
+                placeholder="Email"
+              />
+            
+              <Button onClick={handleSave} className={styles.buttonEditando} icon={<MdSave className={styles.icon}/> } text="Salvar Alteração" />
+             
+              <Button className={styles.buttonCancel} onClick={() => setEditMode(false)} title="Cancelar edição" icon="❌" text="Cancelar alteração" />
+                  
+            </div>
           ) : (
             <>
               <h2>{userData.nome || "Usuário"}</h2>
               <p>{userData.cargo || "Cargo"}</p>
-              {userData.email && <p>{userData.email}</p>}
-              <BsPencilSquare
-                className={styles.edit}
-                onClick={() => setEditMode(true)}
-              />
+              <p>{userData.email}</p>
+              
+              <Button onClick={() => setEditMode(true)} className={styles.edit} icon={<BsPencilSquare className={styles.icon}/>} text="Editar Perfil" />
             </>
           )}
         </section>
