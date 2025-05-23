@@ -6,6 +6,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
     .userInfo {
         display: flex;
@@ -43,18 +44,90 @@
             font-weight: bold;
         }
 
+        .editando {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            max-width: 400px;
+            width: 100%;
+
+            .buttonEditando {
+                width: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: none;        
+                background-color: $primary-accent;
+                color: $background-area;
+                border-radius: 10px;
+                padding: 5px 10px;
+                cursor: pointer;
+                transform: translateZ(0); 
+                transition: 0.3s all ease-in-out;
+                font-size: 1rem;
+
+                .icon {
+                    width: 35px;
+                    height: 35px;
+                    background-color: transparent;
+                    border-radius: 0%;
+                }
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+
+            }
+
+            .buttonCancel {
+                width: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: none;        
+                background-color: $secondary-accent;
+                color: $background-area;
+                border-radius: 10px;
+                padding: 15px 10px;
+                cursor: pointer;
+                transform: translateZ(0); 
+                transition: 0.3s all ease-in-out;
+                font-size: 1rem;
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+        }
+
         .edit {
-            width: 35px;
-            height: 35px;
-            background-color: transparent;
-            border-radius: 0%;
+            width: 45%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;        
+            background-color: $primary-accent;
+            color: $background-area;
+            border-radius: 10px;
+            padding: 5px 10px;
             cursor: pointer;
             transform: translateZ(0); 
             transition: 0.3s all ease-in-out;
+            font-size: 1rem;
+
+            .icon {
+                width: 30px;
+                height: 30px;
+                background-color: transparent;
+                border-radius: 0%;
+            }
 
             &:hover {
-                 transform: scale(1.1);
+                transform: scale(1.05);
             }
         }
+
     }
 }
