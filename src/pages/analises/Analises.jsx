@@ -4,9 +4,8 @@ import Header from "../../components/header/Header.jsx";
 import Api from "../../Services/Api.jsx";
 import { MdOutlineNavigateNext } from "react-icons/md";
 import { Helmet } from "react-helmet-async";
-import { IoDocumentTextSharp } from "react-icons/io5";
 
-// Import Recharts
+// Recharts
 import {
   BarChart,
   Bar,
@@ -26,15 +25,24 @@ function Analises() {
   const [totalReembolsos, setTotalReembolsos] = useState(0);
   const [dadosGrafico, setDadosGrafico] = useState([]);
   const [dadosEmpresa, setDadosEmpresa] = useState([]);
+  const [filtro, setFiltro] = useState("todos");
+
+  const [resumo, setResumo] = useState({
+    total_solicitados: 0,
+    em_analise: 0,
+    aprovados: 0,
+    rejeitados: 0,
+  });
 
   const fetchReembolsos = async () => {
     try {
       const response = await Api.get("/colaborador/reembolsos");
-      console.log("Dados recebidos:", response.data);
-      setReembolsos(response.data);
-      calcularTotal(response.data);
-      agruparPorTipo(response.data);
-      agruparPorEmpresa(response.data);
+      const dados = response.data;
+
+      setReembolsos(dados);
+      calcularTotal(dados);
+      agruparPorTipo(dados);
+      agruparPorEmpresa(dados);
     } catch (err) {
       console.error("Erro ao buscar reembolsos:", err);
     }
@@ -50,50 +58,79 @@ function Analises() {
 
   const agruparPorTipo = (dados) => {
     const mapa = new Map();
-
     dados.forEach(({ tipo_reembolso, valor_faturado }) => {
       const valor = parseFloat(valor_faturado || 0);
-      if (mapa.has(tipo_reembolso)) {
-        mapa.set(tipo_reembolso, mapa.get(tipo_reembolso) + valor);
-      } else {
-        mapa.set(tipo_reembolso, valor);
-      }
+      mapa.set(tipo_reembolso, (mapa.get(tipo_reembolso) || 0) + valor);
     });
-
     const resultado = Array.from(mapa, ([tipo_reembolso, total]) => ({
       tipo_reembolso,
       valor_faturado: total,
     }));
-
     setDadosGrafico(resultado);
   };
 
   const agruparPorEmpresa = (dados) => {
     const mapa = new Map();
-
     dados.forEach(({ empresa, valor_faturado }) => {
       const valor = parseFloat(valor_faturado || 0);
-      if (mapa.has(empresa)) {
-        mapa.set(empresa, mapa.get(empresa) + valor);
-      } else {
-        mapa.set(empresa, valor);
-      }
+      mapa.set(empresa, (mapa.get(empresa) || 0) + valor);
     });
-
     const resultado = Array.from(mapa, ([empresa, valor_faturado]) => ({
       empresa,
       valor_faturado,
     }));
-
     setDadosEmpresa(resultado);
   };
 
   useEffect(() => {
     fetchReembolsos();
+
+    async function fetchResumo() {
+      try {
+        const response = await Api.get("colaborador/reembolsos/resumo/unico");
+        setResumo(response.data);
+      } catch (error) {
+        console.error("Erro ao buscar resumo dos reembolsos:", error);
+      }
+    }
+
+    fetchResumo();
   }, []);
 
-  // Cores para o gráfico de pizza
-  const cores = ["#0844C4", "#00C49F", "#FFBB28", "#FF8042", "#8884d8", "#A28AC3", "#00B5D8"];
+  // Mapeia status para filtro, para evitar problemas com maiúsculas e espaços
+  const statusMap = {
+    todos: "todos",
+    analise: "em análise",
+    aprovado: "aprovado",
+    rejeitado: "rejeitado",
+  };
+
+  const filtroAtual = filtro.toLowerCase().trim();
+
+  // Filtra os reembolsos conforme filtro selecionado
+  const reembolsosFiltrados = reembolsos.filter((item) => {
+    if (filtroAtual === "todos") return true;
+
+    // Normaliza status do item para minúsculo e sem espaços extras
+    const statusItem = item.status?.toLowerCase().trim() || "";
+
+    // Ajusta filtro para casos onde 'em análise' vem com espaços ou acentos
+    if (filtroAtual === "analise") {
+      return statusItem === "em análise" || statusItem === "em analise";
+    }
+
+    return statusItem.includes(filtroAtual);
+  });
+
+  const cores = [
+    "#0844C4",
+    "#00C49F",
+    "#FFBB28",
+    "#FF8042",
+    "#8884d8",
+    "#A28AC3",
+    "#00B5D8",
+  ];
 
   return (
     <>
@@ -117,13 +154,46 @@ function Analises() {
             <div className={styles.contentTitulo}>
               <h1>Painel de Análise de Reembolsos</h1>
             </div>
+
             <div className={styles.content}>
               <h2>R$ Total de Reembolsos</h2>
               <p>R$ {totalReembolsos.toFixed(2)}</p>
             </div>
+
+            {/* Botões de resumo */}
+            <div className={styles.filtrosResumo}>
+              <div>
+                <button
+                  className={styles.resumoBlue}
+                  onClick={() => setFiltro("todos")}
+                >
+                  Total Solicitados: {resumo.total_solicitados}
+                </button>
+                <button
+                  className={styles.resumoPurple}
+                  onClick={() => setFiltro("analise")}
+                >
+                  Em Análise: {resumo.em_analise}
+                </button>
+              </div>
+              <div>
+                <button
+                  className={styles.resumoGreen}
+                  onClick={() => setFiltro("aprovado")}
+                >
+                  Aprovados: {resumo.aprovados}
+                </button>
+                <button
+                  className={styles.resumoRed}
+                  onClick={() => setFiltro("rejeitado")}
+                >
+                  Rejeitados: {resumo.rejeitados}
+                </button>
+              </div>
+            </div>
           </div>
 
-          {/* Gráfico de barras por tipo de reembolso */}
+          {/* Gráfico de barras por tipo */}
           <section className={styles.chartSection}>
             <h2>Análise por Tipo de Reembolso</h2>
             <ResponsiveContainer width="100%" height="100%" className={styles.container}>
@@ -166,7 +236,7 @@ function Analises() {
           </section>
         </section>
 
-        {/* Tabela de dados */}
+        {/* Tabela */}
         <section className={styles.tableContainer}>
           <table className={styles.customTable}>
             <thead className={styles.containerThead}>
@@ -174,24 +244,31 @@ function Analises() {
                 <th>Colaborador(a)</th>
                 <th>Empresa</th>
                 <th>Data</th>
-                <th>Motivo</th>
+                {/* <th>Motivo</th> */}
                 <th>Tipo Reemb.</th>
                 <th>Valor Faturado</th>
+                <th>Status</th>
               </tr>
             </thead>
             <tbody className={styles.containerTbody}>
-              {reembolsos.map((task, index) => (
-                <tr key={index} className={styles.containerTr}>
-                  <td>{task.colaborador}</td>
-                  <td>{task.empresa}</td>
-                  <td>{task.data}</td>
-                  <td className={styles.motiveHover}>
-                    <IoDocumentTextSharp />
+              {reembolsosFiltrados.length > 0 ? (
+                reembolsosFiltrados.map((item, index) => (
+                  <tr key={index} className={styles.containerTr}>
+                    <td>{item.colaborador}</td>
+                    <td>{item.empresa}</td>
+                    <td>{item.data}</td>
+                    <td>{item.tipo_reembolso}</td>
+                    <td>R$ {parseFloat(item.valor_faturado).toFixed(2)}</td>
+                    <td>{item.status}</td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan={6} style={{ textAlign: "center", padding: "1rem" }}>
+                    Nenhum registro encontrado para o filtro selecionado.
                   </td>
-                  <td>{task.tipo_reembolso}</td>
-                  <td>R$ {task.valor_faturado}</td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </section>
