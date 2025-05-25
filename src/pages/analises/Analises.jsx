@@ -19,6 +19,10 @@ import {
   Cell,
   Legend,
 } from "recharts";
+import { CiFilter } from "react-icons/ci";
+import { IoMdCheckmarkCircleOutline } from "react-icons/io";
+import { IoCloseCircleOutline } from "react-icons/io5";
+import { AiOutlineClockCircle, AiOutlineDollarCircle } from "react-icons/ai";
 
 function Analises() {
   const [reembolsos, setReembolsos] = useState([]);
@@ -155,46 +159,39 @@ function Analises() {
               <h1>Painel de Análise de Reembolsos</h1>
             </div>
 
-            <div className={styles.content}>
-              <h2>R$ Total de Reembolsos</h2>
-              <p>R$ {totalReembolsos.toFixed(2)}</p>
-            </div>
-
-            {/* Botões de resumo */}
-            <div className={styles.filtrosResumo}>
-              <div>
-                <button
-                  className={styles.resumoBlue}
-                  onClick={() => setFiltro("todos")}
-                >
-                  Total Solicitados: {resumo.total_solicitados}
-                </button>
-                <button
-                  className={styles.resumoPurple}
-                  onClick={() => setFiltro("analise")}
-                >
-                  Em Análise: {resumo.em_analise}
-                </button>
+            <article className={styles.totalContainerStatus} >
+              <div className={styles.content}>
+                <div className={styles.contentTitle}>
+                  <h2>Total de Reembolsos</h2> <AiOutlineDollarCircle />
+                </div>
+                <p>R$ {totalReembolsos.toFixed(2)}</p>
               </div>
-              <div>
-                <button
-                  className={styles.resumoGreen}
-                  onClick={() => setFiltro("aprovado")}
-                >
-                  Aprovados: {resumo.aprovados}
-                </button>
-                <button
-                  className={styles.resumoRed}
-                  onClick={() => setFiltro("rejeitado")}
-                >
-                  Rejeitados: {resumo.rejeitados}
-                </button>
+              <div className={styles.content}>
+                <div className={styles.contentTitle}>
+                  <h2>Em analise</h2>
+                  <AiOutlineClockCircle />
+                </div>
+                <p>{resumo.em_analise}</p>
               </div>
-            </div>
+              <div className={styles.content}>
+                <div className={styles.contentTitle}>
+                  <h2>Aprovados</h2>
+                  <IoMdCheckmarkCircleOutline />
+                </div>
+                  
+                <p>{resumo.aprovados}</p>
+              </div>
+              <div className={styles.content}>
+                <div className={styles.contentTitle}>
+                  <h2>Rejetados</h2> <IoCloseCircleOutline />
+                </div>
+                <p>{resumo.rejeitados}</p>
+              </div>
+            </article>
           </div>
 
           {/* Gráfico de barras por tipo */}
-          <section className={styles.chartSection}>
+          <article className={styles.chartSection}>
             <h2>Análise por Tipo de Reembolso</h2>
             <ResponsiveContainer width="100%" height="100%" className={styles.container}>
               <BarChart data={dadosGrafico}>
@@ -205,10 +202,10 @@ function Analises() {
                 <Bar dataKey="valor_faturado" fill="#0844C4" />
               </BarChart>
             </ResponsiveContainer>
-          </section>
+          </article>
 
           {/* Gráfico de pizza por empresa */}
-          <section className={styles.chartSection}>
+          <article className={styles.chartSection}>
             <h2>Distribuição de Reembolsos por Empresa</h2>
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
@@ -233,18 +230,55 @@ function Analises() {
                 <Legend />
               </PieChart>
             </ResponsiveContainer>
-          </section>
+          </article>
         </section>
 
         {/* Tabela */}
         <section className={styles.tableContainer}>
           <table className={styles.customTable}>
+            <div className={styles.containerHeader}>
+                <div className={styles.containerTr}>
+                    <h2>Lista de Reembolsos</h2>
+                    <div>
+                      
+                      <button
+                        className={styles.resumoBlue}
+                        onClick={() => setFiltro("todos")}
+                      >
+                       <CiFilter /> Total Solicitados
+                      </button>
+                    </div>
+                    <div>
+                      <button
+                        className={styles.resumoPurple}
+                        onClick={() => setFiltro("analise")}
+                      >
+                        Em Análise
+                      </button>
+                    </div>
+                    <div>
+                      <button
+                          className={styles.resumoGreen}
+                          onClick={() => setFiltro("aprovado")}
+                        >
+                        Aprovados
+                      </button>
+                    </div>
+                    <div>
+                      <button
+                        className={styles.resumoRed}
+                        onClick={() => setFiltro("rejeitado")}
+                      >
+                        Rejeitados
+                      </button>
+                    </div>
+                </div>
+            </div>
             <thead className={styles.containerThead}>
               <tr className={styles.containerTr}>
                 <th>Colaborador(a)</th>
                 <th>Empresa</th>
                 <th>Data</th>
-                {/* <th>Motivo</th> */}
                 <th>Tipo Reemb.</th>
                 <th>Valor Faturado</th>
                 <th>Status</th>
