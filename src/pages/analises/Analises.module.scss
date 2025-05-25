@@ -9,7 +9,7 @@
     flex-direction: column;
 
     .totalSection {
-        width: 99%;
+        width: 95vw;
         height: 50vh;
         display: flex;
         justify-content: start;
@@ -19,115 +19,90 @@
         
         .totalContainer {
             display: flex;
-            width: 35%;
-            height: 280px;
+            width: 40%;
+            height: 300px;
             flex-direction: column;
             justify-content: start;
             align-items: start;
-            gap: 20px;
+            // gap: 20px;
             padding: 1rem;
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 
+
+
             .contentTitulo {
                 display: flex;
-                width: 50vw;
+                width: 100%;
                 
                 h1 {
+                    padding-left: 20px;
                     font-size: 1.7rem;
                     color: $primary-accent;
                 }
             }
 
-            .content {
-                display: flex;
-                flex-direction: column;
-                align-items: start;
-                gap: 10px;
-                outline: 1px solid $surface-layer;
-                background-color: #333;
+            .totalContainerStatus {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+                gap: 20px;
+                width: 100%;
                 padding: 1rem;
                 background-color: #fff;
-                border-radius: 8px;
+                // border-radius: 8px;
                 box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 
-                h2 {
-                    font-size: 1.2rem;
-                    color: #333;
+                .content {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: start;
+                    gap: 10px;
+                    outline: 1px solid $surface-layer;
+                    background-color: #333;
+                    padding: 1rem;
+                    background-color: #fff;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+                    .contentTitle {
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        svg {
+                            font-size: 1.3rem;
+                        }
+
+                        h2 {
+                            font-size: 1.2rem;
+                            color: #333;
+                        }
+                        
+                    }
+
+                    
+
+                    p {
+                        color: green;
+                        font-weight: bolder;
+                        font-size: 1.5rem;
+                    }
                 }
-
-                p {
-                    color: green;
-                    font-weight: bolder;
-                    font-size: 1.5rem;
-                }
-            }
-        }
-
-        .filtrosResumo {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-
-            div {
-                display: flex;
-                width: 100%;
-                gap: 5px;
             }
 
-            .resumoBlue {
-                background-color: $primary-accent;
-                border: none;
-                width: 200px;
-                padding: 10px 0px;
-                cursor: pointer;
-                border-radius: 10px;
-                color: $background-area;
-            }
-
-            .resumoPurple {
-                background-color: #6f0385;
-                border: none;
-                width: 200px;
-                padding: 10px 0px;
-                cursor: pointer;
-                border-radius: 10px;
-                color: $background-area;
-            }
-
-            .resumoRed {
-                background-color: $secondary-accent;
-                border: none;
-                width: 200px;
-                padding: 10px 0px;
-                cursor: pointer;
-                border-radius: 10px;
-                color: $background-area;
-            }
-
-            .resumoGreen {
-                background-color: green;
-                border: none;
-                width: 200px;
-                padding: 10px 0px;
-                cursor: pointer;
-                border-radius: 10px;
-                color: $background-area;
-            }
-
-
-
+            
         }
 
         .chartSection {
             display: flex;
             flex-direction: column;
-            width: 100%;
+            width: 30%;
             margin: 2rem;
             padding: 1rem;
-            height: 280px;
+            height: 300px;
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -152,6 +127,81 @@
         .customTable {
             display: grid;
             width: 100%;
+            .containerHeader {
+                height: 10vh;
+                width: 100%;
+                display: grid;
+                align-items: center;
+                background-color: $background-area;
+
+                .containerTr {
+                    width: 100%;
+                    display: grid;
+                    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+
+                    h2 {
+                        display: grid;
+                        justify-content: center;
+                        align-items: center;
+                        height: 5vh;
+                        font-weight: bolder;
+                        font-size: 1.5rem;
+                        color: $secondary-bg;
+                    }
+
+
+                    
+                    .resumoBlue {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: $primary-accent;
+                        border: none;
+                        width: 200px;
+                        padding: 10px 0px;
+                        cursor: pointer;
+                        border-radius: 10px;
+                        color: $background-area;
+                        gap: 5px;
+
+                        svg {
+                            font-size: 20px;
+                        }
+                    }
+
+                    .resumoPurple {
+                        background-color: #6f0385;
+                        border: none;
+                        width: 200px;
+                        padding: 10px 0px;
+                        cursor: pointer;
+                        border-radius: 10px;
+                        color: $background-area;
+                    }
+
+                    .resumoRed {
+                        background-color: $secondary-accent;
+                        border: none;
+                        width: 200px;
+                        padding: 10px 0px;
+                        cursor: pointer;
+                        border-radius: 10px;
+                        color: $background-area;
+                    }
+
+                    .resumoGreen {
+                        background-color: green;
+                        border: none;
+                        width: 200px;
+                        padding: 10px 0px;
+                        cursor: pointer;
+                        border-radius: 10px;
+                        color: $background-area;
+                    }
+                
+                }
+            }
+            
 
             .containerThead {
                 height: 5vh;
@@ -169,7 +219,6 @@
                         display: grid;
                         justify-content: center;
                         align-items: center;
-                        border-right: 1px solid $surface-layer;
                         border-bottom: 1px solid $surface-layer;
                         height: 5vh;
                         font-weight: 400;
@@ -370,19 +419,79 @@
         height: 100%;
         
         .totalSection {
-            
-
             flex-direction: column;
             
             .totalContainer {
                 display: flex;
                 width: 100%;
-                height: 280px;
+                height: 400px;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
                 gap: 20px;
-                
+
+
+                .contentTitulo {
+                    display: flex;
+                    width: 100%;
+                    
+                    h1 {
+                        padding-left: 20px;
+                        font-size: 1.7rem;
+                        color: $primary-accent;
+                    }
+                }
+
+            
+                .totalContainerStatus {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: 1fr 1fr 1fr 1fr;
+                    gap: 20px;
+                    width: 100%;
+                    padding: 1rem;
+                    background-color: #fff;
+                    // border-radius: 8px;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+                    .content {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: start;
+                        gap: 10px;
+                        outline: 1px solid $surface-layer;
+                        background-color: #333;
+                        padding: 1rem;
+                        background-color: #fff;
+                        border-radius: 8px;
+                        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+                        .contentTitle {
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+
+                            svg {
+                                font-size: 1.3rem;
+                            }
+
+                            h2 {
+                                font-size: 1.2rem;
+                                color: #333;
+                            }
+                            
+                        }
+
+                        
+
+                        p {
+                            color: green;
+                            font-weight: bolder;
+                            font-size: 1.5rem;
+                        }
+                    }
+                }
             }
         }
 
@@ -461,7 +570,7 @@
             
             .totalContainer {
                 width: 100%;
-                height: 351px;
+                height: 577px;
                 align-items: center;
                 gap: 20px;
 
@@ -470,6 +579,54 @@
                     h1 {
                         font-size: 1.5rem;
                         color: $primary-accent;
+                    }
+                }
+
+                .totalContainerStatus {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: 1fr 1fr 1fr 1fr;
+                    gap: 20px;
+                    width: 100%;
+                    padding: 1rem;
+                    background-color: #fff;
+                    // border-radius: 8px;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+                    .content {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: start;
+                        gap: 10px;
+                        outline: 1px solid $surface-layer;
+                        background-color: #333;
+                        padding: 1rem;
+                        background-color: #fff;
+                        border-radius: 8px;
+                        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+                        .contentTitle {
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+
+                            svg {
+                                font-size: 1.3rem;
+                            }
+
+                            h2 {
+                                font-size: 1rem;
+                                color: #333;
+                            }
+                            
+                        }
+
+                        p {
+                            color: green;
+                            font-weight: bolder;
+                            font-size: 1.2rem;
+                        }
                     }
                 }
             }
