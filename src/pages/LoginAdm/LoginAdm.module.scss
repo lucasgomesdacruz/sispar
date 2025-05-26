@@ -1,0 +1,241 @@
+@use "../../index.scss" as *;
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  .imageContainer {
+    width: 65vw;
+    height: 100vh;
+    background-image: url(../../assets/images/TelaLogin/imgLoginAdm.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    gap: 10px;
+  }
+
+  .formContainer {
+    width: 35%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .containerTitle {
+      display: flex;
+      width: 55%;
+      justify-content: space-evenly;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+
+      .logo {
+        width: 30%;
+      }
+
+      .title {
+        width: 300px;
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+        color: $secondary-bg;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+        font-weight: 700;
+        text-align: center;
+        color: $primary-accent;
+        margin-bottom: 20px;
+      }
+      
+    }
+
+    .form {
+      width: 55%;
+      border: none;
+    
+      fieldset {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-evenly;
+        border: none;
+
+        .Password {
+          display: flex;
+          justify-content: center;
+          font-size: 1rem;
+          color: $secondary-bg;
+          font-weight: 400;
+          margin-top: 10px;
+          transition: all 0.3s ease-in-out;
+
+          &:hover {
+            color: $primary-accent
+          }
+        }
+        
+        .buttonGroup {
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+          margin-top: 15px;
+
+          button {
+            width: 98%;
+            padding: 15px 10px;
+            border: none;
+            border-radius: 5px;
+            color: $primary-background;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1rem;
+          }
+
+          
+
+          .btnDark {
+            background: $primary-bg;
+
+            &:hover {
+              background: #011125;
+              transition: all 0.3s ease-in-out;
+            }
+          }
+
+        }
+      }
+
+      p {
+        color: $secondary-bg;
+        text-align: center;
+        margin-top: 20px;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+
+          &:hover {
+            color: $primary-accent
+          }
+      }
+    }
+  }
+}
+@media (min-width: 769px) and (max-width: 1280px) {
+    .container {
+      
+      .formContainer {
+        
+        .form {
+         
+          fieldset {
+            
+            .buttonGroup {
+              
+              button {
+                width: 50%;
+                padding: 12px 10px;
+                border: none;
+                border-radius: 5px;
+                color: $primary-background;
+                cursor: pointer;
+                font-weight: 700;
+                font-size: 1rem;
+              }
+
+              a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 50%;
+                padding: 12px 10px;
+                border: none;
+                border-radius: 5px;
+                color: $primary-background;
+                cursor: pointer;
+                font-weight: 700;
+                font-size: 1rem;
+              }
+
+              .btnDark {
+                background: $primary-bg;
+
+                &:hover {
+                  background: #011125;
+                  transition: all 0.3s ease-in-out;
+                }
+              }
+              
+              .btnPrimary {
+                background: $primary-element;
+
+                &:hover {
+                  background: #019eb6;
+                  transition: all 0.3s ease-in-out;
+                }
+              }
+
+            }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+
+    .imageContainer {
+      display: none; 
+    }
+  
+    .formContainer {
+      width: 100%; 
+    }
+  }
+}
+
+@media (max-width: 767px) {
+
+  .container {
+ 
+    .imageContainer {
+      display: none;
+    }
+  
+    .formContainer {
+      width: 100%;
+      
+      .containerTitle {
+        width: 70%;
+
+        .title {
+          font-size: 1.5rem;
+        }
+  
+      }
+  
+      .form {
+        width: 70%;
+        
+        fieldset {
+          
+          .buttonGroup {
+            flex-direction: column;
+
+            button {
+              width: 100%;
+            }
+  
+            a {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
