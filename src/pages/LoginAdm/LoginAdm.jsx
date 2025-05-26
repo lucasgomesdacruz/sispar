@@ -11,6 +11,13 @@ import { toast, ToastContainer } from "react-toastify";
 
 
 function LoginAdm() {
+  const navigate = useNavigate()
+
+  function rendleNavite(ev) {
+    ev.preventDefault()
+
+    navigate("/dashboardAdm")
+  }
 
 
 
@@ -64,7 +71,7 @@ function LoginAdm() {
               <Input placeholder="Senha" type="password"/>
 
               <div className={styles.buttonGroup}>
-                <Button text="Entrar" type="submit" className={styles.btnDark}/>
+                <Button text="Entrar" type="submit" className={styles.btnDark} onClick={rendleNavite}/>
               </div>
               <Link to="/recuperarSenha" href="#" className={styles.Password}>Esqueci minha senha</Link>
               <Link to="/">
