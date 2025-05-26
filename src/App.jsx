@@ -11,12 +11,17 @@ import Criar from "./pages/criarConta/Criar.jsx";
 import NotFound from "./pages/notFound/NotFound.jsx";
 import Perfil from "./pages/perfil/Perfil.jsx";
 import Helpdesk from "./pages/helpDesk/Helpdesk.jsx";
+import LoginAdm from "./pages/LoginAdm/LoginAdm.jsx";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Login />,
+  },
+  {
+    path: "/loginAdm",
+    element: <LoginAdm />
   },
   {
     path: "/recuperarSenha",
