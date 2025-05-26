@@ -110,6 +110,9 @@ function Login() {
                 <Button text="Entrar" type="submit" className={styles.btnDark}/>
                 <Link to="/criarConta" className={styles.btnPrimary}> Criar Conta</Link>
               </div>
+              <Link to="/loginAdm">
+                <p>É administrativo ? Acesse aqui</p>
+              </Link>
             </fieldset>
           </form>
           

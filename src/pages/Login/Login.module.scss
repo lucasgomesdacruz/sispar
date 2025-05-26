@@ -130,6 +130,18 @@
 
         }
       }
+
+      p {
+        color: $secondary-bg;
+        text-align: center;
+        margin-top: 10px;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+
+          &:hover {
+            color: $primary-accent
+          }
+      }
     }
   }
 }
