@@ -183,7 +183,7 @@ function Analises() {
               </div>
               <div className={styles.content}>
                 <div className={styles.contentTitle}>
-                  <h2>Rejetados</h2> <IoCloseCircleOutline />
+                  <h2>Rejeitados</h2> <IoCloseCircleOutline />
                 </div>
                 <p>{resumo.rejeitados}</p>
               </div>
