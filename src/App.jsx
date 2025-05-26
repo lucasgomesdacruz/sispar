@@ -12,6 +12,8 @@ import NotFound from "./pages/notFound/NotFound.jsx";
 import Perfil from "./pages/perfil/Perfil.jsx";
 import Helpdesk from "./pages/helpDesk/Helpdesk.jsx";
 import LoginAdm from "./pages/LoginAdm/LoginAdm.jsx";
+import LayoutAdm from "./components/Layouts/LayoutAdm.jsx";
+import DashboardAdm from "./pages/dashboardAmd/dashboardAdm.jsx";
 
 
 const router = createBrowserRouter([
@@ -58,6 +60,15 @@ const router = createBrowserRouter([
         path: "/central-de-ajuda",
         element: <Helpdesk />
       }
+    ]
+  },
+  {
+    element: <LayoutAdm />,
+    children: [
+      {
+        path: "/dashboardAdm",
+        element: <DashboardAdm />,
+      },
     ]
   },
   {
