@@ -3,7 +3,7 @@ import styles from "./NavbarAdm.module.scss"
 import { useEffect, useState } from "react";
 import { MdMenuOpen } from "react-icons/md";
 import { AiOutlineHome } from "react-icons/ai";
-import { FaFileInvoiceDollar } from "react-icons/fa6";
+import { FaFileInvoiceDollar, FaUsers } from "react-icons/fa6";
 import { TbClipboardSearch, TbReportAnalytics } from "react-icons/tb";
 import { LuHistory } from "react-icons/lu";
 import { FiLogOut } from "react-icons/fi";
@@ -28,7 +28,7 @@ function NavbarAdm() {
 
     function handleLogOut(event) {
         event.preventDefault();
-        navigate("/");
+        navigate("/loginAdm");
     }
 
     return (
@@ -63,6 +63,13 @@ function NavbarAdm() {
                             <span className={styles.containerIcon}><TbReportAnalytics /></span>
 
                             <span className={collapsed ? styles.hidden : ""}>Reembolsos</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/gerenciarUsuarios" onClick={closeMenu}>
+                            <span className={styles.containerIcon}><FaUsers /></span>
+
+                            <span className={collapsed ? styles.hidden : ""}>Gerenciar Usuários</span>
                         </Link>
                     </li>
                 </ul>

@@ -15,6 +15,7 @@ import LoginAdm from "./pages/LoginAdm/LoginAdm.jsx";
 import LayoutAdm from "./components/Layouts/LayoutAdm.jsx";
 import DashboardAdm from "./pages/dashboardAdm/DashboardAdm.jsx";
 import ReembolsoAdm from "./pages/reembolsoAdm/ReembolsoAdm.jsx";
+import GerenciarUsuarios from "./pages/gerenciarUsuarios/GerenciarUsuarios.jsx";
 
 
 
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
       {
         path: "/reembolsoAdm",
         element: <ReembolsoAdm />,
+      },
+      {
+        path: "/gerenciarUsuarios",
+        element: <GerenciarUsuarios />,
       },
     ]
   },
