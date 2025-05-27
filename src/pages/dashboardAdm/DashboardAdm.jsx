@@ -55,46 +55,48 @@ const DashboardAdm = () => {
             </section>
 
             <section className={styles.actions}>
-              <div>
+              <div className={styles.headerActions}>
                 <h2>Ações Rápidas</h2>
                 <p>Acesso rápido às funções administrativas mais utilizadas</p>
               </div>
               <ul>
                 <li>
-                  <div>
+                  <div className={styles.contentActions}>
+                    
                     <h3>Gerenciar Usuários</h3>
                     <p>Adicionar, editar ou remover usuários</p>
                   </div>
-                  <p>acessar</p>
+                  <p className={styles.buttonActions}>acessar</p>
                 </li>
 
                 <li>
-                  <div>
+                  
+                  <div className={styles.contentActions}>
                     <h3>Revisar Reembolsos</h3>
                     <p>Aprovar ou rejeitar solicitações</p>
                   </div>
-                  <p>acessar</p>
+                  <p className={styles.buttonActions}>acessar</p>
                 </li>
 
                 <li>
-                  <div>
+                  <div className={styles.contentActions}>
                     <h3>Configurar Sistema</h3>
                     <p>Ajustar configurações globais</p>
                   </div>
-                  <p>acessar</p>
+                  <p className={styles.buttonActions}>acessar</p>
                 </li>
 
                 <li>
-                  <div>
+                  <div className={styles.contentActions}>
                     <h3>Backup de Dados</h3>
                     <p>ealizar backup do sistema</p>
                   </div>
-                  <p>acessar</p>
+                  <p className={styles.buttonActions}>acessar</p>
                 </li>
                 
               </ul>
             </section>
-            <section className={styles.activities}>
+            {/* <section className={styles.activities}>
               <div>
                 <h3>Atividade Recente</h3>
                 <p>Últimas ações realizadas no sistema</p>
@@ -117,7 +119,7 @@ const DashboardAdm = () => {
                   <p>Novo usuário registrado</p>
                 </li>
               </ul>
-            </section>
+            </section> */}
         </main>
         <ToastContainer position="top-right" autoClose={3000} />
     </div>

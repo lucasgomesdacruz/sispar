@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { MdMenuOpen } from "react-icons/md";
 import { AiOutlineHome } from "react-icons/ai";
 import { FaFileInvoiceDollar } from "react-icons/fa6";
-import { TbClipboardSearch } from "react-icons/tb";
+import { TbClipboardSearch, TbReportAnalytics } from "react-icons/tb";
 import { LuHistory } from "react-icons/lu";
 import { FiLogOut } from "react-icons/fi";
 import { FaUserCircle } from "react-icons/fa";
@@ -52,12 +52,18 @@ function NavbarAdm() {
 
                 <ul className={styles.navList}>
                     <li>
-                    <Link to="/dashboardAdm" onClick={closeMenu}>
-                        <span className={styles.containerIcon}><AiOutlineHome /></span>
+                        <Link to="/dashboardAdm" onClick={closeMenu}>
+                            <span className={styles.containerIcon}><AiOutlineHome /></span>
 
-                        <span className={collapsed ? styles.hidden : ""}>Início</span>
-                    </Link>
-                        
+                            <span className={collapsed ? styles.hidden : ""}>Início</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/reembolsoAdm" onClick={closeMenu}>
+                            <span className={styles.containerIcon}><TbReportAnalytics /></span>
+
+                            <span className={collapsed ? styles.hidden : ""}>Reembolsos</span>
+                        </Link>
                     </li>
                 </ul>
 
