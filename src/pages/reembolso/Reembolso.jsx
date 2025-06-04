@@ -30,7 +30,17 @@ import { Helmet } from "react-helmet-async";
 
 import Api from "../../Services/Api.jsx"
 
+import Maps from './_components/Maps/Maps.jsx';
+
 function Reembolso() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    function handleDistanceCalculated(valor) {
+        setFormData(prev => ({
+            ...prev,
+            distancia_km: valor
+        }));
+    }
 
     const [formData, setFormData] = useState({
         colaborador: "",
@@ -283,7 +293,9 @@ function Reembolso() {
                             
                             <OptionsDate  value={formData.moeda} onChange={handleInputChange}/>
 
-                            <Input type="number" name="distancia_km" label="Dist. / Km" id="km" min={0} value={formData.distancia_km} onChange={handleInputChange} title="Distância percorrida em quilômetros (km)."/>
+                           
+                            <Input type="number" name="distancia_km" label="Dist. / Km" id="km" min={0} value={formData.distancia_km} onChange={handleInputChange} title="Distância percorrida em quilômetros (km)."  onFocus={() => setIsModalOpen(true)}/>
+                              
 
                             <Input type="number" name="valor_km" label="Valor / Km" id="valor" min={0} value={formData.valor_km} onChange={handleInputChange} title="Valor pago por quilômetro percorrido."/>
                             <Input type="number" name="valor_faturado" label="Val. Faturado" id="val" min={0} value={formData.valor_faturado} onChange={handleInputChange} title="Valor total faturado referente à despesa."/>
@@ -360,6 +372,12 @@ function Reembolso() {
                 <div tabIndex="-1" role="button" onClick={() => setModalType("motive")}></div>
                 {renderModal()}
             </div>
+
+            <Maps
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                onDistanceCalculated={handleDistanceCalculated}
+            />
             <ToastContainer position="top-right" autoClose={3000} />
         </div>
     )
