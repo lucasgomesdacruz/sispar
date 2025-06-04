@@ -7,35 +7,53 @@ export default function Maps({ isOpen, onClose, onDistanceCalculated }) {
   const [distancia, setDistancia] = useState(null);
   const [erro, setErro] = useState('');
 
+  const API_KEY = import.meta.env.VITE_ORS_API_KEY;
+
   if (!isOpen) return null;
 
   async function buscarCoordenadas(endereco) {
-    const res = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(endereco)}&format=json`);
-    const data = await res.json();
-    if (data && data.length > 0) {
-      return {
-        lat: parseFloat(data[0].lat),
-        lon: parseFloat(data[0].lon),
-      };
+    const response = await fetch(
+      `https://api.openrouteservice.org/geocode/search?api_key=${API_KEY}&text=${encodeURIComponent(endereco)}`
+    );
+    const data = await response.json();
+    if (data?.features?.length > 0) {
+      const [lon, lat] = data.features[0].geometry.coordinates;
+      return { lat, lon };
     }
     return null;
   }
 
-  function calcularHaversine(lat1, lon1, lat2, lon2) {
-    const R = 6371;
-    const toRad = (g) => (g * Math.PI) / 180;
-    const dLat = toRad(lat2 - lat1);
-    const dLon = toRad(lon2 - lon1);
-    const a =
-      Math.sin(dLat / 2) ** 2 +
-      Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
-      Math.sin(dLon / 2) ** 2;
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    return +(R * c).toFixed(2);
+  async function calcularDistanciaReal(origemCoords, destinoCoords) {
+    const body = {
+      coordinates: [
+        [origemCoords.lon, origemCoords.lat],
+        [destinoCoords.lon, destinoCoords.lat],
+      ],
+    };
+
+    const response = await fetch('https://api.openrouteservice.org/v2/directions/driving-car', {
+      method: 'POST',
+      headers: {
+        'Authorization': API_KEY,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    });
+
+    const data = await response.json();
+
+    if (data?.routes?.length > 0) {
+      const distanciaKm = data.routes[0].summary.distance / 1000;
+      return distanciaKm.toFixed(2);
+    }
+
+    throw new Error('Não foi possível calcular a distância.');
   }
 
   async function handleCalcular() {
     setErro('');
+    setDistancia(null);
+
     try {
       const coordOrigem = await buscarCoordenadas(origem);
       const coordDestino = await buscarCoordenadas(destino);
@@ -45,7 +63,7 @@ export default function Maps({ isOpen, onClose, onDistanceCalculated }) {
         return;
       }
 
-      const dist = calcularHaversine(coordOrigem.lat, coordOrigem.lon, coordDestino.lat, coordDestino.lon);
+      const dist = await calcularDistanciaReal(coordOrigem, coordDestino);
       setDistancia(dist);
     } catch (err) {
       setErro('Erro ao calcular distância.');
