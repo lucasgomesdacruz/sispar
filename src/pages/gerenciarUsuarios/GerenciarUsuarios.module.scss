@@ -1,4 +1,153 @@
+@use "../../index.scss" as *;
+
 .bgGerenciarUsuarios {
     width: 95vw;
     height: 100vh;
+
+.containerheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1.5rem;
+
+  h1 {
+    font-size: 1.8rem;
+    margin: 0;
+  }
+
+  p {
+    color: #666;
+    margin-top: 0.2rem;
+  }
+
+  .newUserBtn {
+    background: #2563eb;
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 0.4rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+
+  .card {
+    background: #fff;
+    margin-top: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+
+    .cardHeader {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+
+      .contentTitle {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        h2 {
+          margin: 0;
+          font-size: 1.8rem;
+        }
+
+        svg {
+          font-size: 2rem;
+          color: $primary-accent;
+        }
+
+       
+      }
+
+       
+
+      p {
+        font-size: 0.9rem;
+        color: #777;
+      }
+
+      .actions {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        input {
+          padding: 0.5rem 0.8rem;
+          border: 1px solid #ccc;
+          border-radius: 0.4rem;
+        }
+
+        .filterBtn {
+          padding: 0.5rem 0.8rem;
+          background: #f3f4f6;
+          border: 1px solid #ccc;
+          border-radius: 0.4rem;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th, td {
+        text-align: left;
+        padding: 0.8rem;
+        border-bottom: 1px solid #eee;
+      }
+
+      th {
+        font-weight: 600;
+      }
+
+      td {
+        vertical-align: middle;
+      }
+
+      button {
+        padding: 0.4rem 0.8rem;
+        border: none;
+        border-radius: 0.3rem;
+        cursor: pointer;
+        font-size: 0.85rem;
+        margin-right: 0.3rem;
+      }
+    }
+
+    .status {
+      padding: 0.3rem 0.6rem;
+      border-radius: 1rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      display: inline-block;
+    }
+
+    .ativo {
+      background: #3b82f6;
+      color: white;
+    }
+
+    .inativo {
+      background: #e5e7eb;
+      color: #111827;
+    }
+
+    .editBtn {
+      background: #f3f4f6;
+      color: #111827;
+    }
+
+    .removeBtn {
+      background: #ef4444;
+      color: white;
+    }
+  }
 }
