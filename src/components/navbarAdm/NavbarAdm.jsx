@@ -1,7 +1,7 @@
 import styles from "./NavbarAdm.module.scss"
 
 import { useEffect, useState } from "react";
-import { MdMenuOpen } from "react-icons/md";
+import { MdMenuOpen, MdOutlineBackup } from "react-icons/md";
 import { AiOutlineHome } from "react-icons/ai";
 import { FaFileInvoiceDollar, FaUsers } from "react-icons/fa6";
 import { TbClipboardSearch, TbReportAnalytics } from "react-icons/tb";
@@ -12,6 +12,7 @@ import { FaUserCircle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import Api from "../../Services/Api";
 import { IoHelpCircleOutline } from "react-icons/io5";
+import { GrConfigure } from "react-icons/gr";
 
 function NavbarAdm() {
     const navigate = useNavigate();
@@ -70,6 +71,20 @@ function NavbarAdm() {
                             <span className={styles.containerIcon}><FaUsers /></span>
 
                             <span className={collapsed ? styles.hidden : ""}>Gerenciar Usuários</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/configuracoes" onClick={closeMenu}>
+                            <span className={styles.containerIcon}><GrConfigure /></span>
+
+                            <span className={collapsed ? styles.hidden : ""}>Configurar Sistema</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/backup" onClick={closeMenu}>
+                            <span className={styles.containerIcon}><MdOutlineBackup /></span>
+
+                            <span className={collapsed ? styles.hidden : ""}>Backup</span>
                         </Link>
                     </li>
                 </ul>

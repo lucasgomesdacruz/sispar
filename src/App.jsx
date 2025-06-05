@@ -16,6 +16,8 @@ import LayoutAdm from "./components/Layouts/LayoutAdm.jsx";
 import DashboardAdm from "./pages/dashboardAdm/DashboardAdm.jsx";
 import ReembolsoAdm from "./pages/reembolsoAdm/ReembolsoAdm.jsx";
 import GerenciarUsuarios from "./pages/gerenciarUsuarios/GerenciarUsuarios.jsx";
+import Configuracoes from "./pages/configuracoes/configuracoes.jsx";
+import Backup from "./pages/backup/Backup.jsx";
 
 
 
@@ -80,6 +82,14 @@ const router = createBrowserRouter([
         path: "/gerenciarUsuarios",
         element: <GerenciarUsuarios />,
       },
+      {
+        path: "/configuracoes",
+        element: <Configuracoes />,
+      },
+      {
+        path: "/backup",
+        element: <Backup />
+      }
     ]
   },
   {
