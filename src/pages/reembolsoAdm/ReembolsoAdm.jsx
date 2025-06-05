@@ -47,7 +47,7 @@ const ReembolsoAdm = () => {
 
     return (
         <main className={styles.bgReembolsoAdm}>
-            <Header />
+            <Header text="Gerenciar Reembolsos"/>
             <div className={styles.dashboard}>
               <header className={styles.header}>
                 <h1>Gerenciar Reembolsos</h1>
