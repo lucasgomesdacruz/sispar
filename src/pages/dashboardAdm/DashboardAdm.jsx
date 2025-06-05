@@ -6,6 +6,7 @@ import { TbReportAnalytics } from "react-icons/tb"
 import { GoAlert } from "react-icons/go"
 import { toast, ToastContainer } from "react-toastify"
 import { useEffect } from "react"
+import { Link } from "react-router-dom"
 
 const DashboardAdm = () => {
   function initial() {
@@ -66,7 +67,7 @@ const DashboardAdm = () => {
                     <h3>Gerenciar Usuários</h3>
                     <p>Adicionar, editar ou remover usuários</p>
                   </div>
-                  <p className={styles.buttonActions}>acessar</p>
+                  <Link to="/gerenciarUsuarios" className={styles.buttonActions}>acessar</Link>
                 </li>
 
                 <li>
@@ -75,7 +76,7 @@ const DashboardAdm = () => {
                     <h3>Revisar Reembolsos</h3>
                     <p>Aprovar ou rejeitar solicitações</p>
                   </div>
-                  <p className={styles.buttonActions}>acessar</p>
+                  <Link to="/reembolsoAdm" className={styles.buttonActions}>acessar</Link>
                 </li>
 
                 <li>
@@ -83,7 +84,7 @@ const DashboardAdm = () => {
                     <h3>Configurar Sistema</h3>
                     <p>Ajustar configurações globais</p>
                   </div>
-                  <p className={styles.buttonActions}>acessar</p>
+                  <Link to="/configuracoes" className={styles.buttonActions}>acessar</Link>
                 </li>
 
                 <li>
@@ -91,7 +92,7 @@ const DashboardAdm = () => {
                     <h3>Backup de Dados</h3>
                     <p>ealizar backup do sistema</p>
                   </div>
-                  <p className={styles.buttonActions}>acessar</p>
+                  <Link to="/backup" className={styles.buttonActions}>acessar</Link>
                 </li>
                 
               </ul>
