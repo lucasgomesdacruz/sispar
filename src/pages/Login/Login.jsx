@@ -15,35 +15,40 @@ import Api from "../../Services/Api.jsx";
 function Login() {
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("")
-  const [senha, setSenha] = useState("")
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [loading, setLoading] = useState(false); // Estado de carregamento
 
   const fazerLogin = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (!email || !senha) {
       toast.error("Por favor, preencha todos os campos.");
       return;
     }
 
-    try {
+    setLoading(true); // Começou a carregar
 
-      const resposta = await Api.post("/colaborador/login", {
-        "email": email,
-        "senha": senha
-      }, {
-        withCredentials: true
-      })
+    try {
+      const resposta = await Api.post(
+        "/colaborador/login",
+        {
+          email,
+          senha,
+        },
+        {
+          withCredentials: true,
+        }
+      );
+
       document.cookie = "cross-site-cookie=1; SameSite=None; Secure";
 
-      console.log(resposta.data) // 
+      console.log(resposta.data);
       toast.success("Login feito com sucesso!");
-      navigate("/dashboard")
-      
 
-    } catch(error) {
-      console.log("Erro ao fazer o Login:", error)
-      // toast.error("erro Usuario não encontrado")
+      navigate("/dashboard");
+    } catch (error) {
+      console.log("Erro ao fazer o Login:", error);
 
       if (error.response && error.response.status === 401) {
         toast.error("Senha incorreta. Tente novamente.");
@@ -52,10 +57,11 @@ function Login() {
       } else {
         toast.error("Erro ao fazer login. Tente novamente.");
       }
-
+    } finally {
+      setLoading(false); // Finalizou carregamento
     }
   };
-  
+
   return (
     <>
       <Helmet>
@@ -97,25 +103,45 @@ function Login() {
           <div className={styles.containerTitle}>
             <img src={logo} alt="Logo" className={styles.logo} />
             <h1 className={styles.title}>Boas vindas ao Novo Portal SISPAR</h1>
-            <p className={styles.subtitle}>Sistema de Emissão de Boletos e Parcelamento</p>
+            <p className={styles.subtitle}>
+              Sistema de Emissão de Boletos e Parcelamento
+            </p>
           </div>
 
-          <form className={styles.form} onSubmit={fazerLogin}> 
+          <form className={styles.form} onSubmit={fazerLogin}>
             <fieldset>
-              <Input placeholder="Email" type="email" value={email} onChange={ (e) => setEmail(e.target.value) }/>
-              <Input placeholder="Senha" type="password" value={senha} onChange={ (e) => setSenha(e.target.value) } />
-              <Link to="/recuperarSenha" href="#" className={styles.Password}>Esqueci minha senha</Link>
+              <Input
+                placeholder="Email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <Input
+                placeholder="Senha"
+                type="password"
+                value={senha}
+                onChange={(e) => setSenha(e.target.value)}
+              />
+              <Link to="/recuperarSenha" className={styles.Password}>
+                Esqueci minha senha
+              </Link>
 
               <div className={styles.buttonGroup}>
-                <Button text="Entrar" type="submit" className={styles.btnDark}/>
-                <Link to="/criarConta" className={styles.btnPrimary}> Criar Conta</Link>
+                <Button
+                  text={loading ? "Verificando..." : "Entrar"}
+                  type="submit"
+                  className={styles.btnDark}
+                  disabled={loading}
+                />
+                <Link to="/criarConta" className={styles.btnPrimary}>
+                  Criar Conta
+                </Link>
               </div>
               <Link to="/loginAdm">
                 <p>É administrativo ? Acesse aqui</p>
               </Link>
             </fieldset>
           </form>
-          
         </section>
         <ToastContainer position="top-right" autoClose={3000} />
       </main>
