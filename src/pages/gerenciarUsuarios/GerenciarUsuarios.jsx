@@ -40,7 +40,7 @@ const GerenciarUsuarios = () => {
     
     return (
         <section className={styles.bgGerenciarUsuarios}>
-            <Header />
+            <Header  text="Gerenciar Usuários"/>
             <article className={styles.containerheader}>
                 <div>
                     <h1>Gerenciar Usuários</h1>
