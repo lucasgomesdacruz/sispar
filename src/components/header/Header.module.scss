@@ -2,9 +2,19 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    width: 100%;
+    width: 95vw;
     height: 5vh;
     color: #23282F;
+
+    div {
+        display: flex;
+        align-items: center;
+        width: 95%;
+
+        svg {
+            font-size: 17px;
+        }
+    }
 
     .next {
         font-size: 20px;

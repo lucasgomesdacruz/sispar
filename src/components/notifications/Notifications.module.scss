@@ -1,0 +1,96 @@
+.notificationsBg {
+    cursor: pointer;
+    z-index: 100;
+    position: relative;
+
+    svg {
+        font-size: 20px;
+    }
+
+    .notificationsContainer {
+        outline: 1px solid #c0c0c0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 280px;
+        height: 400px;
+        background: white;
+        position: absolute;
+        top: 25px;
+        right: 10px;
+        z-index: 100;
+
+        .notificationsHeader {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #c0c0c0;
+            height: 50px;
+            padding: 10px;
+
+            h2 {
+                font-size: 1rem;
+            }
+        }
+
+        .notificationsInfo {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 95%;
+            height: 70px;
+            padding: 10px;
+            background-color: #e4e4e4;
+            margin-top: 10px;
+            border-radius: 10px;
+            gap: 5px;
+
+            div {
+                width: 95%;
+                display: flex;
+                justify-content: space-between;
+                // outline: 1px solid red;
+                
+                h3 {
+                    font-size: 0.80rem;
+                    padding: 0px;
+                    margin: 0px;
+                }
+
+                span {
+                    width: 30px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    outline: 1px solid #7e7e7e;
+                    border-radius: 10px;
+                    font-size: 0.60rem;
+                    background: #c0c0c0;
+                }
+            }
+
+            
+            p {
+                font-size: 0.70rem;
+            }
+        }
+
+        
+    }
+
+    .notificationsNumber {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 15px;
+        height: 15px;
+        border-radius: 50px;
+        background: blue;
+        color: white;
+        z-index: 100;
+        position: absolute;
+        top: -10px;
+        left: 10px;
+        font-size: 0.70rem;
+    }
+}
