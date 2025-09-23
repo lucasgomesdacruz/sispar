@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const Api = axios.create({
-    baseURL: "https://backendsispar-1.onrender.com",
+    baseURL: "https://backendsispar.onrender.com",
     withCredentials: true,
     headers: {
         'Accept': 'application/json',
